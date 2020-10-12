@@ -22,6 +22,6 @@ class Api::V1::EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:title, :content, :author_name, :author_bio, :likes, :comments)
+    params.require(:entry).permit(:title, :content, :author_name, :author_bio, :likes, :comments, :image)
   end
 end
