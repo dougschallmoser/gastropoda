@@ -22,7 +22,11 @@ class Entries {
     event.preventDefault()
     // const contentValue =  this.newEntryContent.value
     const imageValue = this.newEntryImage.value
-    this.adapter.createEntry(imageValue)
+    this.adapter.createEntry(imageValue).then(entry => {
+      this.entries.push(new Entry(entry))
+      this.newEntryImage.value = ''
+      this.render()
+    })
   }
 
   loadEntries() {
@@ -35,7 +39,9 @@ class Entries {
   }
 
   render() {
-    this.entries.map(entry => this.entriesContainer.innerHTML += entry.renderItem())
+    this.entriesContainer.innerHTML = this.entries.map(entry => {
+      return entry.renderItem()
+    }).join(' ')
   }
 
 }
