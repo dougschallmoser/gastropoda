@@ -6,4 +6,18 @@ class EntriesAdapter {
   getEntries() {
     return fetch(this.baseUrl).then(response => response.json())
   }
+
+  createEntry(value) {
+    const newEntry = {
+      image: value
+    }
+    return fetch(this.baseUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+        // "Accept": "application/json"
+      },
+      body: JSON.stringify(newEntry)
+    })
+  }
 }
