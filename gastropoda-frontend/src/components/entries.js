@@ -2,13 +2,32 @@ class Entries {
   constructor() {
     this.entries = []
     this.adapter = new EntriesAdapter()
-    // this.bindEventListeners()
+    this.setBindings()
+    this.setEventListeners()
     this.loadEntries()
+  }
+
+  setBindings() {
+    this.entriesContainer = document.querySelector('.entries-container')
+    this.entryForm = document.getElementById('entry-form')
+    this.newEntryImage = document.getElementById('image')
+    // this.newEntryContent = document.getElementById('content')
+  }
+
+  setEventListeners() {
+    this.entryForm.addEventListener('submit', this.createEntry.bind(this))
+  }
+
+  createEntry(event) {
+    event.preventDefault()
+    // const contentValue =  this.newEntryContent.value
+    const imageValue = this.newEntryImage.value
+    this.adapter.createEntry(imageValue)
   }
 
   loadEntries() {
     this.adapter.getEntries().then(entries => {
-      entries.forEach(entry => this.entries.push(entry))
+      entries.forEach(entry => this.entries.push(new Entry(entry)))
     })
     .then(() => {
       this.render()
@@ -16,8 +35,7 @@ class Entries {
   }
 
   render() {
-    const entriesContainer = document.getElementById('entries-container')
-    entriesContainer.innerHTML = 'my entries here'
-    console.log('my entries are:', this.entries)
+    this.entries.map(entry => this.entriesContainer.innerHTML += entry.renderItem())
   }
+
 }
