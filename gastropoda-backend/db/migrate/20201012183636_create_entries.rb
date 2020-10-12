@@ -5,6 +5,7 @@ class CreateEntries < ActiveRecord::Migration[6.0]
       t.string :content 
       t.string :author_name 
       t.string :author_bio 
+      t.string :image
       t.integer :likes, default: 0
       t.timestamps
     end
