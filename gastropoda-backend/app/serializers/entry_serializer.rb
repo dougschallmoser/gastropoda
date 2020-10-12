@@ -1,4 +1,4 @@
 class EntrySerializer < ActiveModel::Serializer 
-  attributes :title, :content
+  attributes :id, :title, :author_name, :author_bio, :content, :likes, :image
   has_many :comments
 end
