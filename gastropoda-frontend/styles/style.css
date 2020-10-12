@@ -1,0 +1,39 @@
+body {
+  overflow: hidden;
+}
+
+.entries-container {
+  display: flex;
+}
+
+.item {
+  position: relative;
+  display: block;
+  flex: 1 1 0px;
+  transition: transform 500ms;
+}
+
+.entries-container:focus-within .item,
+.entries-container:hover .item {
+  transform: translateX(-25%);
+}
+
+.item:focus ~ .item,
+.item:hover ~ .item {
+  transform: translateX(25%);
+}
+
+.entries-container .item:focus,
+.entries-container .item:hover {
+  transform: scale(1.5);
+  z-index: 1;
+}
+
+img {
+  width: 8em;
+}
+
+.item img {
+  display: block;
+  max-width: 100%;
+}
