@@ -5,7 +5,7 @@ class Api::V1::EntriesController < ApplicationController
   end
 
   def show
-    entry = Entry.find_by(params[:id])
+    entry = Entry.find_by(id: params[:id])
     render json: entry, status: 200
   end
 
@@ -13,6 +13,7 @@ class Api::V1::EntriesController < ApplicationController
     entry = Entry.new(entry_params)
     if entry.save 
       render json: entry, status: 200
+    end
   end
 
   def destroy
