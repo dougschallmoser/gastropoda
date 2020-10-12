@@ -11,6 +11,8 @@ class Api::V1::EntriesController < ApplicationController
 
   def create
     entry = Entry.new(entry_params)
+    if entry.save 
+      render json: entry, status: 200
   end
 
   def destroy
@@ -19,6 +21,6 @@ class Api::V1::EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:title, :content, :author_name, :author_bio, :image, :likes, :comments)
+    params.require(:entry).permit(:title, :content, :author_name, :author_bio, :likes, :comments)
   end
 end
