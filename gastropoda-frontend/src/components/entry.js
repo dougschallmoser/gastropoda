@@ -14,7 +14,7 @@ class Entry {
     const image = document.createElement('img')
     const p = document.createElement('p')
 
-    p.innerHTML = this.title
+    p.innerHTML = `<em>${this.title}</em><br>${this.author_name}`
     newDiv.className = "item"
     newDiv.id = `item-${this.id}`
     image.src = this.image
@@ -26,15 +26,20 @@ class Entry {
   }
 
   loadEntry(event) {
+    if (document.querySelector('.display-entry-div')) {
+    document.querySelector('.display-entry-div').remove()
+  } else {
     new EntriesAdapter().getEntry(this.id.split("-")[1]).then(entry => {
       const div = document.createElement('div')
       div.className = "display-entry-div"
       document.querySelector('#display-entry').append(div)
       
       div.innerHTML = `
-        ${entry.title}<br>
+        <p><h2>${entry.title}</h2></p>
+        <p><h3>By: ${entry.author_name}</h3><br></p>
         ${entry.content}`
     })
+    }
   }
   
 }
