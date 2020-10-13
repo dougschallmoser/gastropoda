@@ -39,9 +39,16 @@ class Entries {
   }
 
   render() {
-    this.entriesContainer.innerHTML = this.entries.map(entry => {
-      return entry.renderItem()
-    }).join(' ')
+    this.entriesContainer.innerHTML = ''
+    this.entries.map(entry => {
+      this.entriesContainer.appendChild(entry.renderItem())
+    })
   }
+
+  // render() {
+  //   this.entriesContainer.innerHTML = this.entries.map(entry => {
+  //     return entry.renderItem()
+  //   }).join(' ')
+  // }
 
 }

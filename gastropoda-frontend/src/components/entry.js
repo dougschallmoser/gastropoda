@@ -10,8 +10,18 @@ class Entry {
   }
 
   renderItem() {
-    return `<img src="${this.image}" class="item"></img>`
-    // return `<div class="item" style="background-image: url(${this.image})"></div>`
+    const newDiv = document.createElement('div')
+    const image = document.createElement('img')
+    const p = document.createElement('p')
+
+    p.innerHTML = this.title
+    newDiv.className = "item"
+    image.id = `image-${this.id}`
+    image.src = this.image
+    
+    newDiv.appendChild(image)
+    newDiv.appendChild(p)
+    return newDiv
   }
   
 }
