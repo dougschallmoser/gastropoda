@@ -2,9 +2,9 @@ class Entries {
   constructor() {
     this.entries = []
     this.adapter = new EntriesAdapter()
+    this.loadEntries()
     this.setBindings()
     this.setEventListeners()
-    this.loadEntries()
   }
 
   setBindings() {

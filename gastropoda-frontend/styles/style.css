@@ -11,6 +11,8 @@ body {
   display: block;
   flex: 1 1 0px;
   transition: transform 500ms;
+  padding: 0px 5px;
+  cursor: pointer;
 }
 
 .entries-container:focus-within .item,
@@ -31,9 +33,10 @@ body {
 
 img {
   width: 8em;
+  border-radius: 8px;
 }
 
 .item img {
-  display: block;
-  max-width: 100%;
+  /* display: block; */
+  /* max-width: 100%; */
 }

@@ -11,5 +11,7 @@ class Entry {
 
   renderItem() {
     return `<img src="${this.image}" class="item"></img>`
+    // return `<div class="item" style="background-image: url(${this.image})"></div>`
   }
+  
 }
