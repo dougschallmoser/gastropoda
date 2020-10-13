@@ -54,3 +54,18 @@ body {
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2);
   -o-box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
+
+.new-form {
+  
+}
+
+#display-entry {
+  text-align: justify;
+}
+
+.display-entry-div {
+  padding: 15px 15px;
+  margin: auto;
+  width: 80%;
+  background-color: #91ab98;
+}

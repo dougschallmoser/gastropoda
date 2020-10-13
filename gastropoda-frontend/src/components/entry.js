@@ -16,12 +16,25 @@ class Entry {
 
     p.innerHTML = this.title
     newDiv.className = "item"
-    image.id = `image-${this.id}`
+    newDiv.id = `item-${this.id}`
     image.src = this.image
     
     newDiv.appendChild(image)
     newDiv.appendChild(p)
+    newDiv.addEventListener('click', this.loadEntry)
     return newDiv
+  }
+
+  loadEntry(event) {
+    new EntriesAdapter().getEntry(this.id.split("-")[1]).then(entry => {
+      const div = document.createElement('div')
+      div.className = "display-entry-div"
+      document.querySelector('#display-entry').append(div)
+      
+      div.innerHTML = `
+        ${entry.title}<br>
+        ${entry.content}`
+    })
   }
   
 }

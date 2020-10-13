@@ -7,23 +7,23 @@
   <title>Gastropoda</title>
 </head>
 <body>
-  <div class="container">
-    <form id="entry-form">
-      <label for="title">Title:</label>
-      <input type="text" id="title"><p></p>
-      <label for="author_name">Author Name:</label>
-      <input type="text" id="author_name"><p></p>
-      <label for="author_bio">Author Bio:</label>
-      <input type="text" id="author_bio" name="author_bio"><p></p>
-      <label for="content">Content:</label>
-      <input type="text" id="content"><p></p>
-      <label for="image">Image URL:</label>
-      <input type="text" id="image"><p></p>
-      <input type="submit">
-    </form>
-    <div class="entries-container">
+
+  <section id="display-about">
+  </section>
+
+  <section id="display-entries">
+    <div class="container">
+      <div class="new-form">
+        <button id="button-load-form">Submit Story</button>
+      </div>
+      <div class="entries-container">
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section id="display-entry">
+  </section>
+
   <script src="src/components/app.js"></script>
   <script src="src/components/entries.js"></script>
   <script src="src/components/entry.js"></script>

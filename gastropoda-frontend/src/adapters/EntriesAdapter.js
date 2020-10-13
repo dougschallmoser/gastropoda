@@ -7,6 +7,10 @@ class EntriesAdapter {
     return fetch(this.baseUrl).then(response => response.json())
   }
 
+  getEntry(id) {
+    return fetch(`${this.baseUrl}/${id}`).then(response => response.json())
+  }
+
   createEntry(value) {
     const newEntry = {
       image: value
