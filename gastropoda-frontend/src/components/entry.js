@@ -39,7 +39,31 @@ class Entry {
         <p><h2>${entry.title}</h2></p>
         <p><h4>${entry.author_name}</h4></p>
         <p><h4>${entry.created_at}</h4></p><br>
-        ${entry.content}`
+        ${entry.content}<p></p>`
+
+      // adding contributor feature
+      const plus = document.createElement('div')
+      const contributor = document.createElement('div')
+      plus.id = "plus"
+      plus.innerHTML = '+'
+      contributor.id = 'contributor'
+      contributor.innerHTML = 'ABOUT THE CONTRIBUTOR'
+      div.append(plus)
+      div.append(contributor)
+      plus.addEventListener('click', displayAuthorBio)
+
+      function displayAuthorBio() {
+        plus.innerHTML = '-'
+        if (document.getElementById('author-bio')) {
+          document.getElementById('author-bio').remove()
+          plus.innerHTML = '+'
+        } else {
+        const bio = document.createElement('div')
+        bio.id = "author-bio"
+        bio.innerText = entry.author_bio
+        div.append(bio)
+        }
+      }
     })
     }
   }
