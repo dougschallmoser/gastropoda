@@ -147,7 +147,7 @@ section:nth-child(7) {
 }
 
 .display-entry-div {
-  padding: 20px 80px 40px 80px;
+  padding: 20px 120px 40px 120px;
   font-family: 'Lato', sans-serif;
   line-height: 2;
   color: #777777;
@@ -203,9 +203,10 @@ button:hover {
   display: flex;
   z-index: 10;
   width: 100%;
-  opacity: 0.80;
+  opacity: 1;
   align-items: center;
   letter-spacing: length;
+  background: rgba(76, 175, 80, 0.1);
 }
 
 #navbar img {
@@ -239,4 +240,33 @@ button:hover {
   text-align: center;
   color: white;
   font-size: 24px;
+}
+
+#plus {
+  font-size: 2em;
+  color: #7bc7a6;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 2px solid #7bc7a6;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+
+#plus:hover {
+  opacity: 1;
+}
+
+#contributor {
+  color: #7bc7a6;
+  padding: 12px 0 12px 80px;
+  font-size: 24px;
+}
+
+#author-bio {
+  line-height: 1;
+  padding: 10px;
 }
