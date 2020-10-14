@@ -79,10 +79,12 @@ section:nth-child(7) {
   cursor: pointer;
   max-height: 100%;
   opacity: 0.5;
+  filter: grayscale(75%);
 }
 
 .item:hover {
   opacity: 1;
+  filter: grayscale(0%);
 }
 
 .item p {
@@ -148,42 +150,60 @@ section:nth-child(7) {
 
 .display-entry-div {
   padding: 20px 120px 40px 120px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Noto Serif', serif;
   line-height: 2;
   color: #777777;
   background: rgba(76, 175, 80, 0.1);
 }
 
 .display-entry-div h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  color: #111111;
+  font-weight: 400;
+  letter-spacing: 5px;
+  color: #7bc7a6;
   text-align: center;
-  font-size: 30px;
+  font-size: 3em;
 }
 
 .display-entry-div h3 {
-  color: #111111;
+  color: #777777;
   font-weight: 300;
   text-align: center;
   font-size: 22px;
 }
 
 .display-entry-div h4 {
-  color: #111111;
-  font-weight: 300;
+  color: #777777;
   text-align: center;
   font-size: 18px;
 }
 
-button {
-  font-size: 16px;
-  border-radius: 15px;
-  border: 2px solid white;
+.new-form {
+  align-items: center;
+  text-align: center;
 }
 
-button:hover {
-  background-color: transparent;
+.entry-form {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  background: black;
+  color: white;
+  padding: 10px;
+}
+
+#entry-form {
+}
+
+#button-load-form {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+
+#button-load-form:hover {
+  opacity: 1;
 }
 
 .about-div {
@@ -245,12 +265,6 @@ button:hover {
 #plus {
   font-size: 2em;
   color: #7bc7a6;
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  border: 2px solid #7bc7a6;
-  text-align: center;
-  float: left;
   cursor: pointer;
   opacity: 0.5;
   transition: opacity 1s;
@@ -258,12 +272,6 @@ button:hover {
 
 #plus:hover {
   opacity: 1;
-}
-
-#contributor {
-  color: #7bc7a6;
-  padding: 12px 0 12px 80px;
-  font-size: 24px;
 }
 
 #author-bio {
