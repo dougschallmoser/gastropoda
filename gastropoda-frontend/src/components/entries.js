@@ -76,10 +76,4 @@ class Entries {
     })
   }
 
-  // render() {
-  //   this.entriesContainer.innerHTML = this.entries.map(entry => {
-  //     return entry.renderItem()
-  //   }).join(' ')
-  // }
-
 }
