@@ -36,27 +36,24 @@ class Entry {
       document.querySelector('#display-entry').append(div)
       
       div.innerHTML = `
-        <p><h2>${entry.title}</h2></p>
+        <p><h2>${entry.title.toUpperCase()}</h2></p>
         <p><h4>${entry.author_name}</h4></p>
-        <p><h4>${entry.created_at}</h4></p><br>
+        <p><h4>Published on: ${entry.created_at}</h4></p><br>
         ${entry.content}<p></p>`
 
       // adding contributor feature
       const plus = document.createElement('div')
       const contributor = document.createElement('div')
       plus.id = "plus"
-      plus.innerHTML = '+'
-      contributor.id = 'contributor'
-      contributor.innerHTML = 'ABOUT THE CONTRIBUTOR'
+      plus.innerHTML = '+ ABOUT THE CONTRIBUTOR'
       div.append(plus)
-      div.append(contributor)
       plus.addEventListener('click', displayAuthorBio)
 
       function displayAuthorBio() {
-        plus.innerHTML = '-'
+        plus.innerHTML = '- ABOUT THE CONTRIBUTOR'
         if (document.getElementById('author-bio')) {
           document.getElementById('author-bio').remove()
-          plus.innerHTML = '+'
+          plus.innerHTML = '+ ABOUT THE CONTRIBUTOR'
         } else {
         const bio = document.createElement('div')
         bio.id = "author-bio"
