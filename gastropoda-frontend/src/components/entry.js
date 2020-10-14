@@ -37,7 +37,7 @@ class Entry {
       
       div.innerHTML = `
         <p><h2>${entry.title}</h2></p>
-        <p><h3>By: ${entry.author_name}</h3></p>
+        <p><h4>${entry.author_name}</h4></p>
         <p><h4>${entry.created_at}</h4></p><br>
         ${entry.content}`
     })
