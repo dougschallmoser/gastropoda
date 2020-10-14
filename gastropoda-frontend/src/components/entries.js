@@ -47,7 +47,7 @@ class Entries {
   }
 
   closeForm() {
-    document.querySelector('.entry-form').innerHTML = ''
+    document.querySelector('.entry-form').remove()
     this.loadFormButton.innerText = "Submit Story"
   }
 
