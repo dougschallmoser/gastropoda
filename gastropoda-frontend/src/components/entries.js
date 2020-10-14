@@ -40,7 +40,7 @@ class Entries {
         <input type="submit">
       </form>`
       this.newForm.append(formDiv)
-      this.loadFormButton.innerText = "Close"
+      this.loadFormButton.innerText = "- CLOSE"
       this.entryForm = document.getElementById('entry-form')
       this.entryForm.addEventListener('submit', this.createEntry.bind(this))
     }
@@ -48,7 +48,7 @@ class Entries {
 
   closeForm() {
     document.querySelector('.entry-form').remove()
-    this.loadFormButton.innerText = "Submit Story"
+    this.loadFormButton.innerText = "+ SUBMIT YOUR STORY"
   }
 
   createEntry(event) {
