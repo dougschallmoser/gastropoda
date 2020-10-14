@@ -21,21 +21,6 @@ section:nth-child(2) {
   position: relative;
 }
 
-section:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: url("../images/gastropoda-logo.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.10;
-}
-
 section:nth-child(3) {
   background-image: url("https://www.w3schools.com/howto/img_parallax2.jpg");
   opacity: 0.65;
@@ -48,7 +33,8 @@ section:nth-child(3) {
 
 section:nth-child(4) {
   height: auto;
-  padding: 10px 0 0 0;
+  padding: 10px 0 10px 0;
+  background: rgba(76, 175, 80, 0.1);
 }
 
 section:nth-child(5) {
@@ -85,7 +71,6 @@ section:nth-child(7) {
 }
 .item {
   border-radius: 8px;
-  /* background-color: transparent; */
   position: relative;
   display: block;
   flex: 1 1 0px;
@@ -93,6 +78,11 @@ section:nth-child(7) {
   padding: 0px 5px;
   cursor: pointer;
   max-height: 100%;
+  opacity: 0.5;
+}
+
+.item:hover {
+  opacity: 1;
 }
 
 .item p {
@@ -138,6 +128,22 @@ section:nth-child(7) {
 
 #display-entry {
   text-align: justify;
+  position: relative;
+}
+
+#display-entry::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("../images/gastropoda-logo.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
 }
 
 .display-entry-div {
@@ -149,6 +155,8 @@ section:nth-child(7) {
 }
 
 .display-entry-div h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   color: #111111;
   text-align: center;
   font-size: 30px;
@@ -156,8 +164,16 @@ section:nth-child(7) {
 
 .display-entry-div h3 {
   color: #111111;
+  font-weight: 300;
   text-align: center;
   font-size: 22px;
+}
+
+.display-entry-div h4 {
+  color: #111111;
+  font-weight: 300;
+  text-align: center;
+  font-size: 18px;
 }
 
 button {
