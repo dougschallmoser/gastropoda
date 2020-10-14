@@ -7,6 +7,7 @@ class Entry {
     this.content = entry.content
     this.likes = entry.likes
     this.image = entry.image
+    this.created_at = entry.created_at
   }
 
   renderItem() {
@@ -14,7 +15,7 @@ class Entry {
     const image = document.createElement('img')
     const p = document.createElement('p')
 
-    p.innerHTML = `<em>${this.title}</em><br>${this.author_name}`
+    p.innerHTML = `<em>${this.title}</em><br>${this.author_name}<br>${this.created_at}`
     newDiv.className = "item"
     newDiv.id = `item-${this.id}`
     image.src = this.image
@@ -36,7 +37,8 @@ class Entry {
       
       div.innerHTML = `
         <p><h2>${entry.title}</h2></p>
-        <p><h3>By: ${entry.author_name}</h3><br></p>
+        <p><h3>By: ${entry.author_name}</h3></p>
+        <p><h4>${entry.created_at}</h4></p><br>
         ${entry.content}`
     })
     }
