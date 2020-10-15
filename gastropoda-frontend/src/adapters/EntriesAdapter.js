@@ -13,7 +13,8 @@ class EntriesAdapter {
 
   createEntry(value) {
     const newEntry = {
-      image: value
+      entry: {
+        image: value}
     }
     return fetch(this.baseUrl, {
       method: "POST",
