@@ -22,7 +22,6 @@ section:nth-child(2) {
 }
 
 section:nth-child(3) {
-  /* position: relative; */
   text-align: center;
 }
 
@@ -30,10 +29,15 @@ section:nth-child(3) {
   text-align: center;
   font-size: 4vw;
   color: #7bc7a6;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Quattrocento', serif;
   font-weight: 700;
-  padding-top: 10px;
+  padding-top: 1%;
   letter-spacing: 1.25em;
+}
+
+#title a {
+  text-decoration: none;
+  color: #7bc7a6;
 }
 
 #title img {
@@ -46,7 +50,8 @@ nav {
   word-spacing: 2.5em;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  padding-top: 15px;
+  padding-top: 2%;
+  padding-bottom: 5%;
 }
 
 nav a {
