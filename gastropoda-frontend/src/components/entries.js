@@ -19,23 +19,60 @@ class Entries {
 
   loadForm() {
     if (!document.querySelector('.entry-form')) {
-      const form = document.createElement('div')
-      form.className = "entry-form-div"
-      form.innerHTML = `
-        <form id="entry-form">
-          <label for="title">Title:</label>
-          <input type="text" id="title"><p></p>
-          <label for="author_name">Author Name:</label>
-          <input type="text" id="author_name"><p></p>
-          <label for="author_bio">Author Bio:</label>
-          <input type="text" id="author_bio" name="author_bio"><p></p>
-          <label for="content">Content:</label>
-          <input type="text" id="content"><p></p>
-          <label for="image">Image URL:</label>
-          <input type="text" id="image"><p></p>
-          <input type="submit">
-        </form>`
-      this.mainContent.innerHTML = form.innerHTML
+      const div = `
+      <div class="form-container">
+        <div class="left">I'm baby normcore mixtape retro offal typewriter slow-carb biodiesel banh mi enamel pin unicorn whatever fingerstache. Cronut semiotics tumblr, enamel pin raw denim master cleanse craft beer pinterest YOLO keytar hexagon. YOLO schlitz crucifix aesthetic. Poke hexagon biodiesel, flannel irony roof party vinyl.<br><img src="images/gastropoda-logo-trq.png"></div>
+          <div class="right">
+            <div id="submit-heading">Submit your story for review!</div><br>
+            <form id="entry-form">
+              <div class="row">
+                <div class="col-15">
+                  <label for="title">Title:</label>
+                </div>
+                <div class="col-85">
+                  <input type="text" id="title" name="title" placeholder="Story Title">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-15">
+                  <label for="author_name">Name:</label>
+                </div>
+                <div class="col-85">
+                  <input type="text" id="author_name" name="author_name" placeholder="Author Name">
+                </div>
+             </div>
+             <div class="row">
+              <div class="col-15">
+                <label for="author_bio">Bio:</label>
+              </div>
+              <div class="col-85">
+                <input type="text" id="author_bio" name="author_bio" placeholder="Author Bio">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-15">
+                <label for="content">Content:</label>
+              </div>
+              <div class="col-85">
+                <textarea id="content" name="content" placeholder="Content of the story..." style="height:200px"></textarea>
+              </div>
+              </div>
+            <div class="row">
+              <div class="col-15">
+                <label for="image">Image:</label>
+              </div>
+              <div class="col-85">
+                <input type="text" id="image" name="image" placeholder="http://www.example.com/image.jpg">
+              </div>
+            </div>
+            <div class="row submit">
+              <input type="submit" value="Submit">
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>`
+      this.mainContent.innerHTML = div
       this.entryForm = document.getElementById('entry-form')
       this.entryForm.addEventListener('submit', this.createEntry.bind(this))
     }
