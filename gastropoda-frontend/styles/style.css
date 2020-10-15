@@ -25,7 +25,7 @@ section:nth-child(3) {
   text-align: center;
 }
 
-#title {
+#logo-title {
   text-align: center;
   font-size: 4vw;
   color: #7bc7a6;
@@ -35,12 +35,12 @@ section:nth-child(3) {
   letter-spacing: 1.25em;
 }
 
-#title a {
+#logo-title a {
   text-decoration: none;
   color: #7bc7a6;
 }
 
-#title img {
+#logo-title img {
   width: 6%;
 }
 
@@ -51,7 +51,7 @@ nav {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   padding-top: 2%;
-  padding-bottom: 5%;
+  padding-bottom: 3%;
 }
 
 nav a {
@@ -234,48 +234,94 @@ section:nth-child(7) {
   font-size: 18px;
 }
 
-.new-form {
-  align-items: center;
+.form-container {
+  width: 75%;
+  margin: auto;
+  display: flex;
+}
+
+.left {
+  position: relative;
+  padding: 3% 3% 0 3%;
+  font-family: 'Noto Serif', serif;
+  color: white;
+  text-align: justify;
+  background: #424243;
+  line-height: 2em;
+  flex: 0.5;
+}
+
+.left img {
+  width: 80%;
+  position: absolute;
+  font-size: 1em;
+  bottom: 0;
+}
+
+.right {
+  color: white;
+  padding: 3% 6% 2% 3%;
+  text-align: justify;
+  flex: 1;
+  background: #6e6e6e;
+}
+
+#submit-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #7bc7a6;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  border-radius: 4px;
+  transition: background-color 1s, color 1s;
+}
+
+input[type=submit]:hover {
+  background-color: #4e806a;
+  color: white;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-family: 'Noto Serif', serif;
+  font-size: 1em;
+}
+
+.col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+.col-85 {
+  float: left;
+  width: 85%;
+  margin-top: 6px;
+}
+
+.submit{
+  padding-top: 5%;
   text-align: center;
 }
 
-.entry-form-div {
-  /* text-align: center;
-  font-family: 'Lato', sans-serif;
-  background: black;
-  color: white;
-  padding: 10px; */
-}
-
-#entry-form {
-}
-
-#button-load-form {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
-  color: white;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 1s;
-}
-
-#button-load-form:hover {
-  opacity: 1;
-}
-
-#plus {
-  font-size: 2em;
-  color: #7bc7a6;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 1s;
-}
-
-#plus:hover {
-  opacity: 1;
-}
-
-#author-bio {
-  line-height: 1;
-  padding: 10px;
-}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
