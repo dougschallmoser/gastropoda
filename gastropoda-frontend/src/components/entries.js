@@ -14,7 +14,7 @@ class Entries {
   }
 
   setEventListeners() {
-    this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm(this))
+    this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm.bind(this))
   }
 
   loadForm() {
@@ -35,10 +35,10 @@ class Entries {
           <input type="text" id="image"><p></p>
           <input type="submit">
         </form>`
-      this.mainContent.append(form)
+      this.mainContent.innerHTML = form.innerHTML
       this.entryForm = document.getElementById('entry-form')
       this.entryForm.addEventListener('submit', this.createEntry.bind(this))
-    } 
+    }
   }
 
   createEntry(event) {
