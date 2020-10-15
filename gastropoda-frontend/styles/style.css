@@ -1,3 +1,5 @@
+/* rgba(76, 175, 80, 0.1); */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,21 +9,71 @@ html,
 body {
   margin: 0;
   height: 100%;
-  background-color: white;
+  background-color: #27272a;
 }
 
 section {
 }
 
 section:nth-child(1) {
-  height: 50%;
 }
 
 section:nth-child(2) {
-  position: relative;
 }
 
 section:nth-child(3) {
+  /* position: relative; */
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+  font-size: 4vw;
+  color: #7bc7a6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  padding-top: 10px;
+  letter-spacing: 1.25em;
+}
+
+#title img {
+  width: 6%;
+}
+
+nav {
+  text-align: center;
+  font-size: 2vw;
+  word-spacing: 2.5em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  padding-top: 15px;
+}
+
+nav a {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  padding: 0.5% 1%;
+  transition: color 2s, background-color 2s;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #6f6f73;
+}
+
+#about {
+  display: inline-block;
+  width: 75%;
+  text-align: justify;
+  font-family: 'Noto Serif', serif;
+  font-size: 2vw;
+  line-height: 2.5;
+  color: white;
+}
+
+/* section:nth-child(3) {
   background-image: url("https://www.w3schools.com/howto/img_parallax2.jpg");
   opacity: 0.65;
   height: 25%;
@@ -59,7 +111,7 @@ section:nth-child(7) {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .entries-container {
   display: flex;
@@ -182,12 +234,12 @@ section:nth-child(7) {
   text-align: center;
 }
 
-.entry-form {
-  text-align: center;
+.entry-form-div {
+  /* text-align: center;
   font-family: 'Lato', sans-serif;
   background: black;
   color: white;
-  padding: 10px;
+  padding: 10px; */
 }
 
 #entry-form {
@@ -204,62 +256,6 @@ section:nth-child(7) {
 
 #button-load-form:hover {
   opacity: 1;
-}
-
-.about-div {
-  padding: 130px 150px 50px 150px;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 2;
-  color: #777777;
-  background: rgba(76, 175, 80, 0.1);
-}
-
-#navbar {
-  overflow: hidden;
-  background-color: #f0f0f0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
-  float: left;
-  display: flex;
-  z-index: 10;
-  width: 100%;
-  opacity: 1;
-  align-items: center;
-  letter-spacing: length;
-  background: rgba(76, 175, 80, 0.1);
-}
-
-#navbar img {
-  width: 4%;
-  padding: 14px;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.above-content {
-  position: relative;
-  height: 100%;
-  background-image: url("https://www.w3schools.com/howto/img_parallax.jpg");
-  opacity: 0.65;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.sticky + .above-content {
-  padding-top: 60px;
-}
-
-#quote {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  color: white;
-  font-size: 24px;
 }
 
 #plus {
