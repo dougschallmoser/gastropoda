@@ -13,15 +13,6 @@ body {
   background-color: #27272a;
 }
 
-section {
-}
-
-section:nth-child(1) {
-}
-
-section:nth-child(2) {
-}
-
 section:nth-child(3) {
   text-align: center;
 }
@@ -77,122 +68,6 @@ nav a:hover {
   font-size: 2vw;
   line-height: 2.5;
   color: white;
-}
-
-.entries-container {
-  display: flex;
-}
-
-.container {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-}
-.item {
-  border-radius: 8px;
-  position: relative;
-  display: block;
-  flex: 1 1 0px;
-  transition: transform 500ms;
-  padding: 0px 5px;
-  cursor: pointer;
-  max-height: 100%;
-  opacity: 0.5;
-  filter: grayscale(75%);
-}
-
-.item:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-}
-
-.item p {
-  padding: 5px 0;
-  text-align: center;
-  font-size: 1em;
-  color: white;
-  background-color: #875b39;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  -o-box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-.entries-container:focus-within .item,
-.entries-container:hover .item {
-  transform: translateX(-25%);
-}
-
-.item:focus ~ .item,
-.item:hover ~ .item {
-  transform: translateX(25%);
-}
-
-.entries-container .item:focus,
-.entries-container .item:hover {
-  /* opacity: 1; */
-  transform: scale(1.5);
-  z-index: 1;
-}
-
-.item img {
-  border-radius: 8px 8px 0 0;
-  display: block;
-  width: 100%;
-  height: 75%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  -o-box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-#display-entry {
-  text-align: justify;
-  position: relative;
-}
-
-#display-entry::before {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: url("../images/gastropoda-logo.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.05;
-}
-
-.display-entry-div {
-  padding: 20px 120px 40px 120px;
-  font-family: 'Noto Serif', serif;
-  line-height: 2;
-  color: #777777;
-  background: rgba(76, 175, 80, 0.1);
-}
-
-.display-entry-div h2 {
-  font-weight: 400;
-  letter-spacing: 5px;
-  color: #7bc7a6;
-  text-align: center;
-  font-size: 3em;
-}
-
-.display-entry-div h3 {
-  color: #777777;
-  font-weight: 300;
-  text-align: center;
-  font-size: 22px;
-}
-
-.display-entry-div h4 {
-  color: #777777;
-  text-align: center;
-  font-size: 18px;
 }
 
 .form-container {
@@ -308,6 +183,7 @@ label {
   background-color: #424243;
   color: white;
   margin: auto;
+  cursor: pointer;
 }
 
 .entry-card img {
