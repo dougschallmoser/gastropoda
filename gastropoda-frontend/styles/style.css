@@ -1,5 +1,7 @@
 /* rgba(76, 175, 80, 0.1); */
 
+@font-face { font-family: Caslon; src: url('Adobe-Caslon-Pro Regular.ttf'); } 
+
 * {
   margin: 0;
   padding: 0;
@@ -64,7 +66,7 @@ nav a:hover {
   display: inline-block;
   width: 75%;
   text-align: justify;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Caslon', serif;
   font-size: 2vw;
   line-height: 2.5;
   color: white;
@@ -80,7 +82,7 @@ nav a:hover {
 .left {
   position: relative;
   padding: 3% 3% 0 3%;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Caslon', serif;
   color: white;
   text-align: justify;
   background: #424243;
@@ -137,7 +139,7 @@ input[type=submit]:hover {
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Caslon', serif;
   font-size: 1em;
 }
 
@@ -165,7 +167,7 @@ label {
 }
 
 .entry-row {
-  font-family: 'Noto Serif', serif;
+  font-family: 'Caslon', serif;
   margin: 0 -5px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -214,6 +216,35 @@ label {
 
 .entry-text p {
   font-size: 1em;
+}
+
+#entry-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+}
+
+#display-entry {
+  margin: 0 auto;
+  padding: 5%;
+  color: black;
+  font-family: 'Caslon', serif;
+  background: white;
+}
+
+#display-entry h2 {
+  font-size: 4vw;
+}
+
+#display-entry h4 {
+  font-size: 2vw;
+  padding: 3%;
+}
+
+#display-entry p {
+  line-height: 2.5em;
+  font-size: 1.2em;
+  text-align: justify;
 }
 
 @media screen and (max-width: 600px) {

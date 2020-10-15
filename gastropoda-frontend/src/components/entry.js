@@ -34,19 +34,22 @@ class Entry {
   }
 
   loadEntry(event) {
-    if (document.querySelector('.display-entry-div')) {
-    document.querySelector('.display-entry-div').remove()
+    if (document.querySelector('.display-entry')) {
+    document.querySelector('.display-entry').remove()
   } else {
-    new EntriesAdapter().getEntry(this.id.split("-")[1]).then(entry => {
+    new EntriesAdapter().getEntry(this.id).then(entry => {
+      document.querySelector('#main-content').innerHTML = ''
+      const container = document.createElement('div')
       const div = document.createElement('div')
-      div.className = "display-entry-div"
-      document.querySelector('.entry-row').append(div)
-      
+      container.id = "entry-container"
+      div.id = "display-entry"
       div.innerHTML = `
         <p><h2>${entry.title.toUpperCase()}</h2></p>
-        <p><h4>${entry.author_name}</h4></p>
-        <p><h4>Published on: ${entry.created_at}</h4></p><br>
-        ${entry.content}<p></p>`
+        <h4>${entry.author_name}</h4>
+        <h4>Published on: ${entry.created_at}</h4>
+        <p>${entry.content}</p>`
+      container.append(div)
+      document.querySelector('#main-content').append(container)
 
       // adding contributor feature
       const plus = document.createElement('div')
