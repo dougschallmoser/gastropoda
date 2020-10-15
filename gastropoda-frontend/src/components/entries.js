@@ -2,7 +2,6 @@ class Entries {
   constructor() {
     this.entries = []
     this.adapter = new EntriesAdapter()
-    // this.loadEntries()
     this.setBindings()
     this.setEventListeners()
   }
@@ -10,10 +9,10 @@ class Entries {
   setBindings() {
     this.navBar = document.getElementById('nav-bar')
     this.mainContent = document.getElementById('main-content')
-    this.newEntryImage = document.getElementById('image')
   }
 
   setEventListeners() {
+    this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.loadEntries.bind(this))
     this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm.bind(this))
   }
 
@@ -88,20 +87,26 @@ class Entries {
     })
   }
 
-  // loadEntries() {
-  //   this.adapter.getEntries().then(entries => {
-  //     entries.forEach(entry => this.entries.push(new Entry(entry)))
-  //   })
-  //   .then(() => {
-  //     this.render()
-  //   })
-  // }
+  loadEntries() {
+    if (this.entries.length === 0) {
+      this.adapter.getEntries().then(entries => {
+        entries.forEach(entry => this.entries.push(new Entry(entry)))
+      }).then(() => {this.render()})
+    } else {
+      this.render()
+    }
+  }
 
-  // render() {
-  //   this.entriesContainer.innerHTML = ''
-  //   this.entries.map(entry => {
-  //     this.entriesContainer.appendChild(entry.renderItem())
-  //   })
-  // }
+  render() {
+      const div = document.createElement('div')
+      this.mainContent.innerHTML = ''
+      div.className = "entry-row"
+      this.mainContent.innerHTML = ''
+      this.mainContent.append(div)
+  
+      this.entries.map(entry => {
+        div.append(entry.renderItem())
+      })
+  }
 
 }
