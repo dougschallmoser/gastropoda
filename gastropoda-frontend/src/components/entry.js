@@ -11,14 +11,12 @@ class Entry {
   }
 
   renderItem() {
-    const columnDiv = document.createElement('div')
     const cardDiv = document.createElement('div')
     const textDiv = document.createElement('div')
     const img = document.createElement('img')
     const h3 = document.createElement('h3')
     const p = document.createElement('p')
 
-    columnDiv.className = "entry-column"
     cardDiv.className = "entry-card"
     textDiv.className = "entry-text"
     cardDiv.id = this.id 
@@ -30,10 +28,9 @@ class Entry {
     cardDiv.append(textDiv)
     textDiv.append(h3)
     textDiv.append(p)
-    columnDiv.append(cardDiv)
 
     // cardDiv.addEventListener('click', this.loadEntry)
-    return columnDiv
+    return cardDiv
   }
 
   loadEntry(event) {
