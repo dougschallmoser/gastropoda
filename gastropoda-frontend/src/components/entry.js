@@ -11,19 +11,29 @@ class Entry {
   }
 
   renderItem() {
-    const newDiv = document.createElement('div')
-    const image = document.createElement('img')
+    const columnDiv = document.createElement('div')
+    const cardDiv = document.createElement('div')
+    const textDiv = document.createElement('div')
+    const img = document.createElement('img')
+    const h3 = document.createElement('h3')
     const p = document.createElement('p')
 
-    p.innerHTML = `<em>${this.title}</em><br>${this.author_name}<br>${this.created_at}`
-    newDiv.className = "item"
-    newDiv.id = `item-${this.id}`
-    image.src = this.image
-    
-    newDiv.appendChild(image)
-    newDiv.appendChild(p)
-    newDiv.addEventListener('click', this.loadEntry)
-    return newDiv
+    columnDiv.className = "entry-column"
+    cardDiv.className = "entry-card"
+    textDiv.className = "entry-text"
+    cardDiv.id = this.id 
+    img.src = this.image 
+    h3.innerHTML = this.title 
+    p.innerHTML = `<strong>${this.author_name}</strong> - ${this.created_at}`
+
+    cardDiv.append(img)
+    cardDiv.append(textDiv)
+    textDiv.append(h3)
+    textDiv.append(p)
+    columnDiv.append(cardDiv)
+
+    // cardDiv.addEventListener('click', this.loadEntry)
+    return columnDiv
   }
 
   loadEntry(event) {
@@ -33,7 +43,7 @@ class Entry {
     new EntriesAdapter().getEntry(this.id.split("-")[1]).then(entry => {
       const div = document.createElement('div')
       div.className = "display-entry-div"
-      document.querySelector('#display-entry').append(div)
+      document.querySelector('.entry-row').append(div)
       
       div.innerHTML = `
         <p><h2>${entry.title.toUpperCase()}</h2></p>
