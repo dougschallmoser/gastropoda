@@ -7,10 +7,11 @@ aboutLink.addEventListener('click', renderAbout)
 
 function renderAbout() {
   if (!document.getElementById('about')) {
-    const div = document.createElement('div')
-    div.id = "about"
-    div.innerText = `
-    I'm baby tofu paleo scenester, twee drinking vinegar irony gastropub craft beer post-ironic organic. Locavore adaptogen actually, flannel selvage humblebrag taiyaki offal pug organic sriracha +1. Deep v VHS lumbersexual farm-to-table snackwave, squid wolf. Ugh cold-pressed subway tile XOXO, 90's hella vaporware celiac ethical polaroid fingerstache forage whatever seitan adaptogen.`
-    mainContent.append(div)
+    div = `
+      <div id="about">
+        I'm baby tofu paleo scenester, twee drinking vinegar irony gastropub craft beer post-ironic organic. Locavore adaptogen actually, flannel selvage humblebrag taiyaki offal pug organic sriracha +1. Deep v VHS lumbersexual farm-to-table snackwave, squid wolf. Ugh cold-pressed subway tile XOXO, 90's hella vaporware celiac ethical polaroid fingerstache forage whatever seitan adaptogen.
+      </div>
+    `
+    mainContent.innerHTML = div
   }
 }
