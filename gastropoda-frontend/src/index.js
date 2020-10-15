@@ -1,16 +1,16 @@
 const app = new App()
 
-const navbar = document.getElementById('navbar')
-const sticky = navbar.offsetTop
+// ABOUT
+const aboutLink = document.getElementById('nav-bar').getElementsByTagName('a')[0]
+const mainContent = document.getElementById('main-content')
+aboutLink.addEventListener('click', renderAbout)
 
-window.onscroll = function() {
-  navBar()
-}
-
-let navBar = function() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
+function renderAbout() {
+  if (!document.getElementById('about')) {
+    const div = document.createElement('div')
+    div.id = "about"
+    div.innerText = `
+    I'm baby tofu paleo scenester, twee drinking vinegar irony gastropub craft beer post-ironic organic. Locavore adaptogen actually, flannel selvage humblebrag taiyaki offal pug organic sriracha +1. Deep v VHS lumbersexual farm-to-table snackwave, squid wolf. Ugh cold-pressed subway tile XOXO, 90's hella vaporware celiac ethical polaroid fingerstache forage whatever seitan adaptogen.`
+    mainContent.append(div)
   }
 }
