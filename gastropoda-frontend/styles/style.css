@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -77,46 +78,6 @@ nav a:hover {
   line-height: 2.5;
   color: white;
 }
-
-/* section:nth-child(3) {
-  background-image: url("https://www.w3schools.com/howto/img_parallax2.jpg");
-  opacity: 0.65;
-  height: 25%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-section:nth-child(4) {
-  height: auto;
-  padding: 10px 0 10px 0;
-  background: rgba(76, 175, 80, 0.1);
-}
-
-section:nth-child(5) {
-  background-image: url("https://www.w3schools.com/howto/img_parallax2.jpg");
-  opacity: 0.65;
-  height: 20%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-section:nth-child(6) {
-  height: auto;
-}
-
-section:nth-child(7) {
-  background-image: url("https://www.w3schools.com/howto/img_parallax.jpg");
-  opacity: 0.65;
-  height: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 .entries-container {
   display: flex;
@@ -236,6 +197,7 @@ section:nth-child(7) {
 
 .form-container {
   width: 75%;
+  font-size: 1.2vw;
   margin: auto;
   display: flex;
 }
@@ -325,3 +287,66 @@ label {
   content: "";
   display: table;
   clear: both;
+}
+
+.entry-row {
+  font-family: 'Noto Serif', serif;
+  margin: 0 -5px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.entry-column {
+}
+
+.entry-card {
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5%;
+  text-align: center;
+  background-color: #424243;
+  color: white;
+  margin: auto;
+}
+
+.entry-card img {
+  width: 100%;
+  opacity: 0.5;
+  filter: brightness(75%);
+  transition: opacity 2s, filter 2s;
+}
+
+.entry-card img:hover {
+  opacity: 1;
+  filter: brightness(100%);
+}
+
+.entry-text {
+  width: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.entry-text h3 {
+  font-size: 2.5vw;
+  line-height: 1em;
+  padding-bottom: 0.5em;
+}
+
+.entry-text p {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .entry-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
