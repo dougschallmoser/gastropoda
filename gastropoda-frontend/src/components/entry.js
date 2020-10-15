@@ -29,7 +29,7 @@ class Entry {
     textDiv.append(h3)
     textDiv.append(p)
 
-    // cardDiv.addEventListener('click', this.loadEntry)
+    cardDiv.addEventListener('click', this.loadEntry.bind(this))
     return cardDiv
   }
 
