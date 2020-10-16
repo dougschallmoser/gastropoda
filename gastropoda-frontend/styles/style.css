@@ -299,11 +299,18 @@ label {
   font-size: 1.8em;
   text-align: justify;
   cursor: pointer;
+  color: #6E6E6E;
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+
+#plus:hover {
+  opacity: 1;
 }
 
 #plus span {
   color: #7bc7a6;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 #author-bio {
