@@ -22,7 +22,7 @@ class Entry {
     cardDiv.id = this.id 
     img.src = this.image 
     h3.innerHTML = this.title 
-    p.innerHTML = `<strong>${this.author_name}</strong> - ${this.created_at}`
+    p.innerHTML = `<strong>${this.author_name}</strong> <span id="date">${this.created_at}</span>`
 
     cardDiv.append(img)
     cardDiv.append(textDiv)
@@ -44,26 +44,25 @@ class Entry {
       container.id = "entry-container"
       div.id = "display-entry"
       div.innerHTML = `
+        <img src="${entry.image}">
         <p><h2>${entry.title.toUpperCase()}</h2></p>
-        <h4>${entry.author_name}</h4>
-        <h4>Published on: ${entry.created_at}</h4>
+        <h4>${entry.author_name} <span id="date">${entry.created_at}</span></h4>
         <p>${entry.content}</p>`
       container.append(div)
       document.querySelector('#main-content').append(container)
 
       // adding contributor feature
       const plus = document.createElement('div')
-      const contributor = document.createElement('div')
       plus.id = "plus"
-      plus.innerHTML = '+ ABOUT THE CONTRIBUTOR'
+      plus.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
       div.append(plus)
       plus.addEventListener('click', displayAuthorBio)
 
       function displayAuthorBio() {
-        plus.innerHTML = '- ABOUT THE CONTRIBUTOR'
+        plus.innerHTML = '<span id="maincolor">-</span> ABOUT THE CONTRIBUTOR'
         if (document.getElementById('author-bio')) {
           document.getElementById('author-bio').remove()
-          plus.innerHTML = '+ ABOUT THE CONTRIBUTOR'
+          plus.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
         } else {
         const bio = document.createElement('div')
         bio.id = "author-bio"
