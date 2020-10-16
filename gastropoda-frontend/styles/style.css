@@ -91,7 +91,7 @@ nav a:hover {
 
 .left {
   position: relative;
-  padding: 2% 3% 0 3%;
+  padding: 3% 3% 0 3%;
   font-family: 'Caslon', serif;
   color: white;
   text-align: justify;
@@ -107,7 +107,8 @@ nav a:hover {
 
 .left img {
   padding-top: 5%;
-  width: 60%;
+  padding-left: 8%;
+  width: 70%;
   position: absolute;
   bottom: 0;
 }
@@ -126,13 +127,18 @@ nav a:hover {
   font-size: 2em;
 }
 
+#submit-heading2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+}
+
 #submit-subheading {
   font-family: 'Montserrat', sans-serif;
   padding-bottom: 3%;
 }
 
 #content {
-  height: 150px;
+  height: 125px;
 }
 
 input[type=text], textarea {
@@ -196,8 +202,8 @@ label {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   width: 100%;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 0.6%;
+  padding-right: 0.6%;
 }
 
 .entry-card {
@@ -294,10 +300,12 @@ label {
 }
 
 #plus {
+  width: 80%;
+  margin: auto;
   padding-top: 5%;
   padding-bottom: 2%;
   font-size: 1.8em;
-  text-align: justify;
+  text-align: center;
   cursor: pointer;
   color: #6E6E6E;
   opacity: 0.5;
@@ -310,13 +318,66 @@ label {
 
 #plus span {
   color: #7bc7a6;
-  font-size: 1.8em;
+  font-size: 1.6em;
 }
 
 #author-bio {
   text-align: justify;
   font-family: 'Montserrat', sans-serif;
   font-size: 2em;
+  color: #6E6E6E;
+  width: 80%;
+  margin: auto;
+}
+
+/* ERROR FOR FORM (MODAL BOX) */
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #7bc7a6;
+  color: white;
+  margin: 15% auto;
+  border: 1px solid #888;
+  width: 70%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.modal-content p:nth-child(2) {
+  padding: 6% 3% 2% 3%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3vw;
+}
+
+.modal-content p:nth-child(3) {
+  padding: 2% 3% 6% 3%;
+  font-family: 'Caslon', serif;
+  font-size: 2vw;
+}
+
+.close {
+  padding: 1% 0 0 0;
+  color: white;
+  float: right;
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
