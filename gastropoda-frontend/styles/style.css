@@ -17,6 +17,7 @@ body {
 
 section:nth-child(3) {
   text-align: center;
+  padding-bottom: 2%;
 }
 
 #logo-title {
@@ -32,6 +33,7 @@ section:nth-child(3) {
 #logo-title a {
   text-decoration: none;
   color: #7bc7a6;
+  margin-right: -1.25em;
 }
 
 #logo-title img {
@@ -63,43 +65,53 @@ nav a:hover {
 }
 
 #about {
+  padding-top: 2%;
   display: inline-block;
   width: 75%;
   text-align: justify;
   font-family: 'Caslon', serif;
-  font-size: 2vw;
-  line-height: 2.5;
+  font-size: 2.5vw;
+  line-height: 1.5;
   color: white;
 }
 
+#about p {
+  padding: 2% 0;
+}
+
 .form-container {
-  width: 75%;
-  font-size: 1.2vw;
+  width: 95%;
+  font-size: 1.1vw;
   margin: auto;
   display: flex;
 }
 
 .left {
   position: relative;
-  padding: 3% 3% 0 3%;
+  padding: 2% 3% 0 3%;
   font-family: 'Caslon', serif;
   color: white;
   text-align: justify;
   background: #424243;
-  line-height: 2em;
+  line-height: 1.5em;
   flex: 0.5;
 }
 
+.left p {
+  padding-bottom: 3%;
+  font-size: 0.9em;
+}
+
 .left img {
-  width: 80%;
+  padding-top: 5%;
+  width: 60%;
   position: absolute;
-  font-size: 1em;
   bottom: 0;
 }
 
 .right {
   color: white;
-  padding: 3% 6% 2% 3%;
+  padding: 2% 3% 2% 3%;
   text-align: justify;
   flex: 1;
   background: #6e6e6e;
@@ -111,9 +123,18 @@ nav a:hover {
   font-size: 2em;
 }
 
+#submit-subheading {
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 3%;
+}
+
+#content {
+  height: 150px;
+}
+
 input[type=text], textarea {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
@@ -121,19 +142,18 @@ input[type=text], textarea {
 
 input[type=submit] {
   background-color: #7bc7a6;
-  color: black;
+  color: white;
   font-family: 'Montserrat', sans-serif;
   padding: 12px 20px;
   cursor: pointer;
   border: none;
   margin: auto;
   border-radius: 4px;
-  transition: background-color 1s, color 1s;
+  transition: background-color 1s;
 }
 
 input[type=submit]:hover {
-  background-color: #4e806a;
-  color: white;
+  background-color: #548a72;
 }
 
 label {
@@ -168,16 +188,17 @@ label {
 
 .entry-row {
   font-family: 'Caslon', serif;
-  margin: 0 -5px;
+  margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   width: 100%;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 .entry-card {
+  width: 100%;
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 5%;
@@ -189,15 +210,17 @@ label {
 }
 
 .entry-card img {
+  object-fit: cover;
   width: 100%;
+  height: 225px;
   opacity: 0.5;
-  filter: brightness(75%);
   transition: opacity 2s, filter 2s;
+  filter: brightness(50%);
 }
 
 .entry-card img:hover {
   opacity: 1;
-  filter: brightness(100%);
+  filter: none;
 }
 
 .entry-text {
@@ -215,7 +238,11 @@ label {
 }
 
 .entry-text p {
-  font-size: 1em;
+  font-size: 1.3vw;
+}
+
+.entry-text p span {
+  color: #d1d1d1;
 }
 
 #entry-container {
@@ -226,25 +253,59 @@ label {
 
 #display-entry {
   margin: 0 auto;
-  padding: 5%;
+  padding: 3% 5% 5% 5%;
   color: black;
   font-family: 'Caslon', serif;
   background: white;
 }
 
+#display-entry img {
+  object-fit: cover;
+  width: 60%;
+  height: 325px;
+  padding-bottom: 2%;
+}
+
 #display-entry h2 {
   font-size: 4vw;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #display-entry h4 {
   font-size: 2vw;
+  color: #7bc7a6;
   padding: 3%;
 }
 
+
+#display-entry h4 span {
+  color: #6e6e6e;
+  padding-left: 5%;
+}
+
 #display-entry p {
-  line-height: 2.5em;
-  font-size: 1.2em;
+  line-height: 2em;
+  font-size: 1.4em;
   text-align: justify;
+}
+
+#plus {
+  padding-top: 5%;
+  padding-bottom: 2%;
+  font-size: 1.8em;
+  text-align: justify;
+  cursor: pointer;
+}
+
+#plus span {
+  color: #7bc7a6;
+  font-size: 2em;
+}
+
+#author-bio {
+  text-align: justify;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
 }
 
 @media screen and (max-width: 600px) {
@@ -252,5 +313,12 @@ label {
     width: 100%;
     display: block;
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .col-15, .col-85, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
   }
 }
