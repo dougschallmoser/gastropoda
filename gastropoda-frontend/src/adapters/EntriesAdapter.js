@@ -11,11 +11,11 @@ class EntriesAdapter {
     return fetch(`${this.baseUrl}/${id}`).then(response => response.json())
   }
 
-  createEntry(value) {
+  createEntry(formValues) {
     const newEntry = {
-      entry: {
-        image: value}
+      entry: formValues
     }
+    
     return fetch(this.baseUrl, {
       method: "POST",
       headers: {
