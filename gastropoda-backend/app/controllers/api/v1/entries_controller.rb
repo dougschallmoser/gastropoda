@@ -13,6 +13,8 @@ class Api::V1::EntriesController < ApplicationController
     entry = Entry.new(entry_params)
     if entry.save 
       render json: entry, status: 200
+    else 
+      render json: {messages: entry.errors.full_messages}
     end
   end
 
