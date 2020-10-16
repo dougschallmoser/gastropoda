@@ -96,10 +96,25 @@ class Entries {
 
   createEntry(event) {
     event.preventDefault()
-    const formImageValue = document.getElementById('image').value
-    this.adapter.createEntry(formImageValue).then(entry => {
+    let titleValue = document.getElementById('title').value
+    let nameValue = document.getElementById('author_name').value
+    let bioValue = document.getElementById('author_bio').value
+    let contentValue = document.getElementById('content').value
+    let imageValue = document.getElementById('image').value
+    let formValues = {
+      title: titleValue,
+      author_name: nameValue,
+      author_bio: bioValue,
+      content: contentValue,
+      image: imageValue
+    }
+    this.adapter.createEntry(formValues).then(entry => {
       this.entries.push(new Entry(entry))
-      document.getElementById('image').value = ''
+      titleValue = ''
+      nameValue = ''
+      bioValue = ''
+      contentValue = ''
+      imageValue = ''
       this.render()
     })
   }
