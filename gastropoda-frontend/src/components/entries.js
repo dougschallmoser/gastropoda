@@ -37,6 +37,7 @@ class Entries {
           <img src="images/gastropoda-logo-trq.png"></div>
         <div class="right">
           <div id="submit-heading">Submit your story for review!</div><br>
+          <div id="submit-heading2">Fiction or Creative Nonfiction, 100-4,000 words.</div><br>
           <div id="submit-subheading">
             Sure, we like literary stuff, but we are not super picky about the so-called genre your piece might fit into. We can tell you that we’re not interested in gratuitous sex, violence, or vulgarity. We are especially drawn to pieces that don’t follow traditional narrative arcs, that surprise us and leave us with some questions (but not TOO many), and that are overflowing with fresh sensory language that makes our heart hurt a little bit. Send us your misfits, your miscreants, your outcasts, your rebels--the pieces you’ve put your whole essence into, but you aren’t quite sure where they might fit in. They might fit in at Gastropoda. 
           </div>
@@ -96,6 +97,7 @@ class Entries {
 
   createEntry(event) {
     event.preventDefault()
+    let self = this
     let titleValue = document.getElementById('title').value
     let nameValue = document.getElementById('author_name').value
     let bioValue = document.getElementById('author_bio').value
@@ -109,13 +111,58 @@ class Entries {
       image: imageValue
     }
     this.adapter.createEntry(formValues).then(entry => {
-      this.entries.push(new Entry(entry))
-      titleValue = ''
-      nameValue = ''
-      bioValue = ''
-      contentValue = ''
-      imageValue = ''
-      this.render()
+      const div = document.createElement('div')
+      const contentDiv = document.createElement('div')
+      const span = document.createElement('span')
+      const p = document.createElement('p')
+      const p2 = document.createElement('p')
+      div.id = "myModal"
+      div.className = "modal"
+      contentDiv.className = "modal-content"
+      span.className = "close"
+      span.innerHTML = `&times;`
+      contentDiv.append(span)
+      if (entry.messages) {
+        entry.messages.forEach(message => {
+          p2.innerHTML += `<li>${message}</li>`
+        })
+        p.innerHTML = "Your story was <strong>not</strong> submitted because..."
+
+        contentDiv.append(p)
+        contentDiv.append(p2)
+        div.append(contentDiv)
+        div.style.display = "block"
+        document.querySelector('body').append(div)
+        
+        span.addEventListener('click', function() {
+          div.style.display = "none"
+        })
+        window.addEventListener('click', function(event) {
+          if (event.target == div) {
+            div.style.display = "none"
+          }
+        })
+      } else {
+        p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
+
+        contentDiv.append(p)
+        contentDiv.append(p2)
+        div.append(contentDiv)
+        div.style.display = "block"
+        document.querySelector('body').append(div)
+        
+        span.addEventListener('click', function() {
+          div.style.display = "none"
+        })
+        window.addEventListener('click', function(event) {
+          if (event.target == div) {
+            div.style.display = "none"
+          }
+        })
+
+        this.entries.push(new Entry(entry))
+        self.render()
+      }
     })
   }
 
