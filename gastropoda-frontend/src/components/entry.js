@@ -18,7 +18,6 @@ class Entry {
     const img = document.createElement('img')
     const h3 = document.createElement('h3')
     const p = document.createElement('p')
-
     cardDiv.className = "entry-card"
     cardContainerDiv.className = "entry-card-container"
     textDiv.className = "entry-text"
@@ -26,13 +25,11 @@ class Entry {
     img.src = this.image 
     h3.innerHTML = this.title 
     p.innerHTML = `<strong>${this.author_name}</strong> <span id="date">${this.created_at}</span>`
-
     cardContainerDiv.append(img)
     cardDiv.append(cardContainerDiv)
     cardDiv.append(textDiv)
     textDiv.append(h3)
     textDiv.append(p)
-
     cardDiv.addEventListener('click', this.loadEntry.bind(this))
     return cardDiv
   }
@@ -40,8 +37,8 @@ class Entry {
   loadEntry(event) {
     let self = this
     if (document.querySelector('.display-entry')) {
-    document.querySelector('.display-entry').remove()
-  } else {
+      document.querySelector('.display-entry').remove()
+    } else {
     new EntriesAdapter().getEntry(this.id).then(entry => {
       document.querySelector('#main-content').innerHTML = ''
       const container = document.createElement('div')
@@ -127,32 +124,67 @@ class Entry {
               entry_id: self.id
             }
             new CommentsAdapter().createComment(formValues).then(comment => {
-              self.comments.push(comment)
-              renderComments()
+              const div = document.createElement('div')
+              const contentDiv = document.createElement('div')
+              const span = document.createElement('span')
+              const p = document.createElement('p')
+              const p2 = document.createElement('p')
+              div.id = "myModal"
+              div.className = "modal"
+              contentDiv.className = "modal-content"
+              span.className = "close"
+              span.innerHTML = `&times;`
+              contentDiv.append(span)
+              if (comment.messages) {
+                comment.messages.forEach(message => {
+                  p2.innerHTML += `<li>${message}</li>`
+                })
+                p.innerHTML = "Your comment did <strong>not</strong> save because..."
+                contentDiv.append(p)
+                contentDiv.append(p2)
+                div.append(contentDiv)
+                div.style.display = "block"
+                document.querySelector('#main-content').append(div)
+                span.addEventListener('click', function() {
+                  div.remove()
+                })
+                window.addEventListener('click', function(event) {
+                  if (event.target == div) {
+                    div.remove()
+                  }
+                })
+              } else {
+                self.comments.push(comment)
+                renderComment(comment)
+                document.getElementById('name').value = ''
+                document.getElementById('email').value = ''
+                document.getElementById('comment-content').value = ''
+              }
             })
           }
 
         }
       }
 
-      function renderComments() {
-        self.comments.forEach(comment => {
-          const showCommentDiv = document.createElement('div')
-          showCommentDiv.id = "show-comment"
-          showCommentDiv.innerHTML = 
-            `<span id="comment-name">${comment.name}</span> <span id="comment-created">${comment.created_at}</span>
-             <div id="comment-content">${comment.content}</div`
-          if (document.getElementById('make-comment')) {
-            const makeComment = document.getElementById('make-comment')
-            makeComment.parentNode.insertBefore(showCommentDiv, makeComment.nextSibling);
-          } else {
-            const commentsHeading = document.getElementById('comments-heading')
-            commentsHeading.parentNode.insertBefore(showCommentDiv, commentsHeading.nextSibling);
-          }
-        })
+      function renderComment(comment) {
+        const showCommentDiv = document.createElement('div')
+        showCommentDiv.className = "show-comment"
+        showCommentDiv.innerHTML = 
+          `<span id="comment-name">${comment.name}</span> <span id="comment-created">${comment.created_at}</span>
+           <div id="comment-content">${comment.content}</div`
+           
+        if (document.getElementById('make-comment')) {
+          const makeComment = document.getElementById('make-comment')
+          makeComment.parentNode.insertBefore(showCommentDiv, makeComment.nextSibling);
+        } else {
+          const commentsHeading = document.getElementById('comments-heading')
+          commentsHeading.parentNode.insertBefore(showCommentDiv, commentsHeading.nextSibling);
+        }
       }
 
-      renderComments()
+      (function renderComments() {
+        self.comments.forEach(comment => renderComment(comment))
+      })()
 
     })
     }
