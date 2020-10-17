@@ -18,8 +18,8 @@ class Entries {
 
   loadForm() {
     if (!document.querySelector('.entry-form')) {
-      const div = `
-      <div class="form-container">
+      const div =
+      `<div class="form-container">
         <div class="left">
           <p>We accept submissions on a rolling basis, with the aim of publishing 1-3 pieces weekly.</p>
           <p>Response time varies depending on the number of submissions we have at the moment, but if you haven’t heard back from us in a few months, feel free to reach out to us about your piece.</p>
