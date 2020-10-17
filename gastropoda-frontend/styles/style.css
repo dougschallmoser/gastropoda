@@ -299,7 +299,7 @@ label {
   white-space: pre-line;
 }
 
-#plus {
+#contributor-heading, #comments-heading {
   width: 80%;
   margin: auto;
   padding-top: 5%;
@@ -312,19 +312,19 @@ label {
   transition: opacity 1s;
 }
 
-#plus:hover {
+#contributor-heading:hover, #comments-heading:hover {
   opacity: 1;
 }
 
-#plus span {
+#contributor-heading span, #comments-heading span {
   color: #7bc7a6;
   font-size: 1.6em;
 }
 
-#author-bio {
+#author-bio, #display-comments {
   text-align: justify;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
+  font-size: 1.8em;
   color: #6E6E6E;
   width: 80%;
   margin: auto;
