@@ -257,6 +257,7 @@ label {
 
 .entry-text p span {
   color: #d1d1d1;
+  font-size: 0.8em;
 }
 
 #entry-container {
@@ -266,8 +267,8 @@ label {
 }
 
 #display-entry {
+  padding-bottom: 3%;
   margin: 0 auto;
-  padding: 3% 5% 5% 5%;
   color: black;
   font-family: 'Caslon', serif;
   background: white;
@@ -275,18 +276,20 @@ label {
 
 #display-entry img {
   object-fit: cover;
-  width: 60%;
-  height: 325px;
+  width: 100%;
+  height: 400px;
   padding-bottom: 2%;
 }
 
 #display-entry h2 {
-  font-size: 4vw;
+  padding: 0 5% 0 5%;
+  font-size: 4em;
   font-family: 'Montserrat', sans-serif;
 }
 
 #display-entry h4 {
-  font-size: 2vw;
+  padding: 0 5% 0 5%;
+  font-size: 1.5em;
   color: #7bc7a6;
   padding: 3%;
 }
@@ -298,6 +301,7 @@ label {
 }
 
 #display-entry p {
+  padding: 1% 5% 0 5%;
   line-height: 2em;
   font-size: 1.4em;
   text-align: justify;
@@ -307,9 +311,9 @@ label {
 #contributor-heading, #comments-heading {
   width: 80%;
   margin: auto;
-  padding-top: 5%;
+  padding-top: 3%;
   padding-bottom: 2%;
-  font-size: 1.8em;
+  font-size: 2.5vw;
   text-align: center;
   cursor: pointer;
   color: #6E6E6E;
@@ -326,13 +330,29 @@ label {
   font-size: 1.6em;
 }
 
-#author-bio, #display-comments {
+#author-bio, #make-comment {
   text-align: justify;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.8em;
+  font-size: 2.5vw;
   color: #6E6E6E;
   width: 80%;
   margin: auto;
+  padding-bottom: 2%;
+}
+
+hr {
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px dotted #7bc7a6;
+}
+
+#comments {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#comment-form {
+  padding-bottom: 10%;
 }
 
 #comment-form input[type=text] {
@@ -364,6 +384,27 @@ label {
 .comment-form-submit {
   padding-top: 2%;
   float: right;
+}
+
+#show-comment {
+  text-align: justify;
+  padding: 2% 0 2% 0;
+  color: #6E6E6E;
+  font-size: 1.5em;
+}
+
+#show-comment #comment-name {
+  color: #7bc7a6;
+  padding-right: 2%;
+}
+
+#show-comment #comment-created {
+  color: #d1d1d1;
+  font-size: 0.8em;
+}
+
+#show-comment #comment-content {
+  padding-top: 2%;
 }
 
 /* ERROR FOR FORM (MODAL BOX) */
