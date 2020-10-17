@@ -51,25 +51,50 @@ class Entry {
       container.append(div)
       document.querySelector('#main-content').append(container)
 
-      // adding contributor feature
-      const plus = document.createElement('div')
-      plus.id = "plus"
-      plus.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
-      div.append(plus)
-      plus.addEventListener('click', displayAuthorBio)
-
+      // ABOUT THE CONTRIBUTOR 
+      const contributorDiv = document.createElement('div')
+      const contributorHeading = document.createElement('div')
+      contributorDiv.id = "contributor"
+      contributorHeading.id = "contributor-heading"
+      contributorHeading.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
+      contributorDiv.append(contributorHeading)
+      div.append(contributorDiv)
+      contributorHeading.addEventListener('click', displayAuthorBio)
       function displayAuthorBio() {
-        plus.innerHTML = '<span id="maincolor">-</span> ABOUT THE CONTRIBUTOR'
+        contributorHeading.innerHTML = '<span id="maincolor">-</span> ABOUT THE CONTRIBUTOR'
         if (document.getElementById('author-bio')) {
           document.getElementById('author-bio').remove()
-          plus.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
+          contributorHeading.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
         } else {
         const bio = document.createElement('div')
         bio.id = "author-bio"
         bio.innerText = entry.author_bio
-        div.append(bio)
+        contributorDiv.append(bio)
         }
       }
+
+      // COMMENTS
+      const commentsDiv = document.createElement('div')
+      const commentsHeading = document.createElement('div')
+      commentsDiv.id = "comments"
+      commentsHeading.id = "comments-heading"
+      commentsHeading.innerHTML = '<span id="maincolor">+</span> COMMENTS'
+      commentsDiv.append(commentsHeading)
+      div.append(commentsDiv)
+      commentsHeading.addEventListener('click', displayComments)
+      function displayComments() {
+        commentsHeading.innerHTML = '<span id="maincolor">-</span> COMMENTS'
+        if (document.getElementById('display-comments')) {
+          document.getElementById('display-comments').remove()
+          commentsHeading.innerHTML = '<span id="maincolor">+</span> COMMENTS'
+        } else {
+        const comments = document.createElement('div')
+        comments.id = "display-comments"
+        comments.innerText = "Hello"
+        commentsDiv.append(comments)
+        }
+      }
+
     })
     }
   }
