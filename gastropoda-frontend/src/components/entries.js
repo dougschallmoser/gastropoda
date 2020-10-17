@@ -126,14 +126,14 @@ class Entries {
         contentDiv.append(p2)
         div.append(contentDiv)
         div.style.display = "block"
-        document.querySelector('body').append(div)
+        document.querySelector('#main-content').append(div)
         
         span.addEventListener('click', function() {
-          div.style.display = "none"
+          div.remove()
         })
         window.addEventListener('click', function(event) {
           if (event.target == div) {
-            div.style.display = "none"
+            div.remove()
           }
         })
       } else {
@@ -143,14 +143,14 @@ class Entries {
         contentDiv.append(p2)
         div.append(contentDiv)
         div.style.display = "block"
-        document.querySelector('body').append(div)
+        document.querySelector('#main-content').append(div)
         
         span.addEventListener('click', function() {
-          div.style.display = "none"
+          div.remove()
         })
         window.addEventListener('click', function(event) {
           if (event.target == div) {
-            div.style.display = "none"
+            div.remove()
           }
         })
 
@@ -171,10 +171,12 @@ class Entries {
   }
 
   render() {
+    while (this.mainContent.firstChild) {
+      this.mainContent.removeChild(this.mainContent.firstChild);
+    }
       const div = document.createElement('div')
-      this.mainContent.innerHTML = ''
-      div.className = "entry-row"
-      this.mainContent.innerHTML = ''
+      div.className = "entry-grid"
+      // this.mainContent.innerHTML = ''
       this.mainContent.append(div)
   
       this.entries.map(entry => {
