@@ -22,17 +22,11 @@ class Entries {
       <div class="form-container">
         <div class="left">
           <p>We accept submissions on a rolling basis, with the aim of publishing 1-3 pieces weekly.</p>
-
           <p>Response time varies depending on the number of submissions we have at the moment, but if you haven’t heard back from us in a few months, feel free to reach out to us about your piece.</p>
-        
           <p>Please only submit your unpublished work.</p>
-        
           <p>Simultaneous submissions are fine, but please let us know ASAP if your work gets accepted somewhere else. Congrats!</p>
-        
           <p>By submitting to Gastropoda, you agree to grant us First World Electronic Rights and Non-Exclusive Archival Rights, so that we can continue to keep your work on our site. All other rights remain yours. If your work is published elsewhere in the future, please consider giving a shout out to Gastropoda as its first home.</p>
-        
           <p>We cannot offer payment at this time, but we can offer goodwill and love everlasting.</p>
-        
           <p>Please use our form to submit. We would be honored to read your work.</p>
           <img src="images/gastropoda-logo-trq.png"></div>
         <div class="right">
