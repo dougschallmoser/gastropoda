@@ -178,7 +178,7 @@ class Entries {
       div.className = "entry-grid"
       this.mainContent.append(div)
       this.entries.map(entry => {
-        div.append(entry.renderItem())
+        div.prepend(entry.renderItem())
       })
   }
 
