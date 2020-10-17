@@ -227,7 +227,7 @@ label {
   margin: auto;
   cursor: pointer;
   opacity: 0.5;
-  filter: brightness(75%);
+  filter: brightness(75%) grayscale(75%);
   transition: opacity 2s, filter 2s;
 }
 
@@ -252,7 +252,7 @@ label {
 }
 
 .entry-text p {
-  font-size: 1.3vw;
+  font-size: 1.5vw;
 }
 
 .entry-text p span {
@@ -335,6 +335,37 @@ label {
   margin: auto;
 }
 
+#comment-form input[type=text] {
+  font-family: 'Caslon', serif;
+  font-size: 0.8em;
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid #6E6E6E;
+  border-radius: 0;
+}
+
+.comment-form-name {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding-right: 3%;
+}
+
+.comment-form-email {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+
+.comment-form-content {
+  padding-top: 10%;
+}
+
+.comment-form-submit {
+  padding-top: 2%;
+  float: right;
+}
+
 /* ERROR FOR FORM (MODAL BOX) */
 .modal {
   display: none;
@@ -399,4 +430,17 @@ label {
     width: 100%;
     margin-top: 0;
   }
+}
+
+::placeholder {
+  color:#b8b8b8;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  color:#b8b8b8;
+}
+
+::-ms-input-placeholder {
+  color:#b8b8b8;
 }
