@@ -8,6 +8,7 @@ class Entry {
     this.likes = entry.likes
     this.image = entry.image
     this.created_at = entry.created_at
+    this.comments = entry.comments
   }
 
   renderItem() {
@@ -37,6 +38,7 @@ class Entry {
   }
 
   loadEntry(event) {
+    let self = this
     if (document.querySelector('.display-entry')) {
     document.querySelector('.display-entry').remove()
   } else {
@@ -93,13 +95,47 @@ class Entry {
         } else {
         const comments = document.createElement('div')
         comments.id = "display-comments"
-        comments.innerText = "Hello"
         commentsDiv.append(comments)
+        self.displayComments()
+        // comments.innerText = "Hello"
+        // commentsDiv.append(comments)
         }
       }
 
     })
     }
+  }
+
+  displayComments() {
+    const comments = document.getElementById('display-comments')
+    const showComments = document.createElement('div')
+    showComments.id = "show-comments"
+
+    if (this.comments.length === 0) {
+      showComments.innerHTML = "There are currently no comments."
+    } else {
+      this.comments.forEach(comment => showComments.innerHTML += comment)
+    }
+
+    comments.append(showComments)
+
+    const div =
+      `<form id="comment-form">
+        <div class="comment-form-name">
+          <input type="text" id="name" name="name" placeholder="Your Name">
+        </div>
+        <div class="comment-form-email">
+          <input type="text" id="email" name="email" placeholder="Your Email (required)">
+        </div>
+        <div class="comment-form-content">
+          <input type="text" id="comment-content" name="content" placeholder="Add a public comment...">
+        </div>
+        <div class="comment-form-submit">
+          <input type="submit" value="Comment">
+        </div>
+      </form>`
+
+    comments.innerHTML = div
   }
   
 }
