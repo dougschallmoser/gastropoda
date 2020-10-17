@@ -12,19 +12,22 @@ class Entry {
 
   renderItem() {
     const cardDiv = document.createElement('div')
+    const cardContainerDiv = document.createElement('div')
     const textDiv = document.createElement('div')
     const img = document.createElement('img')
     const h3 = document.createElement('h3')
     const p = document.createElement('p')
 
     cardDiv.className = "entry-card"
+    cardContainerDiv.className = "entry-card-container"
     textDiv.className = "entry-text"
     cardDiv.id = this.id 
     img.src = this.image 
     h3.innerHTML = this.title 
     p.innerHTML = `<strong>${this.author_name}</strong> <span id="date">${this.created_at}</span>`
 
-    cardDiv.append(img)
+    cardContainerDiv.append(img)
+    cardDiv.append(cardContainerDiv)
     cardDiv.append(textDiv)
     textDiv.append(h3)
     textDiv.append(p)
