@@ -91,13 +91,13 @@ class Entries {
 
   createEntry(event) {
     event.preventDefault()
-    let self = this
-    let titleValue = document.getElementById('title').value
-    let nameValue = document.getElementById('author_name').value
-    let bioValue = document.getElementById('author_bio').value
-    let contentValue = document.getElementById('content').value
-    let imageValue = document.getElementById('image').value
-    let formValues = {
+    const self = this
+    const titleValue = document.getElementById('title').value
+    const nameValue = document.getElementById('author_name').value
+    const bioValue = document.getElementById('author_bio').value
+    const contentValue = document.getElementById('content').value
+    const imageValue = document.getElementById('image').value
+    const formValues = {
       title: titleValue,
       author_name: nameValue,
       author_bio: bioValue,
@@ -176,9 +176,7 @@ class Entries {
     }
       const div = document.createElement('div')
       div.className = "entry-grid"
-      // this.mainContent.innerHTML = ''
       this.mainContent.append(div)
-  
       this.entries.map(entry => {
         div.append(entry.renderItem())
       })
