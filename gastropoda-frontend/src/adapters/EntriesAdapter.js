@@ -26,4 +26,22 @@ class EntriesAdapter {
     })
     .then(response => response.json())
   }
+
+  updateEntryLikes(id, numOfLikes) {
+    const updateLike = {
+      entry: {
+        likes: numOfLikes
+      }
+    }
+
+    return fetch(`${this.baseUrl}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(updateLike)
+    })
+    .then(response => response.json())
+  }
 }
