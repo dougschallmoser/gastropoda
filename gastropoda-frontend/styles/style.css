@@ -226,7 +226,7 @@ label {
   color: white;
   margin: auto;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
   filter: brightness(75%) grayscale(75%);
   transition: opacity 2s, filter 2s;
 }
@@ -249,10 +249,13 @@ label {
   font-size: 2.5vw;
   line-height: 1em;
   padding-bottom: 0.5em;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .entry-text p {
   font-size: 1.5vw;
+  color: #7bc7a6;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .entry-text p span {
@@ -287,20 +290,41 @@ label {
   font-family: 'Montserrat', sans-serif;
 }
 
-#display-entry h4 {
-  padding: 0 5% 0 5%;
-  font-size: 1.5em;
+#display-entry #header {
+  font-size: 2em;
   color: #7bc7a6;
   padding: 3%;
 }
 
-
-#display-entry h4 span {
-  color: #6e6e6e;
+#date {
   padding-left: 5%;
+  padding-right: 5%;
+  color: #6e6e6e;
 }
 
-#display-entry p {
+#display-likes {
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+#display-likes img {
+  vertical-align: middle;
+  width: 65px;
+  height: auto;
+  padding-top: 1.3%;
+}
+
+#like-icon img {
+  cursor: pointer;
+}
+
+#like-count {
+  padding-left: 0.5%;
+  font-size: 0.8em;
+  color: #D1D1D1;
+}
+
+#display-entry-content {
   padding: 1% 5% 0 5%;
   line-height: 2em;
   font-size: 1.4em;
@@ -314,6 +338,7 @@ label {
   padding-top: 3%;
   padding-bottom: 2%;
   font-size: 2.5vw;
+  line-height: 2.5vw;
   text-align: center;
   cursor: pointer;
   color: #6E6E6E;
@@ -333,7 +358,7 @@ label {
 #author-bio, #make-comment {
   text-align: justify;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.5vw;
+  font-size: 2.2vw;
   color: #6E6E6E;
   width: 80%;
   margin: auto;
