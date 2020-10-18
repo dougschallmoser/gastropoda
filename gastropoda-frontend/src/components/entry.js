@@ -24,7 +24,7 @@ class Entry {
     cardDiv.id = this.id 
     img.src = this.image 
     h3.innerHTML = this.title 
-    p.innerHTML = `<strong>${this.author_name}</strong> <span id="date">${this.created_at}</span>`
+    p.innerHTML = `<strong>${this.author_name}</strong> <span id="card-date">${this.created_at}</span>`
     cardContainerDiv.append(img)
     cardDiv.append(cardContainerDiv)
     cardDiv.append(textDiv)
@@ -48,10 +48,18 @@ class Entry {
       div.innerHTML = `
         <img src="${entry.image}">
         <h2>${entry.title.toUpperCase()}</h2>
-        <h4>${entry.author_name} <span id="date">${entry.created_at}</span></h4>
-        <p>${entry.content}</p>`
+        <div id="header">
+          ${entry.author_name}
+          <span id="date">${entry.created_at}</span>
+          <span id="display-likes">
+            <span id="like-icon"><img src="images/logo-icon-empty.png"></span>
+            <span id="like-count">${entry.likes}</span>
+          </span>
+        </div>
+        <div id="display-entry-content">${entry.content}</div>`
       container.append(div)
       document.querySelector('#main-content').append(container)
+      document.getElementById('like-icon').addEventListener('click', this.handleLike.bind(this))
 
       // ABOUT THE CONTRIBUTOR 
       const contributorDiv = document.createElement('div')
@@ -187,6 +195,28 @@ class Entry {
       })()
 
     })
+    }
+  }
+
+  handleLike(event) {
+    if (document.getElementById('full-like')) {
+      this.likes--
+      new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
+        this.likes = response.likes
+        document.getElementById('like-count').style.color = "#D1D1D1"
+        document.getElementById('like-count').innerHTML = this.likes
+        document.getElementById('like-icon').innerHTML = 
+          `<img src="images/logo-icon-empty.png">`
+      })
+    } else {
+      this.likes++
+      new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
+        this.likes = response.likes
+        document.getElementById('like-count').style.color = "#6E6E6E"
+        document.getElementById('like-count').innerHTML = this.likes
+        document.getElementById('like-icon').innerHTML = 
+          `<img src="images/logo-icon-full.png" id="full-like">`
+      })
     }
   }
   
