@@ -18,6 +18,15 @@ class Api::V1::EntriesController < ApplicationController
     end
   end
 
+  def update
+    entry = Entry.find_by(id: params[:id])
+    if entry.update(entry_params)
+      render json: entry, status: 200
+    else
+      render json: {messages: entry.errors.full_messages}
+    end
+  end
+
   def destroy
     entry = Entry.find_by(id: params[:id])
     entry.destroy
