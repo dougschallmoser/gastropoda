@@ -54,6 +54,10 @@ class Entry {
           <span id="display-likes">
             <span id="like-icon"><img src="images/logo-icon-empty.png"></span>
             <span id="like-count">${entry.likes}</span>
+            <span id="comment-icon">
+              <a href="#comments"><img src="images/comment-white-oval-bubble.svg" height="87" width="100"/></a>
+            </a></span>
+            <span id="comment-count">${entry.comments.length}</span>
           </span>
         </div>
         <div id="display-entry-content">${entry.content}</div>`
@@ -164,6 +168,7 @@ class Entry {
               } else {
                 self.comments.push(comment)
                 renderComment(comment)
+                document.getElementById('comment-count').innerHTML++
                 document.getElementById('name').value = ''
                 document.getElementById('email').value = ''
                 document.getElementById('comment-content').value = ''
@@ -203,7 +208,7 @@ class Entry {
       this.likes--
       new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
         this.likes = response.likes
-        document.getElementById('like-count').style.color = "#D1D1D1"
+        document.getElementById('like-count').style.color = "#6E6E6E"
         document.getElementById('like-count').innerHTML = this.likes
         document.getElementById('like-icon').innerHTML = 
           `<img src="images/logo-icon-empty.png">`
@@ -212,7 +217,7 @@ class Entry {
       this.likes++
       new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
         this.likes = response.likes
-        document.getElementById('like-count').style.color = "#6E6E6E"
+        document.getElementById('like-count').style.color = "#7bc7a6"
         document.getElementById('like-count').innerHTML = this.likes
         document.getElementById('like-icon').innerHTML = 
           `<img src="images/logo-icon-full.png" id="full-like">`
