@@ -21,6 +21,7 @@ section:nth-child(3) {
 }
 
 #logo-title {
+  cursor: pointer;
   text-align: center;
   font-size: 4vw;
   color: #7bc7a6;
@@ -28,11 +29,6 @@ section:nth-child(3) {
   font-weight: 700;
   padding-top: 1%;
   letter-spacing: 1.25em;
-}
-
-#logo-title a {
-  text-decoration: none;
-  color: #7bc7a6;
   margin-right: -1.25em;
 }
 
@@ -528,7 +524,6 @@ hr {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  /* object-fit: cover; */
 }
 
 .slideshow img {
@@ -545,14 +540,14 @@ hr {
 }
 
 .slideshow-left, .slideshow-right {
-  font-size: 6em;
+  font-size: 7em;
   background: none;
   border: none;
   text-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
   color: white;
   opacity: 0.6;
   position: absolute;
-  top: 40%;
+  top: 42%;
 }
 
 .slideshow-left:hover, .slideshow-right:hover {
@@ -562,12 +557,12 @@ hr {
 
 .slideshow-left {
   left: 0;
-  margin-left: 13%;
+  margin-left: 14%;
 }
 
 .slideshow-right {
   right: 0;
-  margin-right: 13%;
+  margin-right: 14%;
 }
 
 .slideshow p {
@@ -595,11 +590,12 @@ hr {
 #slideshow-date {
   font-size: 4em;
   padding-left: 3%;
-  color: #e3e3e3;
+  color: #eeeeee;
   opacity: 0.6;
 }
 
 .slides {
+  cursor: pointer;
   display: none;
 }
 
