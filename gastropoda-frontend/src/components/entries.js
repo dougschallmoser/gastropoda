@@ -4,7 +4,7 @@ class Entries {
     this.adapter = new EntriesAdapter()
     this.setBindings()
     this.setEventListeners()
-    this.loadRecentEntries()
+    this.loadEntries()
   }
 
   setBindings() {
@@ -13,8 +13,8 @@ class Entries {
   }
 
   setEventListeners() {
-    document.getElementById('logo-title').addEventListener('click', this.loadRecentEntries.bind(this))
-    this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.loadEntries.bind(this))
+    document.getElementById('logo-title').addEventListener('click', this.loadEntries.bind(this))
+    this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.renderAll.bind(this))
     this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm.bind(this))
   }
 
@@ -140,13 +140,11 @@ class Entries {
         })
       } else {
         p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
-
         contentDiv.append(p)
         contentDiv.append(p2)
         div.append(contentDiv)
         div.style.display = "block"
         document.querySelector('#main-content').append(div)
-        
         span.addEventListener('click', function() {
           div.remove()
         })
@@ -155,14 +153,13 @@ class Entries {
             div.remove()
           }
         })
-
         this.entries.push(new Entry(entry))
-        self.render()
+        self.renderAll()
       }
     })
   }
 
-  loadRecentEntries() {
+  loadEntries() {
     if (this.entries.length === 0) {
       this.adapter.getEntries().then(entries => {
         entries.forEach(entry => this.entries.push(new Entry(entry)))
@@ -172,17 +169,7 @@ class Entries {
     }
   }
 
-  loadEntries() {
-    if (this.entries.length === 0) {
-      this.adapter.getEntries().then(entries => {
-        entries.forEach(entry => this.entries.push(new Entry(entry)))
-      }).then(() => {this.render()})
-    } else {
-      this.render()
-    }
-  }
-
-  render() {
+  renderAll() {
     while (this.mainContent.firstChild) {
       this.mainContent.removeChild(this.mainContent.firstChild);
     }
