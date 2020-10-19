@@ -1,6 +1,6 @@
 class Api::V1::EntriesController < ApplicationController
   def index
-    entries = Entry.all 
+    entries = Entry.all.by_id
     render json: entries, status: 200
   end
 
