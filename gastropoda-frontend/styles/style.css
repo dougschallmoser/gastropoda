@@ -69,13 +69,19 @@ nav a:hover {
   width: 75%;
   text-align: justify;
   font-family: 'Caslon', serif;
-  font-size: 2.5vw;
+  font-size: 5vh;
   line-height: 1.5;
   color: white;
 }
 
 #about p {
   padding: 2% 0;
+}
+
+#gastropoda {
+  color: #7bc7a6;
+  font-family: 'Quattrocento', serif;
+  letter-spacing: 0.5em;
 }
 
 .form-container {
