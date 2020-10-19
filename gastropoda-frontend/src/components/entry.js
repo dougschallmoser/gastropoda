@@ -47,6 +47,7 @@ class Entry {
         <span id="slideshow-date">${this.created_at}</span>`
     div.append(img)
     div.append(p)
+    img.addEventListener('click', this.loadEntry.bind(this))
     return div
   }
 
