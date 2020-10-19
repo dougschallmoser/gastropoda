@@ -18,7 +18,7 @@
 .entry-card img {
   object-fit: cover;
   width: 100%;
-  height: 24vh;
+  height: 16vw;
 }
 
 .entry-card-container {
@@ -55,7 +55,7 @@
 }
 
 .entry-text p {
-  font-size: 0.75em;
+  font-size: 0.7em;
   color: #7bc7a6;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
@@ -65,16 +65,15 @@
   font-size: 0.8em;
 }
 
-#entry-container {
-  width: 90%;
-  margin: auto;
-  display: flex;
-}
-
 @media screen and (max-width: 600px) {
   .entry-grid {
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     margin-top: 0;
+  }
+
+  .entry-card img {
+    width: 100%;
+    height: 30vw;
   }
 }

@@ -1,3 +1,9 @@
+#entry-container {
+  width: 75%;
+  margin: auto;
+  display: flex;
+}
+
 #display-entry {
   padding-bottom: 3%;
   margin: 0 auto;
@@ -15,12 +21,12 @@
 
 #display-entry h2 {
   padding: 0 5% 0 5%;
-  font-size: 4em;
+  font-size: 6vh;
   font-family: 'Montserrat', sans-serif;
 }
 
 #display-entry #header {
-  font-size: 2em;
+  font-size: 3vh;
   color: #7bc7a6;
   padding: 3%;
 }
@@ -64,7 +70,7 @@
 }
 
 #display-entry-content {
-  padding: 1% 5% 0 5%;
+  padding: 1% 20% 0 20%;
   line-height: 2em;
   font-size: 1.4em;
   text-align: justify;
@@ -169,4 +175,22 @@ hr {
 
 .show-comment #comment-content {
   padding-top: 1%;
+}
+
+@media screen and (max-width: 700px) {
+  #entry-container {
+    width: 95%;
+  }
+
+  #display-entry-content {
+    padding: 1% 5% 0 5%;
+    line-height: 2em;
+    font-size: 1.4em;
+    text-align: justify;
+    white-space: pre-line;
+  }
+
+  hr {
+    width: 100%;
+  }
 }

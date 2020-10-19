@@ -83,3 +83,10 @@
 .no-display {
   display: none;
 }
+
+@media screen and (max-width: 700px) {
+  .slideshow p {
+    font-size: 0.85em;
+    top: 350px;
+  }
+}
