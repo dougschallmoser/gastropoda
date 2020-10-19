@@ -86,7 +86,7 @@ nav a:hover {
 
 .form-container {
   width: 95%;
-  font-size: 1.1vw;
+  font-size: 1.5vh;
   margin: auto;
   display: flex;
 }
@@ -104,13 +104,13 @@ nav a:hover {
 
 .left p {
   padding-bottom: 3%;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .left img {
   padding-top: 5%;
   padding-left: 8%;
-  width: 70%;
+  width: 24vw;
   position: absolute;
   bottom: 0;
 }
@@ -140,7 +140,7 @@ nav a:hover {
 }
 
 #content {
-  height: 125px;
+  height: 100px;
 }
 
 input[type=text], textarea {
