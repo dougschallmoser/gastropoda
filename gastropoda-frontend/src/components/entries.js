@@ -170,16 +170,71 @@ class Entries {
     }
   }
 
+  // render() {
+  //   while (this.mainContent.firstChild) {
+  //     this.mainContent.removeChild(this.mainContent.firstChild);
+  //   }
+  //   const div = document.createElement('div')
+  //   div.className = "entry-grid"
+  //   this.mainContent.append(div)
+  //   this.entries.map(entry => {
+  //     div.prepend(entry.renderItem())
+  //   })
+  // }
+
   render() {
     while (this.mainContent.firstChild) {
       this.mainContent.removeChild(this.mainContent.firstChild);
     }
-      const div = document.createElement('div')
-      div.className = "entry-grid"
-      this.mainContent.append(div)
-      this.entries.map(entry => {
-        div.prepend(entry.renderItem())
-      })
+    const div = document.createElement('div')
+    const buttonLeft = document.createElement('button')
+    const buttonRight = document.createElement('button')
+    div.className = "slideshow"
+    buttonLeft.className = "slideshow-left"
+    buttonLeft.innerHTML = "&#10094;"
+    buttonRight.className = "slideshow-right"
+    buttonRight.innerHTML = "&#10095;"
+    this.entries.splice(this.entries.length - 3).map(entry => {
+      div.prepend(entry.renderRecentItem())
+    })
+    this.mainContent.append(div)
+    div.append(buttonLeft)
+    div.append(buttonRight)
+    this.slideIndex = 1
+    document.getElementsByClassName("slides")[0].style.display = "block"
+    document.getElementsByClassName("slides")[0].nextSibling.style.display = "block"
+    buttonLeft.addEventListener('click', this.backSlide.bind(this))
+    buttonRight.addEventListener('click', this.forwardSlide.bind(this))
+  }
+
+  backSlide() {
+    const self = this
+    this.slideIndex += 1
+    const num = this.slideIndex
+    const array = document.getElementsByClassName("slides");
+    if (num > array.length) {self.slideIndex = 1}
+    if (num < 1) {self.slideIndex = array.length} ;
+    for (let i = 0; i < array.length; i++) {
+      array[i].style.display = "none";
+      array[i].nextSibling.style.display = "none"
+    }
+    array[self.slideIndex-1].style.display = "block";
+    array[self.slideIndex-1].nextSibling.style.display = "block";
+  }
+
+  forwardSlide() {
+    const self = this
+    this.slideIndex -= 1
+    const num = this.slideIndex
+    const array = document.getElementsByClassName("slides");
+    if (num > array.length) {self.slideIndex = 1}
+    if (num < 1) {self.slideIndex = array.length} ;
+    for (let i = 0; i < array.length; i++) {
+      array[i].nextSibling.style.display = "none"
+      array[i].style.display = "none";
+    }
+    array[self.slideIndex-1].style.display = "block";
+    array[self.slideIndex-1].nextSibling.style.display = "block";
   }
 
 }
