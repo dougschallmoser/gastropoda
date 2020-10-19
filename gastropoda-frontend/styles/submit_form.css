@@ -1,0 +1,124 @@
+.form-container {
+  width: 95%;
+  font-size: 1.5vh;
+  margin: auto;
+  display: flex;
+}
+
+.left {
+  position: relative;
+  padding: 3% 3% 0 3%;
+  font-family: 'Caslon', serif;
+  color: white;
+  text-align: justify;
+  background: #424243;
+  line-height: 1.5em;
+  flex: 0.5;
+}
+
+.left p {
+  padding-bottom: 3%;
+  font-size: 1em;
+}
+
+.left img {
+  padding-top: 5%;
+  padding-left: 8%;
+  width: 24vw;
+  position: absolute;
+  bottom: 0;
+}
+
+.right {
+  color: white;
+  padding: 2% 3% 2% 3%;
+  text-align: justify;
+  flex: 1;
+  background: #6e6e6e;
+}
+
+#submit-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+#submit-heading2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+}
+
+#submit-subheading {
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 3%;
+}
+
+#content {
+  height: 100px;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #7bc7a6;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  border-radius: 4px;
+  transition: background-color 1s;
+}
+
+input[type=submit]:hover {
+  background-color: #548a72;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-family: 'Caslon', serif;
+  font-size: 1em;
+}
+
+.col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+.col-85 {
+  float: left;
+  width: 85%;
+  margin-top: 6px;
+}
+
+.submit{
+  padding-top: 5%;
+  text-align: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-15, .col-85, input[type=submit], input[type=text] {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .left {
+    line-height: 1em;
+    font-size: 1.2em;
+  }
+}
