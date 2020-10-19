@@ -1,10 +1,10 @@
 .entry-grid {
   font-family: 'Caslon', serif;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  width: 100%;
+  width: 85%;
   padding-left: 0.6%;
   padding-right: 0.6%;
 }
@@ -43,18 +43,19 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  font-size: 3vh;
   transform: translate(-50%, -50%);
 }
 
 .entry-text h3 {
-  font-size: 3.8vh;
+  font-size: 1em;
   line-height: 1em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.2em;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .entry-text p {
-  font-size: 2.8vh;
+  font-size: 0.75em;
   color: #7bc7a6;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
