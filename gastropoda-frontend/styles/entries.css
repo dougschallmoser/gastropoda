@@ -47,14 +47,14 @@
 }
 
 .entry-text h3 {
-  font-size: 2.5vw;
+  font-size: 3.8vh;
   line-height: 1em;
   padding-bottom: 0.5em;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .entry-text p {
-  font-size: 1.5vw;
+  font-size: 2.8vh;
   color: #7bc7a6;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
@@ -68,4 +68,12 @@
   width: 90%;
   margin: auto;
   display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .entry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin-top: 0;
+  }
 }

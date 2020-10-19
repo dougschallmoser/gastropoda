@@ -76,8 +76,8 @@
   margin: auto;
   padding-top: 3%;
   padding-bottom: 2%;
-  font-size: 2.5vw;
-  line-height: 2.5vw;
+  font-size: 3vh;
+  line-height: 3vh;
   text-align: center;
   cursor: pointer;
   color: #6E6E6E;
@@ -97,7 +97,7 @@
 #author-bio, #make-comment {
   text-align: justify;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.2vw;
+  font-size: 3vh;
   color: #6E6E6E;
   width: 80%;
   margin: auto;
@@ -152,9 +152,9 @@ hr {
 
 .show-comment {
   text-align: justify;
-  padding: 2% 0 2% 0;
+  padding: 2% 0 1% 0;
   color: #6E6E6E;
-  font-size: 1.5em;
+  font-size: 2.4vh;
 }
 
 .show-comment #comment-name {
@@ -168,5 +168,5 @@ hr {
 }
 
 .show-comment #comment-content {
-  padding-top: 2%;
+  padding-top: 1%;
 }
