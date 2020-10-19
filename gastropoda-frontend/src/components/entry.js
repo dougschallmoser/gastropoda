@@ -82,7 +82,7 @@ class Entry {
       document.querySelector('#main-content').append(container)
       document.getElementById('like-icon').addEventListener('click', this.handleLike.bind(this))
 
-      // ABOUT THE CONTRIBUTOR 
+      // CONTRIBUTOR 
       const contributorDiv = document.createElement('div')
       const contributorHeading = document.createElement('div')
       const hr = document.createElement('hr')
@@ -140,16 +140,12 @@ class Entry {
               </div>
             </form>`
           const form = document.getElementById('comment-form')
-          form.addEventListener('submit', createComment)
-          function createComment(event) {
+          form.addEventListener('submit', function(event) {
             event.preventDefault()
-            const nameValue = document.getElementById('name').value 
-            const emailValue = document.getElementById('email').value
-            const contentValue = document.getElementById('comment-content').value
             const formValues = {
-              name: nameValue,
-              email: emailValue,
-              content: contentValue,
+              name: document.getElementById('name').value,
+              email: document.getElementById('email').value,
+              content: document.getElementById('comment-content').value,
               entry_id: self.id
             }
             new CommentsAdapter().createComment(formValues).then(comment => {
@@ -191,8 +187,7 @@ class Entry {
                 document.getElementById('comment-content').value = ''
               }
             })
-          }
-
+          })
         }
       }
 
@@ -202,7 +197,6 @@ class Entry {
         showCommentDiv.innerHTML = 
           `<span id="comment-name">${comment.name}</span> <span id="comment-created">${comment.created_at}</span>
            <div id="comment-content">${comment.content}</div`
-           
         if (document.getElementById('make-comment')) {
           const makeComment = document.getElementById('make-comment')
           makeComment.parentNode.insertBefore(showCommentDiv, makeComment.nextSibling);
@@ -241,5 +235,4 @@ class Entry {
       })
     }
   }
-  
 }
