@@ -1,6 +1,6 @@
-# gastropoda
+# Gastropoda
 
-blank
+Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life.
 
 
 ## Installation
@@ -13,7 +13,7 @@ To run this application in your local environment, please follow these steps:
 3. Run 'rails db:migrate'
 4. Run 'rails db:seed'
 3. Run 'rails s'
-4. In your browser, goto http://localhost:3000/
+4. Open the 'index.html' file in your browser
 ```
 
 
@@ -37,4 +37,4 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ## Acknowledgments
 
-blank
+I would like to acknowledge my wife for inspiring the idea for this application.
