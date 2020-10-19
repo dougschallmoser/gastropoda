@@ -4,6 +4,7 @@ class Entries {
     this.adapter = new EntriesAdapter()
     this.setBindings()
     this.setEventListeners()
+    this.loadRecentEntries()
   }
 
   setBindings() {
@@ -12,6 +13,7 @@ class Entries {
   }
 
   setEventListeners() {
+    document.getElementById('logo-title').addEventListener('click', this.loadRecentEntries.bind(this))
     this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.loadEntries.bind(this))
     this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm.bind(this))
   }
@@ -160,6 +162,16 @@ class Entries {
     })
   }
 
+  loadRecentEntries() {
+    if (this.entries.length === 0) {
+      this.adapter.getEntries().then(entries => {
+        entries.forEach(entry => this.entries.push(new Entry(entry)))
+      }).then(() => {this.renderSlideShow()})
+    } else {
+      this.renderSlideShow()
+    }
+  }
+
   loadEntries() {
     if (this.entries.length === 0) {
       this.adapter.getEntries().then(entries => {
@@ -170,19 +182,19 @@ class Entries {
     }
   }
 
-  // render() {
-  //   while (this.mainContent.firstChild) {
-  //     this.mainContent.removeChild(this.mainContent.firstChild);
-  //   }
-  //   const div = document.createElement('div')
-  //   div.className = "entry-grid"
-  //   this.mainContent.append(div)
-  //   this.entries.map(entry => {
-  //     div.prepend(entry.renderItem())
-  //   })
-  // }
-
   render() {
+    while (this.mainContent.firstChild) {
+      this.mainContent.removeChild(this.mainContent.firstChild);
+    }
+    const div = document.createElement('div')
+    div.className = "entry-grid"
+    this.mainContent.append(div)
+    this.entries.map(entry => {
+      div.prepend(entry.renderItem())
+    })
+  }
+
+  renderSlideShow() {
     while (this.mainContent.firstChild) {
       this.mainContent.removeChild(this.mainContent.firstChild);
     }
@@ -194,7 +206,7 @@ class Entries {
     buttonLeft.innerHTML = "&#10094;"
     buttonRight.className = "slideshow-right"
     buttonRight.innerHTML = "&#10095;"
-    this.entries.splice(this.entries.length - 3).map(entry => {
+    this.entries.slice(this.entries.length - 3).map(entry => {
       div.prepend(entry.renderRecentItem())
     })
     this.mainContent.append(div)
@@ -209,7 +221,7 @@ class Entries {
 
   backSlide() {
     const self = this
-    this.slideIndex += 1
+    this.slideIndex -= 1
     const num = this.slideIndex
     const array = document.getElementsByClassName("slides");
     if (num > array.length) {self.slideIndex = 1}
@@ -224,7 +236,7 @@ class Entries {
 
   forwardSlide() {
     const self = this
-    this.slideIndex -= 1
+    this.slideIndex += 1
     const num = this.slideIndex
     const array = document.getElementsByClassName("slides");
     if (num > array.length) {self.slideIndex = 1}
