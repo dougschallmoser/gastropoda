@@ -29,14 +29,12 @@
   color: white;
   margin: auto;
   cursor: pointer;
-  opacity: 0.6;
-  filter: brightness(75%) grayscale(75%);
-  transition: opacity 2s, filter 2s;
+  opacity: 0.3;
+  transition: opacity 2s;
 }
 
 .entry-card-container:hover {
   opacity: 1;
-  filter: none;
 }
 
 .entry-text {
