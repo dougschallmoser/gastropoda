@@ -34,6 +34,22 @@ class Entry {
     return cardDiv
   }
 
+  renderRecentItem() {
+    const div = document.createElement('div')
+    const img = document.createElement('img')
+    const p = document.createElement('p')
+    img.src = this.image
+    img.className = "slides"
+    p.className = "no-display"
+    p.innerHTML = 
+      `<span id="slideshow-title">${this.title}</span><br>
+        <span id="slideshow-author">${this.author_name}</span>
+        <span id="slideshow-date">${this.created_at}</span>`
+    div.append(img)
+    div.append(p)
+    return div
+  }
+
   loadEntry(event) {
     let self = this
     if (document.querySelector('.display-entry')) {
