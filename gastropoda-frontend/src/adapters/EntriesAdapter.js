@@ -7,10 +7,6 @@ class EntriesAdapter {
     return fetch(this.baseUrl).then(response => response.json())
   }
 
-  getEntry(id) {
-    return fetch(`${this.baseUrl}/${id}`).then(response => response.json())
-  }
-
   createEntry(formValues) {
     const newEntry = {
       entry: formValues
