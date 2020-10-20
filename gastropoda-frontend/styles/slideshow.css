@@ -30,6 +30,7 @@
   opacity: 0.6;
   position: absolute;
   top: 47%;
+  transition: color 1s, opacity 1s;
 }
 
 .slideshow-left:hover, .slideshow-right:hover {
