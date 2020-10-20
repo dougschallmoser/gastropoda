@@ -81,7 +81,7 @@ class Entry {
         document.querySelector('#main-content').append(container)
         document.getElementById('like-icon').addEventListener('click', this.handleLike.bind(this))
 
-        // CONTRIBUTOR 
+        
         const contributorDiv = document.createElement('div')
         const contributorHeading = document.createElement('div')
         const hr = document.createElement('hr')
@@ -135,6 +135,7 @@ class Entry {
     commentsDiv.append(commentsHeading)
     div.append(commentsDiv)
     commentsHeading.addEventListener('click', displayCommentForm.bind(this))
+    
     function displayCommentForm() {
       commentsHeading.innerHTML = '<span id="maincolor">-</span> LEAVE A COMMENT'
       if (document.getElementById('make-comment')) {
