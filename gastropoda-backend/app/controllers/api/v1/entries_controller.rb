@@ -23,7 +23,7 @@ class Api::V1::EntriesController < ApplicationController
     if entry.update(entry_params)
       render json: entry, status: 200
     else
-      render json: {messages: entry.errors.full_messages}
+      render json: {message: entry.errors.full_messages}
     end
   end
 
