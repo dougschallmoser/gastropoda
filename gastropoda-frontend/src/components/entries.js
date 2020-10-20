@@ -129,12 +129,12 @@ class Entries {
       image: imageValue
     }
     this.adapter.createEntry(formValues).then(entry => {
-      this.renderModal(entry)
+      this.renderEntry(entry)
     })
-    .catch(error => {this.renderModal(error)})
+    .catch(error => {this.renderEntry(error)})
   }
 
-  renderModal(entry) {
+  renderEntry(entry) {
     const div = document.createElement('div')
     const contentDiv = document.createElement('div')
     const span = document.createElement('span')
