@@ -51,62 +51,57 @@ class Entry {
     return div
   }
 
-  loadEntry(event) {
+  loadEntry() {
     if (document.querySelector('.display-entry')) {
       document.querySelector('.display-entry').remove()
     } else {
-      new EntriesAdapter().getEntry(this.id).then(entry => {
-        document.querySelector('#main-content').innerHTML = ''
-        const container = document.createElement('div')
-        const div = document.createElement('div')
-        container.id = "entry-container"
-        div.id = "display-entry"
-        div.innerHTML = `
-          <img src="${entry.image}">
-          <h2>${entry.title.toUpperCase()}</h2>
-          <div id="header">
-            ${entry.author_name}
-            <span id="date">${entry.created_at}</span>
-            <span id="display-likes">
-              <span id="like-icon"><img src="images/logo-icon-empty.png"></span>
-              <span id="like-count">${entry.likes}</span>
-              <span id="comment-icon">
-                <a href="#comments"><img src="images/comment-white-oval-bubble.svg" height="87" width="100"/></a>
-              </a></span>
-              <span id="comment-count">${entry.comments.length}</span>
-            </span>
-          </div>
-          <div id="display-entry-content">${entry.content}</div>`
-        container.append(div)
-        document.querySelector('#main-content').append(container)
-        document.getElementById('like-icon').addEventListener('click', this.handleLike.bind(this))
-
-        
-        const contributorDiv = document.createElement('div')
-        const contributorHeading = document.createElement('div')
-        const hr = document.createElement('hr')
-        contributorDiv.id = "contributor"
-        contributorHeading.id = "contributor-heading"
-        contributorHeading.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
-        contributorDiv.append(contributorHeading)
-        div.append(contributorDiv)
-        contributorDiv.append(hr)
-        contributorHeading.addEventListener('click', displayAuthorBio)
-        function displayAuthorBio() {
-          contributorHeading.innerHTML = '<span id="maincolor">-</span> ABOUT THE CONTRIBUTOR'
-          if (document.getElementById('author-bio')) {
-            document.getElementById('author-bio').remove()
-            contributorHeading.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
-          } else {
-            const bio = document.createElement('div')
-            bio.id = "author-bio"
-            bio.innerText = entry.author_bio
-            contributorDiv.insertBefore(bio, contributorDiv.childNodes[1])
-          }
+      document.querySelector('#main-content').innerHTML = ''
+      const container = document.createElement('div')
+      const div = document.createElement('div')
+      container.id = "entry-container"
+      div.id = "display-entry"
+      div.innerHTML = `
+        <img src="${this.image}">
+        <h2>${this.title.toUpperCase()}</h2>
+        <div id="header">
+          ${this.author_name}
+          <span id="date">${this.created_at}</span>
+          <span id="display-likes">
+            <span id="like-icon"><img src="images/logo-icon-empty.png"></span>
+            <span id="like-count">${this.likes}</span>
+            <span id="comment-icon">
+              <a href="#comments"><img src="images/comment-white-oval-bubble.svg" height="87" width="100"/></a>
+            </a></span>
+            <span id="comment-count">${this.comments.length}</span>
+          </span>
+        </div>
+        <div id="display-entry-content">${this.content}</div>`
+      container.append(div)
+      document.querySelector('#main-content').append(container)
+      document.getElementById('like-icon').addEventListener('click', this.handleLike.bind(this))
+      const contributorDiv = document.createElement('div')
+      const contributorHeading = document.createElement('div')
+      const hr = document.createElement('hr')
+      contributorDiv.id = "contributor"
+      contributorHeading.id = "contributor-heading"
+      contributorHeading.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
+      contributorDiv.append(contributorHeading)
+      div.append(contributorDiv)
+      contributorDiv.append(hr)
+      contributorHeading.addEventListener('click', () => {
+        contributorHeading.innerHTML = '<span id="maincolor">-</span> ABOUT THE CONTRIBUTOR'
+        if (document.getElementById('author-bio')) {
+          document.getElementById('author-bio').remove()
+          contributorHeading.innerHTML = '<span id="maincolor">+</span> ABOUT THE CONTRIBUTOR'
+        } else {
+          const bio = document.createElement('div')
+          bio.id = "author-bio"
+          bio.innerText = this.author_bio
+          contributorDiv.insertBefore(bio, contributorDiv.childNodes[1])
         }
-        this.loadCommentForm()
-        this.comments.forEach(comment => this.renderComment(comment))
       })
+      this.loadCommentForm()
+      this.comments.forEach(comment => this.renderComment(comment))
     }
   }
 
