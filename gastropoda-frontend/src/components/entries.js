@@ -226,38 +226,21 @@ class Entries {
     this.slideIndex = 1
     document.getElementsByClassName("slides")[0].style.display = "block"
     document.getElementsByClassName("slides")[0].nextSibling.style.display = "block"
-    buttonLeft.addEventListener('click', this.backSlide.bind(this))
-    buttonRight.addEventListener('click', this.forwardSlide.bind(this))
+    buttonLeft.addEventListener('click', this.changeSlide.bind(this, -1))
+    buttonRight.addEventListener('click', this.changeSlide.bind(this, 1))
   }
 
-  backSlide() {
-    const self = this
-    this.slideIndex -= 1
-    const num = this.slideIndex
+  changeSlide(n) {
+    this.slideIndex += n
     const array = document.getElementsByClassName("slides");
-    if (num > array.length) {self.slideIndex = 1}
-    if (num < 1) {self.slideIndex = array.length} ;
+    if (this.slideIndex > array.length) {this.slideIndex = 1}
+    if (this.slideIndex < 1) {this.slideIndex = array.length} ;
     for (let i = 0; i < array.length; i++) {
       array[i].style.display = "none";
       array[i].nextSibling.style.display = "none"
     }
-    array[self.slideIndex-1].style.display = "block";
-    array[self.slideIndex-1].nextSibling.style.display = "block";
-  }
-
-  forwardSlide() {
-    const self = this
-    this.slideIndex += 1
-    const num = this.slideIndex
-    const array = document.getElementsByClassName("slides");
-    if (num > array.length) {self.slideIndex = 1}
-    if (num < 1) {self.slideIndex = array.length} ;
-    for (let i = 0; i < array.length; i++) {
-      array[i].nextSibling.style.display = "none"
-      array[i].style.display = "none";
-    }
-    array[self.slideIndex-1].style.display = "block";
-    array[self.slideIndex-1].nextSibling.style.display = "block";
+    array[this.slideIndex-1].style.display = "block";
+    array[this.slideIndex-1].nextSibling.style.display = "block";
   }
 
 }
