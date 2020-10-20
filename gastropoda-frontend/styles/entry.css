@@ -78,6 +78,8 @@
 }
 
 #contributor-heading, #comments-heading {
+  vertical-align: middle;
+  font-family: 'Montserrat', sans-serif;
   width: 80%;
   margin: auto;
   padding-top: 3%;
@@ -96,13 +98,15 @@
 }
 
 #contributor-heading span, #comments-heading span {
+  vertical-align: middle;
   color: #7bc7a6;
-  font-size: 1.6em;
+  font-size: 1.4em;
+  line-height: 1.4em;
 }
 
 #author-bio, #make-comment {
   text-align: justify;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Caslon', serif;
   font-size: 3vh;
   color: #6E6E6E;
   width: 80%;
