@@ -43,8 +43,8 @@ class Entry {
     p.className = "no-display"
     p.innerHTML = 
       `<span id="slideshow-title">${this.title}</span><br>
-        <span id="slideshow-author">${this.author_name}</span>
-        <span id="slideshow-date">${this.created_at}</span>`
+      <span id="slideshow-author">${this.author_name}</span>
+      <span id="slideshow-date">${this.created_at}</span>`
     div.append(img)
     div.append(p)
     img.addEventListener('click', this.loadEntry.bind(this))
@@ -217,7 +217,7 @@ class Entry {
     }
   }
 
-  handleLike(event) {
+  handleLike() {
     const likeCount = document.getElementById('like-count')
     const likeIcon = document.getElementById('like-icon')
     if (document.getElementById('full-like')) {
