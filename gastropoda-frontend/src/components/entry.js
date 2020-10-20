@@ -199,13 +199,9 @@ class Entry {
       div.append(contentDiv)
       div.style.display = "block"
       document.querySelector('#main-content').append(div)
-      span.addEventListener('click', function() {
-        div.remove()
-      })
+      span.addEventListener('click', () => {div.remove()})
       window.addEventListener('click', function(event) {
-        if (event.target == div) {
-          div.remove()
-        }
+        if (event.target == div) {div.remove()}
       })
     } else {
       this.comments.push(comment)

@@ -20,8 +20,7 @@ class Entries {
   }
 
   adjustNavbar() {
-    let navbar = document.getElementById("nav-bar")
-    let sticky = navbar.offsetTop
+    const sticky = this.navBar.offsetTop
     window.addEventListener('scroll', () => {
       if (window.pageYOffset >= sticky) {
         if (!document.getElementById('gastropoda-nav')) {
@@ -29,14 +28,14 @@ class Entries {
           a.id = "gastropoda-nav"
           a.addEventListener('click', this.loadEntries.bind(this))
           a.textContent = "GASTROPODA"
-          navbar.prepend(a)
+          this.navBar.prepend(a)
         }
-        navbar.classList.add("sticky")
+        this.navBar.classList.add("sticky")
       } else {
         if (document.getElementById('gastropoda-nav')) {
           document.getElementById('gastropoda-nav').remove()
         }
-        navbar.classList.remove("sticky")
+        this.navBar.classList.remove("sticky")
       }
     })
   }
@@ -109,24 +108,18 @@ class Entries {
         </div>
       </div>`
       this.mainContent.innerHTML = div
-      this.entryForm = document.getElementById('entry-form')
-      this.entryForm.addEventListener('submit', this.createEntry.bind(this))
+      document.getElementById('entry-form').addEventListener('submit', this.createEntry.bind(this))
     }
   }
 
   createEntry(event) {
     event.preventDefault()
-    const titleValue = document.getElementById('title').value
-    const nameValue = document.getElementById('author_name').value
-    const bioValue = document.getElementById('author_bio').value
-    const contentValue = document.getElementById('content').value
-    const imageValue = document.getElementById('image').value
     const formValues = {
-      title: titleValue,
-      author_name: nameValue,
-      author_bio: bioValue,
-      content: contentValue,
-      image: imageValue
+      title: document.getElementById('title').value,
+      author_name: document.getElementById('author_name').value,
+      author_bio: document.getElementById('author_bio').value,
+      content: document.getElementById('content').value,
+      image: document.getElementById('image').value
     }
     this.adapter.createEntry(formValues).then(entry => {
       this.renderModal(entry)
@@ -144,8 +137,17 @@ class Entries {
     div.className = "modal"
     contentDiv.className = "modal-content"
     span.className = "close"
-    span.innerHTML = `&times;`
+    span.innerHTML = '&times;'
     contentDiv.append(span)
+    contentDiv.append(p)
+    contentDiv.append(p2)
+    div.append(contentDiv)
+    div.style.display = "block"
+    document.querySelector('#main-content').append(div)
+    span.addEventListener('click', () => {div.remove()})
+    window.addEventListener('click', function(event) {
+      if (event.target == div) {div.remove()}
+    })
     if (entry.message) {
       if (Array.isArray(entry.message)) {
         entry.message.forEach(message => {p2.innerHTML += `<li>${message}</li>`})
@@ -153,19 +155,6 @@ class Entries {
         p2.innerHTML = entry.message
       }
       p.innerHTML = "Your story was <strong>not</strong> submitted because..."
-      contentDiv.append(p)
-      contentDiv.append(p2)
-      div.append(contentDiv)
-      div.style.display = "block"
-      document.querySelector('#main-content').append(div)
-      span.addEventListener('click', function() {
-        div.remove()
-      })
-      window.addEventListener('click', function(event) {
-        if (event.target == div) {
-          div.remove()
-        }
-      })
     } else {
       p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
       contentDiv.append(p)
@@ -173,13 +162,9 @@ class Entries {
       div.append(contentDiv)
       div.style.display = "block"
       document.querySelector('#main-content').append(div)
-      span.addEventListener('click', function() {
-        div.remove()
-      })
+      span.addEventListener('click', () => {div.remove()})
       window.addEventListener('click', function(event) {
-        if (event.target == div) {
-          div.remove()
-        }
+        if (event.target == div) {div.remove()}
       })
       this.entries.push(new Entry(entry))
       this.renderAll()
