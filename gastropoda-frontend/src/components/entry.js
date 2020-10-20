@@ -208,7 +208,7 @@ class Entry {
 
       (function renderComments() {
         self.comments.forEach(comment => renderComment(comment))
-      })()
+      })();
 
     })
     }
@@ -219,7 +219,6 @@ class Entry {
       this.likes--
       new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
         this.likes = response.likes
-        document.getElementById('like-count').style.color = "#6E6E6E"
         document.getElementById('like-count').innerHTML = this.likes
         document.getElementById('like-icon').innerHTML = 
           `<img src="images/logo-icon-empty.png">`
@@ -228,7 +227,6 @@ class Entry {
       this.likes++
       new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
         this.likes = response.likes
-        document.getElementById('like-count').style.color = "#7bc7a6"
         document.getElementById('like-count').innerHTML = this.likes
         document.getElementById('like-icon').innerHTML = 
           `<img src="images/logo-icon-full.png" id="full-like">`
