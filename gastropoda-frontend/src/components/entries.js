@@ -20,15 +20,14 @@ class Entries {
   }
 
   adjustNavbar() {
-    let self = this
     let navbar = document.getElementById("nav-bar")
     let sticky = navbar.offsetTop
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
       if (window.pageYOffset >= sticky) {
         if (!document.getElementById('gastropoda-nav')) {
           const a = document.createElement('a')
           a.id = "gastropoda-nav"
-          a.addEventListener('click', self.loadEntries.bind(self))
+          a.addEventListener('click', this.loadEntries.bind(this))
           a.textContent = "GASTROPODA"
           navbar.prepend(a)
         }
@@ -117,7 +116,6 @@ class Entries {
 
   createEntry(event) {
     event.preventDefault()
-    const self = this
     const titleValue = document.getElementById('title').value
     const nameValue = document.getElementById('author_name').value
     const bioValue = document.getElementById('author_bio').value
@@ -131,56 +129,62 @@ class Entries {
       image: imageValue
     }
     this.adapter.createEntry(formValues).then(entry => {
-      const div = document.createElement('div')
-      const contentDiv = document.createElement('div')
-      const span = document.createElement('span')
-      const p = document.createElement('p')
-      const p2 = document.createElement('p')
-      div.id = "myModal"
-      div.className = "modal"
-      contentDiv.className = "modal-content"
-      span.className = "close"
-      span.innerHTML = `&times;`
-      contentDiv.append(span)
-      if (entry.messages) {
-        entry.messages.forEach(message => {
-          p2.innerHTML += `<li>${message}</li>`
-        })
-        p.innerHTML = "Your story was <strong>not</strong> submitted because..."
-
-        contentDiv.append(p)
-        contentDiv.append(p2)
-        div.append(contentDiv)
-        div.style.display = "block"
-        document.querySelector('#main-content').append(div)
-        
-        span.addEventListener('click', function() {
-          div.remove()
-        })
-        window.addEventListener('click', function(event) {
-          if (event.target == div) {
-            div.remove()
-          }
-        })
-      } else {
-        p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
-        contentDiv.append(p)
-        contentDiv.append(p2)
-        div.append(contentDiv)
-        div.style.display = "block"
-        document.querySelector('#main-content').append(div)
-        span.addEventListener('click', function() {
-          div.remove()
-        })
-        window.addEventListener('click', function(event) {
-          if (event.target == div) {
-            div.remove()
-          }
-        })
-        this.entries.push(new Entry(entry))
-        self.renderAll()
-      }
+      this.renderModal(entry)
     })
+    .catch(error => {this.renderModal(error)})
+  }
+
+  renderModal(entry) {
+    const div = document.createElement('div')
+    const contentDiv = document.createElement('div')
+    const span = document.createElement('span')
+    const p = document.createElement('p')
+    const p2 = document.createElement('p')
+    div.id = "myModal"
+    div.className = "modal"
+    contentDiv.className = "modal-content"
+    span.className = "close"
+    span.innerHTML = `&times;`
+    contentDiv.append(span)
+    if (entry.message) {
+      if (Array.isArray(entry.message)) {
+        entry.message.forEach(message => {p2.innerHTML += `<li>${message}</li>`})
+      } else {
+        p2.innerHTML = entry.message
+      }
+      p.innerHTML = "Your story was <strong>not</strong> submitted because..."
+      contentDiv.append(p)
+      contentDiv.append(p2)
+      div.append(contentDiv)
+      div.style.display = "block"
+      document.querySelector('#main-content').append(div)
+      
+      span.addEventListener('click', function() {
+        div.remove()
+      })
+      window.addEventListener('click', function(event) {
+        if (event.target == div) {
+          div.remove()
+        }
+      })
+    } else {
+      p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
+      contentDiv.append(p)
+      contentDiv.append(p2)
+      div.append(contentDiv)
+      div.style.display = "block"
+      document.querySelector('#main-content').append(div)
+      span.addEventListener('click', function() {
+        div.remove()
+      })
+      window.addEventListener('click', function(event) {
+        if (event.target == div) {
+          div.remove()
+        }
+      })
+      this.entries.push(new Entry(entry))
+      this.renderAll()
+    }
   }
 
   loadEntries() {
