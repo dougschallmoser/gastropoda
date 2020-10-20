@@ -5,6 +5,7 @@ class Entries {
     this.setBindings()
     this.setEventListeners()
     this.loadEntries()
+    this.adjustNavbar()
   }
 
   setBindings() {
@@ -16,6 +17,29 @@ class Entries {
     document.getElementById('logo-title').addEventListener('click', this.loadEntries.bind(this))
     this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.renderAll.bind(this))
     this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm.bind(this))
+  }
+
+  adjustNavbar() {
+    let self = this
+    let navbar = document.getElementById("nav-bar")
+    let sticky = navbar.offsetTop
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset >= sticky) {
+        if (!document.getElementById('gastropoda-nav')) {
+          const a = document.createElement('a')
+          a.id = "gastropoda-nav"
+          a.addEventListener('click', self.loadEntries.bind(self))
+          a.textContent = "GASTROPODA"
+          navbar.prepend(a)
+        }
+        navbar.classList.add("sticky")
+      } else {
+        if (document.getElementById('gastropoda-nav')) {
+          document.getElementById('gastropoda-nav').remove()
+        }
+        navbar.classList.remove("sticky")
+      }
+    })
   }
 
   loadForm() {
