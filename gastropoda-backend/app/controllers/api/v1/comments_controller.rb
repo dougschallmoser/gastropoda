@@ -4,7 +4,7 @@ class Api::V1::CommentsController < ApplicationController
     if comment.save
       render json: comment, status: 200
     else 
-      render json: {messages: comment.errors.full_messages}
+      render json: {message: comment.errors.full_messages}
     end
   end
 
