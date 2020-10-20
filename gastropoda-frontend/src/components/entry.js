@@ -215,21 +215,21 @@ class Entry {
   }
 
   handleLike(event) {
+    const likeCount = document.getElementById('like-count')
+    const likeIcon = document.getElementById('like-icon')
     if (document.getElementById('full-like')) {
       this.likes--
       new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
         this.likes = response.likes
-        document.getElementById('like-count').innerHTML = this.likes
-        document.getElementById('like-icon').innerHTML = 
-          `<img src="images/logo-icon-empty.png">`
+        likeCount.innerHTML = this.likes
+        likeIcon.innerHTML = '<img src="images/logo-icon-empty.png">'
       })
     } else {
       this.likes++
       new EntriesAdapter().updateEntryLikes(this.id, this.likes).then(response => {
         this.likes = response.likes
-        document.getElementById('like-count').innerHTML = this.likes
-        document.getElementById('like-icon').innerHTML = 
-          `<img src="images/logo-icon-full.png" id="full-like">`
+        likeCount.innerHTML = this.likes
+        likeIcon.innerHTML = '<img src="images/logo-icon-full.png" id="full-like">'
       })
     }
   }
