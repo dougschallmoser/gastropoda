@@ -129,12 +129,12 @@ class Entries {
       image: imageValue
     }
     this.adapter.createEntry(formValues).then(entry => {
-      this.renderEntry(entry)
+      this.renderModal(entry)
     })
-    .catch(error => {this.renderEntry(error)})
+    .catch(error => {this.renderModal(error)})
   }
 
-  renderEntry(entry) {
+  renderModal(entry) {
     const div = document.createElement('div')
     const contentDiv = document.createElement('div')
     const span = document.createElement('span')
@@ -158,7 +158,6 @@ class Entries {
       div.append(contentDiv)
       div.style.display = "block"
       document.querySelector('#main-content').append(div)
-      
       span.addEventListener('click', function() {
         div.remove()
       })
