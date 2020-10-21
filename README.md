@@ -1,3 +1,5 @@
+![Gastropoda](https://user-images.githubusercontent.com/65590878/96668415-f9201a80-130f-11eb-9634-e37b517a62ff.png)
+
 # Gastropoda
 
 Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life.
