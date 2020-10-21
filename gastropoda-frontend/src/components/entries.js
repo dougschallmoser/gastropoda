@@ -157,15 +157,6 @@ class Entries {
       p.innerHTML = "Your story was <strong>not</strong> submitted because..."
     } else {
       p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
-      contentDiv.append(p)
-      contentDiv.append(p2)
-      div.append(contentDiv)
-      div.style.display = "block"
-      document.querySelector('#main-content').append(div)
-      span.addEventListener('click', () => {div.remove()})
-      window.addEventListener('click', function(event) {
-        if (event.target == div) {div.remove()}
-      })
       this.entries.push(new Entry(entry))
       this.renderAll()
     }
