@@ -9,11 +9,13 @@ To run this application in your local environment, please follow these steps:
 
 ```
 1. Clone this repository
-2. Run 'bundle install'
-3. Run 'rails db:migrate'
-4. Run 'rails db:seed'
-3. Run 'rails s'
-4. Open the 'index.html' file in your browser
+2. Change directory to backend
+3. Run 'bundle install'
+4. Run 'rails db:create'
+5. Run 'rails db:migrate'
+6. Run 'rails db:seed'
+7. Run 'rails s'
+8. Open the 'index.html' file in your browser
 ```
 
 
