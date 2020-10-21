@@ -2,7 +2,7 @@
 
 # Gastropoda
 
-Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life.
+Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life. This is a single page application with a Rails API and vanilla JS frontend.
 
 
 ## Installation
