@@ -173,7 +173,7 @@ class Entry {
     }
   }
 
-  renderModal(comment) {
+  renderModal(comment, subject = "comment") {
     const div = document.createElement('div')
     const contentDiv = document.createElement('div')
     const span = document.createElement('span')
@@ -193,7 +193,7 @@ class Entry {
       } else {
         p2.innerHTML = comment.message
       }
-      p.innerHTML = "Your comment did <strong>not</strong> save because..."
+      p.innerHTML = `Your ${subject} did <strong>not</strong> save because...`
       contentDiv.append(p)
       contentDiv.append(p2)
       div.append(contentDiv)
@@ -230,6 +230,7 @@ class Entry {
         likeCount.innerHTML = this.likes
         likeIcon.innerHTML = '<img src="images/logo-icon-full.png" id="full-like">'
       })
+      .catch(response => this.renderModal(response, "like"))
     }
   }
 }
