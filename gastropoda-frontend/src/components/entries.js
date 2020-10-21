@@ -14,7 +14,7 @@ class Entries {
   }
 
   setEventListeners() {
-    document.getElementById('logo-title').addEventListener('click', this.loadEntries)
+    document.getElementById('logo-title').addEventListener('click', this.loadEntries.bind(this))
     this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.renderAll.bind(this))
     this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm.bind(this))
   }
