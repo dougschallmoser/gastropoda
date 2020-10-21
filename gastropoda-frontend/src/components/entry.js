@@ -230,7 +230,7 @@ class Entry {
         likeCount.innerHTML = this.likes
         likeIcon.innerHTML = '<img src="images/logo-icon-full.png" id="full-like">'
       })
-      .catch(response => this.renderModal(response, "like"))
+      .catch(error => this.renderModal(error, "like"))
     }
   }
 }
