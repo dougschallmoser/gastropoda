@@ -61,6 +61,14 @@ class Entries {
           </div>
           <form id="entry-form">
             <div class="row">
+              <div id="radio-buttons">
+                <input type="radio" id="fiction" name="fiction" value="true">
+                <label for="fiction" id="fiction">Fiction</label>
+                <input type="radio" id="non-fiction" name="fiction" value="false">
+                <label for="non-fiction" id="non-fiction">Creative Non-Fiction</label>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-15">
                 <label for="title">Title:</label>
               </div>
@@ -77,32 +85,32 @@ class Entries {
               </div>
             </div>
             <div class="row">
-            <div class="col-15">
-              <label for="author_bio">Bio:</label>
+              <div class="col-15">
+                <label for="author_bio">Bio:</label>
+              </div>
+              <div class="col-85">
+                <input type="text" id="author_bio" name="author_bio" placeholder="Author Bio">
+              </div>
             </div>
-            <div class="col-85">
-              <input type="text" id="author_bio" name="author_bio" placeholder="Author Bio">
+            <div class="row">
+              <div class="col-15">
+                <label for="content">Content:</label>
+              </div>
+              <div class="col-85">
+                <textarea id="content" name="content" placeholder="Paste story here..."></textarea>
+              </div>
+              </div>
+            <div class="row">
+              <div class="col-15">
+                <label for="image">Image:</label>
+              </div>
+              <div class="col-85">
+                <input type="text" id="image" name="image" placeholder="http://www.example.com/image.jpg">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-15">
-              <label for="content">Content:</label>
+            <div class="row submit">
+              <input type="submit" value="Submit">
             </div>
-            <div class="col-85">
-              <textarea id="content" name="content" placeholder="Paste story here..."></textarea>
-            </div>
-            </div>
-          <div class="row">
-            <div class="col-15">
-              <label for="image">Image:</label>
-            </div>
-            <div class="col-85">
-              <input type="text" id="image" name="image" placeholder="http://www.example.com/image.jpg">
-            </div>
-          </div>
-          <div class="row submit">
-            <input type="submit" value="Submit">
-          </div>
           </form>
         </div>
         </div>
@@ -119,7 +127,8 @@ class Entries {
       author_name: document.getElementById('author_name').value,
       author_bio: document.getElementById('author_bio').value,
       content: document.getElementById('content').value,
-      image: document.getElementById('image').value
+      image: document.getElementById('image').value,
+      fiction: document.querySelector('input[name="fiction"]:checked') ? document.querySelector('input[name="fiction"]:checked').value : null
     }
     this.adapter.createEntry(formValues).then(entry => {
       this.renderModal(entry)
