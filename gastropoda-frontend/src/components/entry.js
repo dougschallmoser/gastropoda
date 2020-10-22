@@ -67,7 +67,7 @@ class Entry {
         <div id="header">
           ${this.author_name}
           <span id="date">${this.created_at}</span>
-          <span id="fiction-display">${(this.fiction === true) ? 'Fiction' : 'Creative Non-Fiction'}</span><br>
+          <span id="fiction-display">${(this.fiction === true) ? 'Fiction' : 'Creative Nonfiction'}</span><br>
         </div>
         <span id="display-likes">
           <span id="like-icon"><img src="images/logo-icon-empty.png"></span>

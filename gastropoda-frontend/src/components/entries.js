@@ -65,7 +65,7 @@ class Entries {
                 <input type="radio" id="fiction" name="fiction" value="true">
                 <label for="fiction" id="fiction">Fiction</label>
                 <input type="radio" id="non-fiction" name="fiction" value="false">
-                <label for="non-fiction" id="non-fiction">Creative Non-Fiction</label>
+                <label for="non-fiction" id="non-fiction">Creative Nonfiction</label>
               </div>
             </div>
             <div class="row">
