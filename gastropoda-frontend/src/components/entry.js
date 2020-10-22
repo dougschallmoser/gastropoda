@@ -4,6 +4,7 @@ class Entry {
     this.title = entry.title
     this.author_name = entry.author_name
     this.author_bio = entry.author_bio 
+    this.fiction = entry.fiction
     this.content = entry.content
     this.likes = entry.likes
     this.image = entry.image
@@ -66,15 +67,16 @@ class Entry {
         <div id="header">
           ${this.author_name}
           <span id="date">${this.created_at}</span>
-          <span id="display-likes">
-            <span id="like-icon"><img src="images/logo-icon-empty.png"></span>
-            <span id="like-count">${this.likes}</span>
-            <span id="comment-icon">
-              <a href="#comments"><img src="images/comment-white-oval-bubble.svg" height="87" width="100"/></a>
-            </a></span>
-            <span id="comment-count">${this.comments.length}</span>
-          </span>
+          <span id="fiction-display">${(this.fiction === true) ? 'Fiction' : 'Creative Non-Fiction'}</span><br>
         </div>
+        <span id="display-likes">
+          <span id="like-icon"><img src="images/logo-icon-empty.png"></span>
+          <span id="like-count">${this.likes}</span>
+          <span id="comment-icon">
+            <a href="#comments"><img src="images/comment-white-oval-bubble.svg" height="87" width="100"/></a>
+          </a></span>
+          <span id="comment-count">${this.comments.length}</span>
+        </span>
         <div id="display-entry-content">${this.content}</div>`
       container.append(div)
       document.querySelector('#main-content').append(container)
