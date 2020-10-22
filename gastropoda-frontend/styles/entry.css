@@ -28,7 +28,7 @@
 #display-entry #header {
   font-size: 150%;
   color: #7bc7a6;
-  padding: 3%;
+  padding: 3% 3% 0 3%;
 }
 
 #date {
@@ -38,11 +38,11 @@
 }
 
 #display-likes {
-  margin: 0 auto;
   vertical-align: middle;
 }
 
 #display-likes img {
+  width: 100%;
   vertical-align: middle;
   height: auto;
   padding-top: 1.3%;
@@ -55,18 +55,26 @@
 
 #like-count, #comment-count {
   padding-left: 0.5%;
-  padding-right: 4%;
   font-size: 0.8em;
   color: black;
 }
 
+#like-count {
+  padding-right: 2%;
+}
+
 #comment-icon {
+  padding-left: 2%;
   margin: 0 auto;
   vertical-align: middle;
 }
 
 #comment-icon img {
   width: 32px;
+}
+
+#fiction-display {
+  color: #6e6e6e;
 }
 
 #display-entry-content {
