@@ -1,6 +1,6 @@
 class CommentsAdapter {
   constructor() {
-    this.baseUrl = 'http://localhost:3000/api/v1/comments'
+    this.baseUrl = 'https://gastropoda-api.herokuapp.com/api/v1/comments'
   }
 
   createComment(formValues) {
