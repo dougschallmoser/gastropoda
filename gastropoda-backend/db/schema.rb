@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_183710) do
     t.string "content"
     t.string "author_name"
     t.string "author_bio"
+    t.boolean "fiction"
     t.string "image"
     t.integer "likes", default: 0
     t.datetime "created_at", precision: 6, null: false
