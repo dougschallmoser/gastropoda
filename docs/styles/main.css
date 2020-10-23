@@ -199,11 +199,13 @@ nav a {
   .mobile-logo {
     display: block;
     float: left;
+    font-size: 30px;
     padding-left: 2%;
+    line-height: 1.5em;
   }
 
   .mobile-logo img {
-    height: 36px;
+    height: 34px;
     vertical-align: middle;
     padding-right: 10px;
     padding-bottom: 5px;
@@ -246,7 +248,6 @@ nav a {
 
   .topnav.responsive {
     font-size: 28px;
-    position: relative;
   }
 
   .topnav.responsive a.icon {
