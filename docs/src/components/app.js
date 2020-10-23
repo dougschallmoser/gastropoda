@@ -1,7 +1,7 @@
 class App {
 
   constructor() {
-    this.entries = new Entries() 
+    this.entries = Entry.loadEntries()
     this.setBindings()
     this.setEventListeners()
     this.adjustNavbar()
@@ -13,9 +13,13 @@ class App {
   }
 
   setEventListeners() {
+    document.getElementById('logo-title').addEventListener('click', Entry.loadEntries.bind(Entry))
+    this.navBar.getElementsByTagName('a')[0].addEventListener('click', Entry.renderSlideShow.bind(Entry))
     this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.renderAbout.bind(this))
+    this.navBar.getElementsByTagName('a')[2].addEventListener('click', Entry.renderAll.bind(Entry))
+    this.navBar.getElementsByTagName('a')[3].addEventListener('click', Entry.loadForm.bind(Entry))
     this.navBar.getElementsByTagName('a')[4].addEventListener('click', this.renderContact.bind(this))
-    this.navBar.getElementsByTagName('a')[5].addEventListener('click', this.responsiveNav.bind(this))
+    this.navBar.getElementsByTagName('a')[5].addEventListener('click', this.mobileNav.bind(this))
   }
 
   renderContact() {
@@ -46,7 +50,7 @@ class App {
     }
   }
 
-  responsiveNav() {
+  mobileNav() {
     if (this.navBar.className === "topnav") {
       this.navBar.className += " responsive"
       this.navBar.getElementsByTagName('a')[5].classList.toggle("change")

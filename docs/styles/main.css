@@ -202,6 +202,13 @@ nav a {
     padding-left: 2%;
   }
 
+  .mobile-logo img {
+    height: 36px;
+    vertical-align: middle;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
   #about, #contact {
     padding-bottom: 5%;
     font-size: 28px;
