@@ -4,8 +4,6 @@ class App {
     this.entries = new Entries() 
     this.setBindings()
     this.setEventListeners()
-    this.renderAbout()
-    this.renderContact()
     this.adjustNavbar()
   }
 
