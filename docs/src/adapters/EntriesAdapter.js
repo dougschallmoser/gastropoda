@@ -1,6 +1,6 @@
 class EntriesAdapter {
   constructor() {
-    this.baseUrl = 'https://gastropoda-api.herokuapp.com/api/v1/entries'
+    this.baseUrl = 'http://localhost:3000/api/v1/entries'
   }
 
   getEntries() {

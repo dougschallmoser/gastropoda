@@ -10,7 +10,7 @@ class Contact {
   }
 
   setEventListeners() {
-    this.navBar.getElementsByTagName('a')[3].addEventListener('click', this.renderContact.bind(this))
+    this.navBar.getElementsByTagName('a')[4].addEventListener('click', this.renderContact.bind(this))
   }
 
   renderContact() {

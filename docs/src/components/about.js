@@ -10,7 +10,7 @@ class About {
   }
 
   setEventListeners() {
-    this.navBar.getElementsByTagName('a')[0].addEventListener('click', this.renderAbout.bind(this))
+    this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.renderAbout.bind(this))
   }
 
   renderAbout() {
