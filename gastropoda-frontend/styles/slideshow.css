@@ -88,6 +88,10 @@
 
 @media screen and (max-width: 700px) {
 
+  .slideshow {
+    margin-top: 5%;
+  }
+
   .slideshow p {
     font-size: 0.75em;
     top: 350px;
@@ -105,12 +109,16 @@
   }
 
   .slideshow-left {
+    color: #7bc7a6;
     left: 0;
     top: 40%;
     margin-left: 7%;
+    opacity: 0.75;
   }
   
   .slideshow-right {
+    opacity: 0.75;
+    color: #7bc7a6;
     right: 0;
     top: 40%;
     margin-right: 7%;
