@@ -22,6 +22,7 @@ class Entry {
       new EntriesAdapter().getEntries().then(entries => {
         entries.forEach(entry => new Entry(entry))
       }).then(() => {this.renderSlideShow()})
+      .catch(error => {this.renderModal(error, "The stories did not load because...")})
     } else {
       this.renderSlideShow()
     }
@@ -173,7 +174,7 @@ class Entry {
     .catch(error => {this.renderModal(error)})
   }
 
-  static renderModal(entry) {
+  static renderModal(entry, subject = "Your story was <strong>not</strong> submitted because...") {
     const div = document.createElement('div')
     const contentDiv = document.createElement('div')
     const span = document.createElement('span')
@@ -200,7 +201,7 @@ class Entry {
       } else {
         p2.innerHTML = entry.message
       }
-      p.innerHTML = "Your story was <strong>not</strong> submitted because..."
+      p.innerHTML = subject
     } else {
       p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
       new Entry(entry)
