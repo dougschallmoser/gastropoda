@@ -91,4 +91,13 @@
     font-size: 0.85em;
     top: 350px;
   }
+
+  .slideshow img {
+    width: 95%;
+  }
+
+  .slideshow p {
+    width: 90%;
+    margin-left: none;
+  }
 }

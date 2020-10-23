@@ -159,3 +159,76 @@ nav a {
 ::-ms-input-placeholder {
   color:#b8b8b8;
 }
+
+.hamburger {
+  width: 35px;
+  height: 5px;
+  background-color: #7bc7a6;
+  margin: 6px 0;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.mobile-logo {
+  display: none;
+  font-size: 36px;
+  color: #7bc7a6;
+  font-family: 'Quattrocento', serif;
+  letter-spacing: 0.2em;
+}
+
+@media screen and (max-width: 600px) {
+
+  .mobile-logo {
+    display: block;
+    float: left;
+    padding-left: 2%;
+  }
+
+  #about, #contact {
+    font-size: 28px;
+    width: 95%;
+    text-align: left;
+  }
+
+  #contact img {
+    width: 10%;
+  }
+
+  #main-content {
+    padding-top: 7%;
+  }
+
+  #logo-title {
+    display: none;
+  }
+  
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    padding-bottom: 3%;
+    display: block;
+    float: right;
+  }
+
+  .topnav.responsive {
+    font-size: 28px;
+    position: relative;
+  }
+
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}

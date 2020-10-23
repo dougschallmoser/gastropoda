@@ -15,29 +15,41 @@ class Entries {
 
   setEventListeners() {
     document.getElementById('logo-title').addEventListener('click', this.loadEntries.bind(this))
-    this.navBar.getElementsByTagName('a')[1].addEventListener('click', this.renderAll.bind(this))
-    this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.loadForm.bind(this))
+    this.navBar.getElementsByTagName('a')[0].addEventListener('click', this.renderSlideShow.bind(this))
+    this.navBar.getElementsByTagName('a')[2].addEventListener('click', this.renderAll.bind(this))
+    this.navBar.getElementsByTagName('a')[3].addEventListener('click', this.loadForm.bind(this))
+    this.navBar.getElementsByTagName('a')[5].addEventListener('click', this.responsiveNav.bind(this))
+  }
+
+  responsiveNav() {
+    if (this.navBar.className === "topnav") {
+      this.navBar.className += " responsive"
+    } else {
+      this.navBar.className = "topnav"
+    }
   }
 
   adjustNavbar() {
-    const sticky = this.navBar.offsetTop
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset >= sticky) {
-        if (!document.getElementById('gastropoda-nav')) {
-          const a = document.createElement('a')
-          a.id = "gastropoda-nav"
-          a.addEventListener('click', this.loadEntries.bind(this))
-          a.textContent = "GASTROPODA"
-          this.navBar.prepend(a)
+    if (window.matchMedia("(min-width: 600px)").matches) {
+      const sticky = this.navBar.offsetTop
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset >= sticky) {
+          if (!document.getElementById('gastropoda-nav')) {
+            const a = document.createElement('a')
+            a.id = "gastropoda-nav"
+            a.addEventListener('click', this.loadEntries.bind(this))
+            a.textContent = "GASTROPODA"
+            this.navBar.prepend(a)
+          }
+          this.navBar.classList.add("sticky")
+        } else {
+          if (document.getElementById('gastropoda-nav')) {
+            document.getElementById('gastropoda-nav').remove()
+          }
+          this.navBar.classList.remove("sticky")
         }
-        this.navBar.classList.add("sticky")
-      } else {
-        if (document.getElementById('gastropoda-nav')) {
-          document.getElementById('gastropoda-nav').remove()
-        }
-        this.navBar.classList.remove("sticky")
-      }
-    })
+      })
+    }
   }
 
   loadForm() {
