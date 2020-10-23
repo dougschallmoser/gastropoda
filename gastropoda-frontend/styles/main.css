@@ -188,9 +188,14 @@ nav a {
   }
 
   #about, #contact {
+    padding-bottom: 5%;
     font-size: 28px;
     width: 95%;
     text-align: left;
+  }
+
+  #about div, #contact div {
+    padding-bottom: 40px;
   }
 
   #contact img {
