@@ -24,8 +24,10 @@ class Entries {
   responsiveNav() {
     if (this.navBar.className === "topnav") {
       this.navBar.className += " responsive"
+      this.navBar.getElementsByTagName('a')[5].classList.toggle("change")
     } else {
       this.navBar.className = "topnav"
+      this.navBar.getElementsByTagName('a')[5].classList.toggle("change")
     }
   }
 
