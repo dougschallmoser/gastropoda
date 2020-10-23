@@ -211,6 +211,7 @@ nav a {
 
   .topnav a.icon {
     padding-bottom: 3%;
+    padding-right: 2%;
     display: block;
     float: right;
   }
@@ -223,7 +224,7 @@ nav a {
   .topnav.responsive a.icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 3.5%;
   }
 
   .topnav.responsive a {
