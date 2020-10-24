@@ -22,7 +22,7 @@ class Entry {
       new EntriesAdapter().getEntries().then(entries => {
         entries.forEach(entry => new Entry(entry))
       }).then(() => {this.renderSlideShow()})
-      .catch(error => {this.renderModal(error, "The stories did not load because...")})
+      .catch(error => {Error.renderError(error, "The stories did not load because...")})
     } else {
       this.renderSlideShow()
     }
@@ -169,44 +169,14 @@ class Entry {
       fiction: document.querySelector('input[name="fiction"]:checked') ? document.querySelector('input[name="fiction"]:checked').value : null
     }
     new EntriesAdapter().createEntry(formValues).then(entry => {
-      this.renderModal(entry)
-    })
-    .catch(error => {this.renderModal(error)})
-  }
-
-  static renderModal(entry, subject = "Your story was <strong>not</strong> submitted because...") {
-    const div = document.createElement('div')
-    const contentDiv = document.createElement('div')
-    const span = document.createElement('span')
-    const p = document.createElement('p')
-    const p2 = document.createElement('p')
-    div.id = "myModal"
-    div.className = "modal"
-    contentDiv.className = "modal-content"
-    span.className = "close"
-    span.innerHTML = '&times;'
-    contentDiv.append(span)
-    contentDiv.append(p)
-    contentDiv.append(p2)
-    div.append(contentDiv)
-    div.style.display = "block"
-    document.querySelector('#main-content').append(div)
-    span.addEventListener('click', () => {div.remove()})
-    window.addEventListener('click', function(event) {
-      if (event.target == div) {div.remove()}
-    })
-    if (entry.message) {
-      if (Array.isArray(entry.message)) {
-        entry.message.forEach(message => {p2.innerHTML += `<li>${message}</li>`})
+      if (entry.message) {
+        Error.renderError(entry, "Your story was <strong>not</strong> submitted because...")
       } else {
-        p2.innerHTML = entry.message
+        new Entry(entry)
+        Entry.renderAll()
       }
-      p.innerHTML = subject
-    } else {
-      p.innerHTML = "Your story was <strong>successfully</strong> submitted!"
-      new Entry(entry)
-      Entry.renderAll()
-    }
+    })
+    .catch(error => {Error.renderError(error, "Your story was <strong>not</strong> submitted because...")})
   }
 
   renderItem() {
@@ -321,7 +291,7 @@ class Entry {
         likeCount.innerHTML = this.likes
         likeIcon.innerHTML = '<img src="images/logo-icon-full.png" id="full-like">'
       })
-      .catch(error => this.renderModal(error, "like"))
+      .catch(error => Error.renderError(error, "The snail did <strong>not</strong> like that because..."))
     }
   }
 }
