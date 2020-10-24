@@ -232,8 +232,8 @@ class Entry {
         <img src="${this.image}">
         <h2>${this.title.toUpperCase()}</h2>
         <div id="header">
-          ${this.author_name}
-          <span id="date">${this.created_at}</span>
+          ${this.author_name}<br class="mobile-break">
+          <span id="date">${this.created_at}</span><br class="mobile-break">
           <span id="fiction-display">${(this.fiction === true) ? 'Fiction' : 'Creative Nonfiction'}</span><br>
         </div>
         <span id="display-likes">
