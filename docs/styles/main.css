@@ -1,0 +1,264 @@
+@font-face { font-family: Caslon; src: url('Adobe-Caslon-Pro Regular.ttf'); } 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #27272a;
+}
+
+section:nth-child(3) {
+  text-align: center;
+  padding-bottom: 0%;
+}
+
+section:nth-child(4) {
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+#logo-title {
+  cursor: pointer;
+  text-align: center;
+  font-size: 4vw;
+  color: #7bc7a6;
+  font-family: 'Quattrocento', serif;
+  font-weight: 700;
+  padding-top: 1%;
+  letter-spacing: 1.25em;
+  margin-left: 1.25em;
+}
+
+#logo-title img {
+  width: 7%;
+  position: relative;
+  top: 50%;
+  transform: translateY(20%);
+  margin-right: 5%;
+}
+
+nav {
+  background-color: #27272a;
+  text-align: center;
+  font-size: 2.2vw;
+  word-spacing: 2.5em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+nav a {
+  vertical-align: middle;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  padding: 0.5% 0.5%;
+}
+
+.main-links {
+  vertical-align: middle;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  padding: 0.5% 0.5%;
+  transition: color 2s, background-color 2s;
+}
+
+.main-links:hover {
+  color: white;
+  background-color: #6f6f73;
+}
+
+#gastropoda-nav {
+  font-family: 'Quattrocento', serif;
+  letter-spacing: 0.5em;
+  color: #7bc7a6;
+  float: left;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0.5%;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+#about, #contact {
+  padding-top: 1.5%;
+  display: inline-block;
+  width: 75%;
+  text-align: justify;
+  font-family: 'Caslon', serif;
+  font-size: 3vw;
+  line-height: 1.5;
+  color: white;
+}
+
+#contact {
+  padding-top: 2.5%;
+  font-size: 2.5vw;
+}
+
+#contact p {
+  padding-bottom: 1%;
+}
+
+#contact div {
+  padding-bottom: 5%;
+  line-height: 1em;
+  text-align: center;
+}
+
+#contact a {
+  font-family: 'Quattrocento', serif;
+  color: #7bc7a6;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+#contact a:hover {
+  color: white;
+}
+
+#contact img {
+  width: 4%;
+  vertical-align: middle;
+}
+
+#about p {
+  padding: 2% 0;
+}
+
+
+#gastropoda {
+  color: #7bc7a6;
+  font-family: 'Quattrocento', serif;
+  letter-spacing: 0.5em;
+}
+
+::placeholder {
+  color:#b8b8b8;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color:#b8b8b8;
+}
+
+::-ms-input-placeholder {
+  color:#b8b8b8;
+}
+
+.line1, .line2, .line3 {
+  width: 35px;
+  height: 5px;
+  transition: 0.4s;
+  background-color: #7bc7a6;
+  margin: 6px 0;
+}
+
+.change .line1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+.change .line2 {
+  opacity: 0;
+}
+
+.change .line3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.mobile-logo {
+  display: none;
+  font-size: 36px;
+  color: #7bc7a6;
+  font-family: 'Quattrocento', serif;
+  letter-spacing: 0.2em;
+}
+
+@media screen and (max-width: 600px) {
+
+  .mobile-logo {
+    display: block;
+    float: left;
+    font-size: 30px;
+    padding-left: 2%;
+    line-height: 1.5em;
+  }
+
+  .mobile-logo img {
+    height: 34px;
+    vertical-align: middle;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  #about, #contact {
+    padding-bottom: 5%;
+    font-size: 28px;
+    width: 95%;
+    text-align: left;
+  }
+
+  #about div, #contact div {
+    padding-bottom: 40px;
+  }
+
+  #contact img {
+    width: 10%;
+  }
+
+  #logo-title {
+    display: none;
+  }
+
+  nav {
+    padding-bottom: 5%;
+    z-index: 1;
+  }
+  
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    padding-bottom: 3%;
+    padding-right: 2%;
+    display: block;
+    float: right;
+  }
+
+  .topnav.responsive {
+    font-size: 28px;
+  }
+
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 1%;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
