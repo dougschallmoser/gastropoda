@@ -57,12 +57,56 @@ class Entry {
     while (this.mainContent.firstChild) {
       this.mainContent.removeChild(this.mainContent.firstChild);
     }
+    const selectContainer = document.createElement('div')
+    const option1 = document.createElement('div')
+    const option2 = document.createElement('div')
+    const option3 = document.createElement('div')
+    selectContainer.id = "select-container"
+    option1.id = "option1"
+    option2.id = "option2"
+    option3.id = "option3"
+    option1.className = "option-selected"
+    option1.textContent = "ALL"
+    option2.textContent = "FICTION"
+    option3.textContent = "CREATIVE NONFICTION"
+    selectContainer.append(option1)
+    selectContainer.append(option2)
+    selectContainer.append(option3)
+    this.mainContent.prepend(selectContainer)
+    option1.addEventListener('click', this.renderByType.bind(this, ""))
+    option2.addEventListener('click', this.renderByType.bind(this, true))
+    option3.addEventListener('click', this.renderByType.bind(this, false))
     const div = document.createElement('div')
     div.className = "entry-grid"
     this.mainContent.append(div)
-    this.allEntries.map(entry => {
+    this.allEntries.forEach(entry => {
       div.prepend(entry.renderItem())
     })
+  }
+
+  static renderByType(boolean) {
+    const div = document.getElementsByClassName('entry-grid')[0]
+    const all = document.getElementById('option1')
+    const fiction = document.getElementById('option2')
+    const nonfiction = document.getElementById('option3')
+    all.classList.remove('option-selected')
+    fiction.classList.remove('option-selected')
+    nonfiction.classList.remove('option-selected')
+    div.innerHTML = ''
+    this.allEntries.filter(entry => {
+      if (typeof boolean === "string") {
+        div.prepend(entry.renderItem())
+        all.className = "option-selected"
+      }
+      else if (entry.fiction === boolean) {
+        div.prepend(entry.renderItem())
+      }
+    })
+    if (boolean === true) {
+      fiction.className = "option-selected"
+    } else if (boolean === false) {
+      nonfiction.className = "option-selected"
+    }
   }
 
   static changeSlide(n) {
