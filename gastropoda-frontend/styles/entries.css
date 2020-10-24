@@ -66,6 +66,48 @@
   font-size: 0.8em;
 }
 
+#select-container {
+  color: white;
+  font-family: 'Caslon', serif;
+  background-color: #424243;
+  display: table;
+  margin: 0 auto;
+  width: 470px;
+}
+
+#option1 {
+  padding: 10px;
+  width: 20%;
+  float: left;
+  border: 1px solid #6e6e6e;
+  cursor: pointer;
+}
+
+#option2 {
+  padding: 10px;
+  width: 25%;
+  float: left;
+  border: 1px solid #6e6e6e;
+  cursor: pointer;
+}
+
+#option3 {
+  padding: 10px;
+  width: 55%;
+  float: left;
+  border: 1px solid #6e6e6e;
+  cursor: pointer;
+}
+
+.option-selected {
+  background-color: #7bc7a6;
+  color: black;
+}
+
+#option1:hover, #option2:hover, #option3:hover {
+  background-color: #6e6e6e;
+}
+
 @media screen and (max-width: 600px) {
   .entry-grid {
     grid-template-columns: repeat(1, 1fr);
