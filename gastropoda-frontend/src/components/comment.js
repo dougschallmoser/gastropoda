@@ -50,54 +50,23 @@ class Comment {
             entry_id: entryId
           }
           new CommentsAdapter().createComment(formValues).then(comment => {
-            Comment.renderModal(comment)
+            if (comment.message) {
+              Error.renderError(comment, "Your comment was <strong>not</strong> saved because...")
+            } else {
+              const newComment = new Comment(comment)
+              const entry = Entry.allEntries.find(entry => entry.id === newComment.entryId)
+              entry.comments.push(newComment)
+              newComment.renderComment()
+              document.getElementById('comment-count').innerHTML++
+              document.getElementById('name').value = ''
+              document.getElementById('email').value = ''
+              document.getElementById('comment-content').value = ''
+            }
           })
-          .catch(error => {Comment.renderModal(error)})
+          .catch(error => {Error.renderError(error, "Your comment was <strong>not</strong> saved because...")})
         })
       }
     })
-  }
-
-  static renderModal(comment, subject = "comment") {
-    const div = document.createElement('div')
-    const contentDiv = document.createElement('div')
-    const span = document.createElement('span')
-    const p = document.createElement('p')
-    const p2 = document.createElement('p')
-    div.id = "myModal"
-    div.className = "modal"
-    contentDiv.className = "modal-content"
-    span.className = "close"
-    span.innerHTML = `&times;`
-    contentDiv.append(span)
-    if (comment.message) {
-      if (Array.isArray(comment.message)) {
-        comment.message.forEach(message => {
-          p2.innerHTML += `<li>${message}</li>`
-        })
-      } else {
-        p2.innerHTML = comment.message
-      }
-      p.innerHTML = `Your ${subject} did <strong>not</strong> save because...`
-      contentDiv.append(p)
-      contentDiv.append(p2)
-      div.append(contentDiv)
-      div.style.display = "block"
-      document.querySelector('#main-content').append(div)
-      span.addEventListener('click', () => {div.remove()})
-      window.addEventListener('click', function(event) {
-        if (event.target == div) {div.remove()}
-      })
-    } else {
-      const newComment = new Comment(comment)
-      const entry = Entry.allEntries.find(entry => entry.id === newComment.entryId)
-      entry.comments.push(newComment)
-      newComment.renderComment()
-      document.getElementById('comment-count').innerHTML++
-      document.getElementById('name').value = ''
-      document.getElementById('email').value = ''
-      document.getElementById('comment-content').value = ''
-    }
   }
 
   renderComment() {
