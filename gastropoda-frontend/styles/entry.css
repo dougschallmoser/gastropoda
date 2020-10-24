@@ -202,6 +202,14 @@ hr {
     white-space: pre-line;
   }
 
+  #comments {
+    width: 95%;
+  }
+  
+  #make-comment {
+    padding-bottom: 10%;
+  }
+
   hr {
     width: 100%;
   }
