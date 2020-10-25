@@ -39,6 +39,7 @@
 
 #display-likes {
   vertical-align: middle;
+  margin-left: 10px;
 }
 
 #display-likes img {
@@ -55,7 +56,7 @@
 
 #like-count, #comment-count {
   padding-left: 0.5%;
-  font-size: 0.8em;
+  font-size: 1em;
   color: black;
 }
 
@@ -217,6 +218,10 @@ hr {
     font-size: 1.4em;
     text-align: justify;
     white-space: pre-line;
+  }
+
+  #display-likes {
+    margin-left: 0;
   }
 
   #comments {

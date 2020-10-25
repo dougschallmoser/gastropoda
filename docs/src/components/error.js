@@ -17,6 +17,7 @@ class Error {
     div.append(contentDiv)
     div.style.display = "block"
     document.querySelector('#main-content').append(div)
+    div.classList.add("fade-in2")
     span.addEventListener('click', () => {div.remove()})
     window.addEventListener('click', function(event) {
       if (event.target == div) {div.remove()}

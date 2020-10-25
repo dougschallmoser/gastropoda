@@ -36,6 +36,7 @@ class Entry {
     const buttonLeft = document.createElement('button')
     const buttonRight = document.createElement('button')
     div.className = "slideshow"
+    div.classList.add("fade-in-delay2")
     buttonLeft.className = "slideshow-left"
     buttonLeft.innerHTML = "&#10094;"
     buttonRight.className = "slideshow-right"
@@ -57,12 +58,58 @@ class Entry {
     while (this.mainContent.firstChild) {
       this.mainContent.removeChild(this.mainContent.firstChild);
     }
+    const selectContainer = document.createElement('div')
+    const option1 = document.createElement('div')
+    const option2 = document.createElement('div')
+    const option3 = document.createElement('div')
+    selectContainer.id = "select-container"
+    selectContainer.className = "fade-in"
+    option1.id = "option1"
+    option2.id = "option2"
+    option3.id = "option3"
+    option1.className = "option-selected"
+    option1.textContent = "ALL"
+    option2.textContent = "FICTION"
+    option3.textContent = "CREATIVE NONFICTION"
+    selectContainer.append(option1)
+    selectContainer.append(option2)
+    selectContainer.append(option3)
+    this.mainContent.prepend(selectContainer)
+    option1.addEventListener('click', this.renderByType.bind(this, ""))
+    option2.addEventListener('click', this.renderByType.bind(this, true))
+    option3.addEventListener('click', this.renderByType.bind(this, false))
     const div = document.createElement('div')
     div.className = "entry-grid"
+    div.classList.add("fade-in")
     this.mainContent.append(div)
-    this.allEntries.map(entry => {
+    this.allEntries.forEach(entry => {
       div.prepend(entry.renderItem())
     })
+  }
+
+  static renderByType(boolean) {
+    const div = document.getElementsByClassName('entry-grid')[0]
+    const all = document.getElementById('option1')
+    const fiction = document.getElementById('option2')
+    const nonfiction = document.getElementById('option3')
+    all.classList.remove('option-selected')
+    fiction.classList.remove('option-selected')
+    nonfiction.classList.remove('option-selected')
+    div.innerHTML = ''
+    this.allEntries.filter(entry => {
+      if (typeof boolean === "string") {
+        div.prepend(entry.renderItem())
+        all.className = "option-selected"
+      }
+      else if (entry.fiction === boolean) {
+        div.prepend(entry.renderItem())
+      }
+    })
+    if (boolean === true) {
+      fiction.className = "option-selected"
+    } else if (boolean === false) {
+      nonfiction.className = "option-selected"
+    }
   }
 
   static changeSlide(n) {
@@ -81,8 +128,8 @@ class Entry {
   static loadForm() {
     if (!document.querySelector('.entry-form')) {
       const div =
-      `<div class="form-container">
-        <div class="left">
+      `<div class="form-container fade-in">
+        <div class="left" style="display: none;">
           <p>We accept submissions on a rolling basis, with the aim of publishing 1-3 pieces weekly.</p>
           <p>Response time varies depending on the number of submissions we have at the moment, but if you haven’t heard back from us in a few months, feel free to reach out to us about your piece.</p>
           <p>Please only submit your unpublished work.</p>
@@ -90,13 +137,17 @@ class Entry {
           <p>By submitting to Gastropoda, you agree to grant us First World Electronic Rights and Non-Exclusive Archival Rights, so that we can continue to keep your work on our site. All other rights remain yours. If your work is published elsewhere in the future, please consider giving a shout out to Gastropoda as its first home.</p>
           <p>We cannot offer payment at this time, but we can offer goodwill and love everlasting.</p>
           <p>Please use our form to submit. We would be honored to read your work.</p>
-          <img src="images/gastropoda-logo-trq.png"></div>
+          <img src="images/gastropoda-logo-trq.png">
+        </div>
         <div class="right">
           <div id="submit-heading">Submit your story for review!</div><br>
           <div id="submit-heading2">Fiction or Creative Nonfiction, 100-4,000 words.</div><br>
           <div id="submit-subheading">
-            Sure, we like literary stuff, but we are not super picky about the so-called genre your piece might fit into. We can tell you that we’re not interested in gratuitous sex, violence, or vulgarity. We are especially drawn to pieces that don’t follow traditional narrative arcs, that surprise us and leave us with some questions (but not TOO many), and that are overflowing with fresh sensory language that makes our heart hurt a little bit. Send us your misfits, your miscreants, your outcasts, your rebels--the pieces you’ve put your whole essence into, but you aren’t quite sure where they might fit in. They might fit in at Gastropoda. 
+            Sure, we like literary stuff, but we are not super picky about the so-called genre your piece might fit into. We can tell you that we’re not interested in gratuitous sex, violence, or vulgarity. We are especially drawn to pieces that don’t follow traditional narrative arcs, that surprise us and leave us with some questions (but not TOO many), and that are overflowing with fresh sensory language that makes our heart hurt a little bit. Send us your misfits, your miscreants, your outcasts, your rebels--the pieces you’ve put your whole essence into, but you aren’t quite sure where they might fit in. They might fit in at Gastropoda.
           </div>
+          <span id="get-details">
+            Read more details 
+          </span>
           <form id="entry-form">
             <div class="row">
               <div id="radio-buttons">
@@ -154,6 +205,16 @@ class Entry {
         </div>
       </div>`
       this.mainContent.innerHTML = div
+      const left = document.getElementsByClassName('left')[0]
+      document.getElementById('get-details').addEventListener('click', function(event) {
+        if (left.style.display === "none") {
+          document.getElementsByClassName('left')[0].style.display = "block"
+          event.target.innerHTML = "Close details"
+        } else {
+          document.getElementsByClassName('left')[0].style.display = "none"
+          event.target.innerHTML = "Read more details"
+        }
+      })
       document.getElementById('entry-form').addEventListener('submit', this.createEntry.bind(this))
     }
   }
@@ -227,6 +288,7 @@ class Entry {
       const container = document.createElement('div')
       const div = document.createElement('div')
       container.id = "entry-container"
+      container.className = "fade-in"
       div.id = "display-entry"
       div.innerHTML = `
         <img src="${this.image}">
