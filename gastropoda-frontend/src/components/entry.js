@@ -36,6 +36,7 @@ class Entry {
     const buttonLeft = document.createElement('button')
     const buttonRight = document.createElement('button')
     div.className = "slideshow"
+    div.classList.add("fade-in-delay2")
     buttonLeft.className = "slideshow-left"
     buttonLeft.innerHTML = "&#10094;"
     buttonRight.className = "slideshow-right"
@@ -62,6 +63,7 @@ class Entry {
     const option2 = document.createElement('div')
     const option3 = document.createElement('div')
     selectContainer.id = "select-container"
+    selectContainer.className = "fade-in"
     option1.id = "option1"
     option2.id = "option2"
     option3.id = "option3"
@@ -78,6 +80,7 @@ class Entry {
     option3.addEventListener('click', this.renderByType.bind(this, false))
     const div = document.createElement('div')
     div.className = "entry-grid"
+    div.classList.add("fade-in")
     this.mainContent.append(div)
     this.allEntries.forEach(entry => {
       div.prepend(entry.renderItem())
@@ -125,7 +128,7 @@ class Entry {
   static loadForm() {
     if (!document.querySelector('.entry-form')) {
       const div =
-      `<div class="form-container">
+      `<div class="form-container fade-in">
         <div class="left" style="display: none;">
           <p>We accept submissions on a rolling basis, with the aim of publishing 1-3 pieces weekly.</p>
           <p>Response time varies depending on the number of submissions we have at the moment, but if you haven’t heard back from us in a few months, feel free to reach out to us about your piece.</p>
@@ -285,6 +288,7 @@ class Entry {
       const container = document.createElement('div')
       const div = document.createElement('div')
       container.id = "entry-container"
+      container.className = "fade-in"
       div.id = "display-entry"
       div.innerHTML = `
         <img src="${this.image}">
