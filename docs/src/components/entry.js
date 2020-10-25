@@ -6,13 +6,13 @@ class Entry {
   constructor(entry) {
     this.id = entry.id
     this.title = entry.title
-    this.author_name = entry.author_name
-    this.author_bio = entry.author_bio 
+    this.authorName = entry.author_name
+    this.authorBio = entry.author_bio 
     this.fiction = entry.fiction
     this.content = entry.content
     this.likes = entry.likes
     this.image = entry.image
-    this.created_at = entry.created_at
+    this.createdAt = entry.created_at
     this.comments = entry.comments.map(comment => new Comment(comment))
     Entry.allEntries.push(this)
   }
@@ -253,7 +253,7 @@ class Entry {
     cardDiv.id = this.id 
     img.src = this.image 
     h3.innerHTML = this.title 
-    p.innerHTML = `<strong>${this.author_name}</strong> <span id="card-date">${this.created_at}</span>`
+    p.innerHTML = `<strong>${this.authorName}</strong> <span id="card-date">${this.createdAt}</span>`
     cardContainerDiv.append(img)
     cardDiv.append(cardContainerDiv)
     cardDiv.append(textDiv)
@@ -272,8 +272,8 @@ class Entry {
     p.className = "no-display"
     p.innerHTML = 
       `<span id="slideshow-title">${this.title}</span><br>
-      <span id="slideshow-author">${this.author_name}</span>
-      <span id="slideshow-date">${this.created_at}</span>`
+      <span id="slideshow-author">${this.authorName}</span>
+      <span id="slideshow-date">${this.createdAt}</span>`
     div.append(img)
     div.append(p)
     img.addEventListener('click', this.renderEntry.bind(this))
@@ -294,8 +294,8 @@ class Entry {
         <img src="${this.image}">
         <h2>${this.title.toUpperCase()}</h2>
         <div id="header">
-          ${this.author_name}<br class="mobile-break">
-          <span id="date">${this.created_at}</span><br class="mobile-break">
+          ${this.authorName}<br class="mobile-break">
+          <span id="date">${this.createdAt}</span><br class="mobile-break">
           <span id="fiction-display">${(this.fiction === true) ? 'Fiction' : 'Creative Nonfiction'}</span><br>
         </div>
         <span id="display-likes">
@@ -327,7 +327,7 @@ class Entry {
         } else {
           const bio = document.createElement('div')
           bio.id = "author-bio"
-          bio.innerText = this.author_bio
+          bio.innerText = this.authorBio
           contributorDiv.insertBefore(bio, contributorDiv.childNodes[1])
         }
       })
