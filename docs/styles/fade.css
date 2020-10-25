@@ -31,13 +31,13 @@
     opacity: 0;
     animation: fadeIn ease 4s;
     animation-fill-mode: forwards;
-    animation-delay: 3s;
+    animation-delay: 2.5s;
     -webkit-animation: fadeIn ease 4s;
     -moz-animation: fadeIn ease 4s;
     -o-animation: fadeIn ease 4s;
     -ms-animation: fadeIn ease 4s;
     -webkit-animation-fill-mode: forwards;
-    -webkit-animation-delay: 3s;
+    -webkit-animation-delay: 2.5s;
   }
 
   @keyframes fadeIn {
