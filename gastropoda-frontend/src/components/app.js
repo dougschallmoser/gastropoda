@@ -46,7 +46,30 @@ class App {
       this.mainContent.innerHTML =
       `<div id="about" class="fade-in">
           <p><span id="gastropoda">GASTROPODA</span> is a literary magazine that seeks to celebrate the spiralic nature of life. What started out as an idea grew into a fascination, and now blossoms into physical manifestation. This magazine aims to slow you down and spin you around, to help you see the beauty and tragedy in all of life’s twists and turns, and to show you that there is no such thing as wasted time.</p>
+          <div id="snail-walk">
+            <img src="images/gastropoda-logo-trq.png" id="snail">
+          </div>
       </div>`
+    }
+    this.animateSnail()
+  }
+
+  animateSnail() {
+    let move
+    const div = document.getElementById('snail-walk')
+    const snail = document.getElementById('snail')
+    snail.style.left = '0px'
+    snail.addEventListener('click', moveSnail) 
+    function moveSnail() {
+      snail.style.left = parseInt(snail.style.left) + 10 + 'px'
+      move = setTimeout(moveSnail, 100)
+      if (parseInt(snail.style.left) + 90 >= div.offsetWidth) {
+        stopSnail()
+      }
+    }
+    function stopSnail() {
+      clearTimeout(move)
+      snail.removeEventListener('click', moveSnail)
     }
   }
 
