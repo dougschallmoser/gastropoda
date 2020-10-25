@@ -8,6 +8,7 @@
   margin-top: 1%;
   padding-left: 0.6%;
   padding-right: 0.6%;
+  padding-bottom: 7%;
 }
 
 .entry-card {
@@ -19,7 +20,7 @@
 .entry-card img {
   object-fit: cover;
   width: 100%;
-  height: 16vw;
+  height: 12vw;
 }
 
 .entry-card-container {
@@ -113,6 +114,7 @@
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
     margin-top: 1.5%;
+    padding-bottom: 0;
     grid-gap: 0;
   }
 

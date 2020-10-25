@@ -44,6 +44,7 @@ section:nth-child(4) {
 }
 
 nav {
+  overflow: hidden;
   background-color: #27272a;
   text-align: center;
   font-size: 30px;
@@ -52,6 +53,7 @@ nav {
   font-weight: 300;
   padding-top: 2%;
   padding-bottom: 2%;
+  z-index: 1;
 }
 
 nav a {
@@ -94,6 +96,19 @@ nav a {
   z-index: 1;
 }
 
+#snail-walk, #snail-walk-rev {
+  width: 100%;
+}
+
+#snail-walk img, #snail-walk-rev img {
+  position: relative;
+  width: 90px;
+}
+
+#snail-walk-rev img {
+  float: right;
+}
+
 #about, #contact {
   padding-top: 1.5%;
   display: inline-block;
@@ -132,8 +147,11 @@ nav a {
 }
 
 #contact img {
-  width: 4%;
   vertical-align: middle;
+}
+
+#contact-email img, #contact-instagram img {
+  width: 4%;
 }
 
 #about p {
@@ -230,8 +248,16 @@ nav a {
     padding-bottom: 40px;
   }
 
+  #contact-email, #contact-instagram {
+    font-size: 0.8em;
+  }
+
   #contact img {
     width: 10%;
+  }
+
+  #snail-walk-rev img {
+    width: 90px;
   }
 
   #logo-title {
