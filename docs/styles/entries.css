@@ -69,7 +69,7 @@
 
 #select-container {
   color: white;
-  font-family: 'Caslon', serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #424243;
   display: table;
   margin: 0 auto;
@@ -78,7 +78,7 @@
 }
 
 #option1 {
-  padding: 10px;
+  padding: 3px;
   width: 20%;
   float: left;
   border: 1px solid #6e6e6e;
@@ -86,7 +86,7 @@
 }
 
 #option2 {
-  padding: 10px;
+  padding: 3px;
   width: 25%;
   float: left;
   border: 1px solid #6e6e6e;
@@ -94,7 +94,7 @@
 }
 
 #option3 {
-  padding: 10px;
+  padding: 3px;
   width: 55%;
   float: left;
   border: 1px solid #6e6e6e;
