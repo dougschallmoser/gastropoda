@@ -1,5 +1,5 @@
 .form-container {
-  width: 95%;
+  width: 60%;
   font-size: 1.5vh;
   margin: auto;
   display: flex;
@@ -14,6 +14,7 @@
   background: #424243;
   line-height: 1.5em;
   flex: 0.5;
+  display: none;
 }
 
 .left p {
@@ -23,8 +24,7 @@
 
 .left img {
   padding-top: 5%;
-  padding-left: 8%;
-  width: 24vw;
+  width: 18vw;
   position: absolute;
   bottom: 0;
 }
@@ -53,8 +53,17 @@
   padding-bottom: 3%;
 }
 
+#get-details {
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 3%;
+  color: #7bc7a6;
+  cursor: pointer;
+  font-weight: 700;
+  width: 0 auto;
+}
+
 #content {
-  height: 100px;
+  height: 75px;
 }
 
 input[type=text], textarea {
@@ -63,6 +72,10 @@ input[type=text], textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+}
+
+textarea {
+  margin-bottom: 4px;
 }
 
 input[type=submit] {
@@ -106,7 +119,7 @@ input[type=radio]:focus + label {
 
 label[for=fiction],
 label[for=non-fiction] {
-  color: black;
+  color:#b8b8b8;
   display: inline-block;
   background-color: white;
   padding: 3px 10px;
@@ -122,7 +135,7 @@ label[for=non-fiction]:hover {
 }
 
 label {
-  padding: 12px 12px 12px 0;
+  padding: 8px 8px 8px 0;
   display: inline-block;
   font-family: 'Caslon', serif;
   font-size: 1em;
@@ -131,14 +144,14 @@ label {
 .col-15 {
   float: left;
   width: 15%;
-  margin-top: 6px;
+  margin-top: 3px;
   font-size: 1.5em;
 }
 
 .col-85 {
   float: left;
   width: 85%;
-  margin-top: 6px;
+  margin-top: 3px;
 }
 
 .submit{
@@ -166,5 +179,13 @@ label {
     text-align: left;
     line-height: 1em;
     font-size: 1.2em;
+  }
+
+  .left img {
+    width: 80%;
+  }
+
+  #radio-buttons {
+    padding-top: 5%;
   }
 }
