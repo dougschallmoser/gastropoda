@@ -96,6 +96,15 @@ nav a {
   z-index: 1;
 }
 
+#snail-walk {
+  width: 100%;
+}
+
+#snail-walk img {
+  position: relative;
+  width: 90px;
+}
+
 #about, #contact {
   padding-top: 1.5%;
   display: inline-block;
