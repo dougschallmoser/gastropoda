@@ -48,8 +48,8 @@ class Entry {
     div.append(buttonLeft)
     div.append(buttonRight)
     this.slideIndex = 1
-    document.getElementsByClassName("slides")[0].style.display = "block"
-    document.getElementsByClassName("slides")[0].nextSibling.style.display = "block"
+    document.querySelector('.slides').style.display = "block"
+    document.querySelector('.slides').nextSibling.style.display = "block"
     buttonLeft.addEventListener('click', this.changeSlide.bind(this, -1))
     buttonRight.addEventListener('click', this.changeSlide.bind(this, 1))
   }
@@ -88,7 +88,7 @@ class Entry {
   }
 
   static renderByType(boolean) {
-    const div = document.getElementsByClassName('entry-grid')[0]
+    const div = document.querySelector('.entry-grid')
     const all = document.getElementById('option1')
     const fiction = document.getElementById('option2')
     const nonfiction = document.getElementById('option3')
@@ -205,13 +205,13 @@ class Entry {
         </div>
       </div>`
       this.mainContent.innerHTML = div
-      const left = document.getElementsByClassName('left')[0]
+      const left = document.querySelector('.left')
       document.getElementById('get-details').addEventListener('click', function(event) {
         if (left.style.display === "none") {
-          document.getElementsByClassName('left')[0].style.display = "block"
+          left.style.display = "block"
           event.target.innerHTML = "Close details"
         } else {
-          document.getElementsByClassName('left')[0].style.display = "none"
+          left.style.display = "none"
           event.target.innerHTML = "Read more details"
         }
       })
