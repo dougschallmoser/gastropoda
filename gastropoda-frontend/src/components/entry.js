@@ -114,15 +114,19 @@ class Entry {
 
   static changeSlide(n) {
     this.slideIndex += n
-    const array = document.getElementsByClassName("slides");
-    if (this.slideIndex > array.length) {this.slideIndex = 1}
-    if (this.slideIndex < 1) {this.slideIndex = array.length} ;
+    const array = document.getElementsByClassName("slides")
+    if (this.slideIndex > array.length) {
+      this.slideIndex = 1
+    }
+    if (this.slideIndex < 1) {
+      this.slideIndex = array.length
+    }
     for (let i = 0; i < array.length; i++) {
-      array[i].style.display = "none";
+      array[i].style.display = "none"
       array[i].nextSibling.style.display = "none"
     }
-    array[this.slideIndex-1].style.display = "block";
-    array[this.slideIndex-1].nextSibling.style.display = "block";
+    array[this.slideIndex-1].style.display = "block"
+    array[this.slideIndex-1].nextSibling.style.display = "block"
   }
 
   static loadForm() {
