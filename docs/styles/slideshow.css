@@ -26,7 +26,7 @@
   background: none;
   border: none;
   text-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
-  color: white;
+  color: #7bc7a6;
   opacity: 0.6;
   position: absolute;
   top: 47%;
@@ -34,8 +34,7 @@
 }
 
 .slideshow-left:hover, .slideshow-right:hover {
-  color: #7bc7a6;
-  opacity: 1;
+  color: white;
 }
 
 .slideshow-left {
