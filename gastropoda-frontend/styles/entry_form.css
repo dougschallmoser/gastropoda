@@ -1,5 +1,5 @@
 .form-container {
-  width: 850px;
+  width: 900px;
   font-size: 1.5vh;
   margin: auto;
   display: flex;
@@ -7,7 +7,7 @@
 
 .left {
   position: relative;
-  padding: 3% 3% 0 3%;
+  padding: 3% 1% 0 3%;
   font-family: 'Caslon', serif;
   color: white;
   text-align: justify;
@@ -24,7 +24,7 @@
 
 .left img {
   padding-top: 5%;
-  width: 18vw;
+  width: 250px;
   position: absolute;
   bottom: 0;
 }
@@ -170,6 +170,10 @@ label {
 @media screen and (max-width: 850px) {
   .form-container {
     width: 100%;
+  }
+
+  .left img {
+    width: 80%;
   }
 }
 
