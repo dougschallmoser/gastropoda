@@ -167,7 +167,7 @@ label {
   clear: both;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   .form-container {
     width: 100%;
   }
