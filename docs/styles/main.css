@@ -257,7 +257,6 @@ nav a {
 
   nav {
     padding-bottom: 5%;
-    z-index: 1;
   }
   
   .topnav a:not(:first-child) {
