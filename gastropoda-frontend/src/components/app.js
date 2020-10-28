@@ -4,7 +4,6 @@ class App {
     this.entries = Entry.loadEntries()
     this.setBindings()
     this.setEventListeners()
-    this.adjustNavbar()
   }
 
   setBindings() {
@@ -103,28 +102,6 @@ class App {
     } else {
       this.navBar.className = "topnav"
       this.navBar.getElementsByTagName('a')[5].classList.toggle("change")
-    }
-  }
-
-  adjustNavbar() {
-    if (window.matchMedia("(min-width: 600px)").matches) {
-      const sticky = this.navBar.offsetTop
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset >= sticky) {
-          if (!document.getElementById('gastropoda-nav')) {
-            const a = document.createElement('a')
-            a.id = "gastropoda-nav"
-            a.textContent = "GASTROPODA"
-            this.navBar.prepend(a)
-          }
-          this.navBar.classList.add("sticky")
-        } else {
-          if (document.getElementById('gastropoda-nav')) {
-            document.getElementById('gastropoda-nav').remove()
-          }
-          this.navBar.classList.remove("sticky")
-        }
-      })
     }
   }
   
