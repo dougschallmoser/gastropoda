@@ -87,15 +87,6 @@ nav a {
   float: left;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 0.5%;
-  opacity: 0.8;
-  z-index: 1;
-}
-
 #snail-walk, #snail-walk-rev {
   width: 100%;
 }
