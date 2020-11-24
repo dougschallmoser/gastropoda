@@ -1,11 +1,12 @@
 ![Gastropoda](https://user-images.githubusercontent.com/65590878/97113808-e90a9100-16a9-11eb-8d3a-16677eca2f51.png)
 
-See [Live](https://dougschallmoser.github.io/gastropoda-js-app/) on Github Pages
-
 # Gastropoda
 
 Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life. This is a single page application with a Rails API and vanilla JS frontend.
 
+[Live Demo](https://dougschallmoser.github.io/gastropoda-js-app/)
+
+[Demo Video](https://youtu.be/WYrxOOjoNe0)
 
 ## Installation
 
