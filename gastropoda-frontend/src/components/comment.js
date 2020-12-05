@@ -73,16 +73,21 @@ class Comment {
   renderComment() {
     const showCommentDiv = document.createElement('div')
     const deleteButton = document.createElement('span')
+    const editButton = document.createElement('span')
     showCommentDiv.className = "show-comment"
     showCommentDiv.id = `show-comment-${this.id}`
     deleteButton.id = "delete-button"
-    deleteButton.innerText = "Delete Comment"
+    deleteButton.innerText = "Delete"
+    editButton.id = "edit-button"
+    editButton.innerText = "Edit"
     showCommentDiv.innerHTML = 
       `<span id="comment-name">${this.name}</span> <span id="comment-created">${this.createdAt}</span>
-       <div id="comment-content">${this.content}</div
+       <div id="comment-content-${this.id}">${this.content}</div
        `
-    showCommentDiv.insertBefore(deleteButton, showCommentDiv.childNodes[3])
+    showCommentDiv.insertBefore(editButton, showCommentDiv.childNodes[3])
+    showCommentDiv.insertBefore(deleteButton, showCommentDiv.childNodes[4])
     deleteButton.addEventListener('click', this.deleteComment.bind(this))
+    editButton.addEventListener('click', this.editComment.bind(this))
     if (document.getElementById('make-comment')) {
       const makeComment = document.getElementById('make-comment')
       makeComment.parentNode.insertBefore(showCommentDiv, makeComment.nextSibling);
@@ -100,6 +105,30 @@ class Comment {
       } else {
         document.getElementById(`show-comment-${this.id}`).innerHTML = ''
       }
+    })
+  }
+
+  editComment() {
+    const id = this.id
+    const commentContent = document.getElementById(`comment-content-${this.id}`)
+    const editForm = document.createElement('form')
+    editForm.id = "edit-form"
+    editForm.innerHTML = `
+      <input type="text" value="${this.content}" />
+      <input type="submit" value="Save" />
+    `
+    commentContent.innerHTML = ''
+    commentContent.append(editForm)
+    editForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const content = event.target.children[0].value
+      new CommentsAdapter().editComment(id, content).then(comment => {
+        if (comment.message) {
+          Error.renderError(comment, "Your comment was <strong>not</strong> saved because...")
+        } else {
+          commentContent.innerHTML = comment.content
+        }
+      })
     })
   }
 
