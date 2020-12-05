@@ -8,6 +8,15 @@ class Api::V1::CommentsController < ApplicationController
     end
   end
 
+  def update
+    comment = Comment.find_by(id: params[:id])
+    if comment.update(comment_params)
+      render json: comment, status: 200 
+    else 
+      render json: {message: comment.errors.full_messages}
+    end 
+  end
+
   def destroy
     comment = Comment.find_by(id: params[:id])
     comment.destroy
