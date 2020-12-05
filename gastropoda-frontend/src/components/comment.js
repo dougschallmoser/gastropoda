@@ -104,6 +104,8 @@ class Comment {
         Error.renderError(comment, "Your comment was <strong>not</strong> deleted because...")
       } else {
         document.getElementById(`show-comment-${this.id}`).innerHTML = ''
+        const count = document.getElementById(`comment-count`)
+        count.innerHTML = parseInt(count.innerHTML) - 1;
       }
     })
   }
