@@ -5,6 +5,7 @@ class Comment {
     this.content = comment.content 
     this.entryId = comment.entry_id
     this.createdAt = comment.created_at
+    this.id = comment.id
   }
 
   static displayCommentForm(entryId) {
@@ -71,10 +72,17 @@ class Comment {
 
   renderComment() {
     const showCommentDiv = document.createElement('div')
+    const deleteButton = document.createElement('span')
     showCommentDiv.className = "show-comment"
+    showCommentDiv.id = `show-comment-${this.id}`
+    deleteButton.id = "delete-button"
+    deleteButton.innerText = "Delete Comment"
     showCommentDiv.innerHTML = 
       `<span id="comment-name">${this.name}</span> <span id="comment-created">${this.createdAt}</span>
-       <div id="comment-content">${this.content}</div`
+       <div id="comment-content">${this.content}</div
+       `
+    showCommentDiv.insertBefore(deleteButton, showCommentDiv.childNodes[3])
+    deleteButton.addEventListener('click', this.deleteComment.bind(this))
     if (document.getElementById('make-comment')) {
       const makeComment = document.getElementById('make-comment')
       makeComment.parentNode.insertBefore(showCommentDiv, makeComment.nextSibling);
@@ -82,6 +90,17 @@ class Comment {
       const commentsHeading = document.getElementById('comments-heading')
       commentsHeading.parentNode.insertBefore(showCommentDiv, commentsHeading.nextSibling);
     }
+  }
+
+  deleteComment() {
+    const id = this.id
+    new CommentsAdapter().deleteComment(id).then(comment => {
+      if (comment.message) {
+        Error.renderError(comment, "Your comment was <strong>not</strong> deleted because...")
+      } else {
+        document.getElementById(`show-comment-${this.id}`).innerHTML = ''
+      }
+    })
   }
 
 }
