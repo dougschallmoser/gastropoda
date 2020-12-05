@@ -18,4 +18,15 @@ class CommentsAdapter {
     })
     .then(response => response.json())
   }
+
+  deleteComment(commentId) {
+    return fetch(`${this.baseUrl}/${commentId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    })
+    .then(response => response.json())
+  }
 }
