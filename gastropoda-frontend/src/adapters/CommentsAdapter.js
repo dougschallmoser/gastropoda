@@ -19,6 +19,22 @@ class CommentsAdapter {
     .then(response => response.json())
   }
 
+  editComment(id, content) {
+    const commentData = {
+      comment: {content: content}
+    }
+
+    return fetch(`${this.baseUrl}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(commentData)
+    })
+    .then(response => response.json())
+  }
+
   deleteComment(commentId) {
     return fetch(`${this.baseUrl}/${commentId}`, {
       method: "DELETE",
