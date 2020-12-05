@@ -31,7 +31,8 @@
   padding: 3% 3% 0 3%;
 }
 
-#delete-button {
+#delete-button,
+#edit-button {
   color: #7bc7a6;
   margin-left: 2em;
   border-radius: 4px;
@@ -42,10 +43,19 @@
   transition: 0.5s ease;
 }
 
-#delete-button:hover {
+#delete-button:hover,
+#edit-button:hover {
   background: #7bc7a6;
   color: #fff;
   transition: 0.5s ease;
+}
+
+#edit-form {
+  margin-top: 0.5em;
+}
+
+#edit-form input {
+  margin-bottom: 0.5em;
 }
 
 #date {
