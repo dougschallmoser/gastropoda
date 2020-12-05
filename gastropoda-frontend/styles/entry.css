@@ -31,6 +31,23 @@
   padding: 3% 3% 0 3%;
 }
 
+#delete-button {
+  color: #7bc7a6;
+  margin-left: 2em;
+  border-radius: 4px;
+  font-size: 0.65em;
+  cursor: pointer;
+  padding: 0.3em 0.8em 0.2em 0.8em;
+  border: 1px solid #7bc7a6;
+  transition: 0.5s ease;
+}
+
+#delete-button:hover {
+  background: #7bc7a6;
+  color: #fff;
+  transition: 0.5s ease;
+}
+
 #date {
   padding-left: 5%;
   padding-right: 5%;
