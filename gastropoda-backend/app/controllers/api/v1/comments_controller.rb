@@ -8,9 +8,19 @@ class Api::V1::CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.find_by(id: params[:id])
+    comment.destroy
+    if !comment.destroyed?
+      render json: {message: 'An error occured while deleting'}
+    else 
+      render json: {success: 'Sucess'}
+    end
+  end
+
   private 
 
   def comment_params 
-    params.require(:comment).permit(:name, :email, :content, :entry_id)
+    params.require(:comment).permit(:name, :email, :content, :entry_id, :id)
   end
 end
