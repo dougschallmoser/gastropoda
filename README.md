@@ -6,7 +6,7 @@ Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of
 
 [Live Demo](https://dougschallmoser.github.io/gastropoda-js-app/)
 
-[Demo Video](https://youtu.be/WYrxOOjoNe0)
+[Demo Video](https://youtu.be/5GDocLklNW0)
 
 ## Installation
 
