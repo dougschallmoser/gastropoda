@@ -4,7 +4,7 @@
 
 Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life by showcasing unique short stories. This is a single page application with a vanilla JavaScript frontend and Rails backend.
 
-[Live Demo](https://dougschallmoser.github.io/gastropoda-js-app/)
+[Live Demo](https://dougschallmoser.github.io/gastropoda/)
 
 [Demo Video](https://youtu.be/5GDocLklNW0)
 
