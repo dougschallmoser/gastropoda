@@ -23,7 +23,7 @@ class Api::V1::CommentsController < ApplicationController
     if !comment.destroyed?
       render json: {message: 'An error occured while deleting'}
     else 
-      render json: {success: 'Sucess'}
+      render json: {success: 'Success'}
     end
   end
 
