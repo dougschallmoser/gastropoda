@@ -18,6 +18,9 @@ class Entry {
   }
 
   static loadEntries() {
+    const loadingIcon = document.createElement('div')
+    loadingIcon.className = 'loader'
+    this.mainContent.append(loadingIcon)
     if (Entry.allEntries.length === 0) {
       new EntriesAdapter().getEntries().then(entries => {
         entries.forEach(entry => new Entry(entry))
