@@ -14,13 +14,22 @@ To run this application in your local environment, please follow these steps:
 
 ```
 1. Clone this repository
-2. Change directory to backend
-3. Run 'bundle install'
-4. Run 'rails db:create'
-5. Run 'rails db:migrate'
-6. Run 'rails db:seed'
-7. Run 'rails s'
-8. Open the 'index.html' file in your browser
+2. Change directory to gastropoda-frontend
+3. In the src/adapters directory:
+
+   Change the constant in the CommentsAdapter.js to:
+   this.baseUrl = 'http://localhost:3001/api/v1/comments'
+
+   Change the constant in the EntriesAdapter.js to:
+   this.baseUrl = 'http://localhost:3001/api/v1/entries'
+
+4. Change directory to gastropoda-backend
+5. Run 'bundle install'
+6. If database does not exist, Run 'rails db:create'
+7. Run 'rails db:migrate'
+8. Run 'rails db:seed'
+9. Run 'rails s'
+10. Open the 'index.html' file in your browser
 ```
 
 
