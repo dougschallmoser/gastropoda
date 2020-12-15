@@ -211,18 +211,18 @@ nav a {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
 
-  .mobile-logo {
+  /* .mobile-logo {
     display: block;
     float: left;
     font-size: 30px;
     padding-left: 2%;
     line-height: 1.5em;
-  }
+  } */
 
   .mobile-logo img {
-    height: 34px;
+    height: 10em;
     vertical-align: middle;
     padding-right: 10px;
     padding-bottom: 5px;
@@ -252,37 +252,24 @@ nav a {
   }
 
   #logo-title {
-    display: none;
+    font-size: 175%;
+    letter-spacing: 0.5em;
+    margin: auto 0;
+  }
+
+  #logo-title img {
+    width: 12%;
   }
 
   nav {
     padding-bottom: 5%;
-  }
-  
-  .topnav a:not(:first-child) {
-    display: none;
+    word-spacing: 0.5em;
   }
 
-  .topnav a.icon {
-    padding-bottom: 3%;
-    padding-right: 2%;
-    display: block;
-    float: right;
-  }
-
-  .topnav.responsive {
-    font-size: 28px;
-  }
-
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 1%;
-  }
-
-  .topnav.responsive a {
+  .topnav a {
+    font-size: 65%;
     float: none;
-    display: block;
+    display: inline-block;
     text-align: left;
   }
 }

@@ -177,7 +177,7 @@ label {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
 
   .col-15, .col-85, input[type=submit], input[type=text] {
     width: 100%;
