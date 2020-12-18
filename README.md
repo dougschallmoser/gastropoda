@@ -17,11 +17,11 @@ To run this application in your local environment, please follow these steps:
 2. Change directory to gastropoda-frontend
 3. In the src/adapters directory:
 
-   -Change the constant in CommentsAdapter.js to:
-   this.baseUrl = 'http://localhost:3001/api/v1/comments'
+   -Uncomment the following line in CommentsAdapter.js:
+   this.baseUrl = 'http://localhost:3000/api/v1/comments'
 
-   -Change the constant in EntriesAdapter.js to:
-   this.baseUrl = 'http://localhost:3001/api/v1/entries'
+   -Uncomment the following line in EntriesAdapter.js:
+   this.baseUrl = 'http://localhost:3000/api/v1/entries'
 
 4. Change directory to gastropoda-backend
 5. Run 'bundle install'
