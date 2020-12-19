@@ -1,8 +1,8 @@
-![Gastropoda](https://user-images.githubusercontent.com/65590878/97113808-e90a9100-16a9-11eb-8d3a-16677eca2f51.png)
+![Gastropoda](https://user-images.githubusercontent.com/65590878/102676983-f6497680-4154-11eb-91c8-250f07642579.png)
 
 # Gastropoda
 
-Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life by showcasing unique short stories. This is a single page application with a vanilla JavaScript frontend and Rails backend.
+Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of life by showcasing unique short stories. This is a single page application built with a vanilla JavaScript frontend and Rails backend API.
 
 [Live Demo](https://gastropoda.netlify.app/)
 
