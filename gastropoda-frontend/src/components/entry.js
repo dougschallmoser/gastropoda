@@ -65,11 +65,19 @@ class Entry {
     const option1 = document.createElement('div')
     const option2 = document.createElement('div')
     const option3 = document.createElement('div')
+    const search = document.createElement('form')
+    const div = document.createElement('div')
     selectContainer.id = "select-container"
     selectContainer.className = "fade-in"
     option1.id = "option1"
     option2.id = "option2"
     option3.id = "option3"
+    search.id = "search-bar"
+    search.className = "fade-in"
+    search.innerHTML = `
+      <input type="text" id="query-string" name="query" placeholder="Search by author name" />
+      <input type="submit" id="query-submit" value="Search" />
+    `
     option1.className = "option-selected"
     option1.textContent = "ALL"
     option2.textContent = "FICTION"
@@ -77,11 +85,12 @@ class Entry {
     selectContainer.append(option1)
     selectContainer.append(option2)
     selectContainer.append(option3)
+    this.mainContent.prepend(search)
     this.mainContent.prepend(selectContainer)
     option1.addEventListener('click', this.renderByType.bind(this, ""))
     option2.addEventListener('click', this.renderByType.bind(this, true))
     option3.addEventListener('click', this.renderByType.bind(this, false))
-    const div = document.createElement('div')
+    search.addEventListener('submit', this.renderByAuthorName.bind(this))
     div.className = "entry-grid"
     div.classList.add("fade-in")
     this.mainContent.append(div)
@@ -90,11 +99,48 @@ class Entry {
     })
   }
 
+  static renderByAuthorName(event) {
+    event.preventDefault();
+    const div = document.querySelector('.entry-grid')
+    const query = document.getElementById('query-string')
+    const all = document.getElementById('option1')
+    document.getElementById('option2').classList.remove('option-selected')
+    document.getElementById('option3').classList.remove('option-selected')
+    if (document.getElementById('search-message')) {
+      document.getElementById('search-message').remove()
+    }
+    if (query.value !== '') {
+      all.className = "option-selected"
+      div.innerHTML = ''
+      let count = 0;
+      this.allEntries.filter(entry => {
+        if (entry.authorName.toLowerCase().includes(query.value)) {
+          div.prepend(entry.renderItem())
+          count++
+        }
+      })
+      const message = document.createElement('div')
+      message.id = "search-message"
+      if (count > 0) {
+        message.innerHTML = `Showing results for '${query.value.toUpperCase()}'`
+      } else {
+        message.innerHTML = `No stories found by '${query.value.toUpperCase()}'`
+      }
+      this.mainContent.insertBefore(message, this.mainContent.childNodes[2])
+      query.value = ''
+    } else {
+      this.renderByType("")
+    }
+  }
+
   static renderByType(boolean) {
     const div = document.querySelector('.entry-grid')
     const all = document.getElementById('option1')
     const fiction = document.getElementById('option2')
     const nonfiction = document.getElementById('option3')
+    if (document.getElementById('search-message')) {
+      document.getElementById('search-message').remove()
+    }
     all.classList.remove('option-selected')
     fiction.classList.remove('option-selected')
     nonfiction.classList.remove('option-selected')
