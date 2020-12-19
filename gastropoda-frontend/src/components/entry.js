@@ -114,7 +114,7 @@ class Entry {
       div.innerHTML = ''
       let count = 0;
       this.allEntries.filter(entry => {
-        if (entry.authorName.toLowerCase().includes(query.value)) {
+        if (entry.authorName.toLowerCase().includes(query.value.toLowerCase())) {
           div.prepend(entry.renderItem())
           count++
         }
