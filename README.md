@@ -6,7 +6,7 @@ Gastropoda is a literary magazine that seeks to celebrate the spiralic nature of
 
 [Live Demo](https://gastropoda.netlify.app/)
 
-[Demo Video](https://youtu.be/5GDocLklNW0)
+[Demo Video](https://youtu.be/HSfkeg94AF4)
 
 ## Installation
 
